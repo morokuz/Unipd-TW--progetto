@@ -26,42 +26,42 @@
     		<li>Trovate errori di qualsiasi genere; </li>
     		<li>Avete consigli su come migliorare il sito. </li>
   		</ul>
-  		<form id="contatti" action="contactus.html" method="POST">
+  		<form id="contatti" action="contactus.html" method="post">
     		<h2 class="form-title">Contattaci</h2>
 		    <label  for="nome-cont" class="form-label">Nome</label>
-		    <input id="nome-cont" class="form-input" type="text" placeholder="Es. Mario Rossi"/>
+		    <input type="text" id="nome-cont" class="form-input" placeholder="Es. Mario Rossi"/>
 		    <div class="esito">
 		      	<i class="fas fa-check-circle" aria-hidden="true"></i>
 		      	<i class="fas fa-exclamation-circle" aria-hidden="true"></i>
 		      	<span class="err-msg" tabindex="0">Messaggio d'errore</span>
 		    </div>
-		    <ul class="name-requirements" tabindex="0">
-		      	<li>Deve essere di almeno 4 caratteri e massimo di 20</li>
-		      	<li>Deve contenere solo caratteri alfanumerici</li>
+		    <ul class="name-requirements">
+		      	<li tabindex="0">Deve essere di almeno 4 caratteri e massimo di 20</li>
+		      	<li tabindex="0">Deve contenere solo caratteri alfanumerici</li>
 		    </ul>
 
-		    <label for="email-cont" class="form-label" xml:lang="en">Email</label>
-		    <input id="email-cont" class="form-input" type="text"  placeholder="Es. mario.rossi@libero.it"/>
+		    <label for="email-cont" class="form-label" xml:lang="en" lang="en">Email</label>
+		    <input type="text" id="email-cont" class="form-input" placeholder="Es. mario.rossi@libero.it"/>
 		    <div class="esito">
 		      	<i class="fas fa-check-circle" aria-hidden="true"></i>
 		      	<i class="fas fa-exclamation-circle" aria-hidden="true"></i>
 		      	<span class="err-msg" tabindex="0">Messaggio d'errore</span>
 		    </div>
 		    <ul class="email-requirements">
-		      	<li>Deve essere valida</li>
+		      	<li tabindex="0">Deve essere valida</li>
 		    </ul>
 
 		    <label class="form-label" for="oggetto">Oggetto*</label>
-		    <input class="form-input" type="text" id="oggetto" placeholder="Oggetto"/>
+		    <input type="text" id="oggetto" class="form-input"  placeholder="Oggetto(facoltativo)"/>
 
 		    <label class="form-label" for="messaggio">Messaggio</label>
-		    <textarea class="form-input" id="messaggio" placeholder="Messaggio" required></textarea>
+		    <textarea id="messaggio" class="form-input" placeholder="Messaggio" required></textarea>
 
 		    <span class="opz-msg" tabindex="0">I campi seguiti dal simbolo * sono opzionali</span>
 		    <button class="form-bottone">Invia</button>
   		</form>
   		<script src="https://kit.fontawesome.com/ebcd1d18d4.js" crossorigin="anonymous"></script>
-  		<script type="text/javascript" src="js/contact.js"></script>
+  		<script src="js/contact.js"></script>
 	</body>
 </html>
 

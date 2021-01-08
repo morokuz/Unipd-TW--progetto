@@ -12,7 +12,7 @@ var password = document.getElementById('password-reg');
 var password1 = document.getElementById('password-reg1');
 
 if(formReg) {
-	formReg.addEventListener('submit', e => {
+	formReg.addEventListener('submit', function(e) {
 		e.preventDefault();
 		var usernameValue = username.value.trim();
 		var emailRegValue = emailReg.value.trim();
@@ -26,7 +26,7 @@ if(formReg) {
 }
 
 if(formContatti) {
-	formContatti.addEventListener('submit', e => {
+	formContatti.addEventListener('submit', function(e) {
 		e.preventDefault();
 		var nomeValue = nome.value.trim();
 		var emailValue = email.value.trim();
@@ -115,12 +115,12 @@ function setSuccessFor(input) {
 
 //Gestione del popup per login/registrazione
 var popup = document.querySelector(".popup");
-document.getElementById("btn-accedi").addEventListener("click", e => {
+document.getElementById("btn-accedi").addEventListener("click", function() {
 	popup.className = 'popup open';
 	formLog.setAttribute("id","accedi");
 })
 
-document.getElementById("btn-registrati").addEventListener("click", e => {
+document.getElementById("btn-registrati").addEventListener("click", function() {
 	popup.className = 'popup open';
 	formReg.setAttribute("id","registrati");
 })
@@ -139,7 +139,7 @@ function close(formLog,formReg) {
 
 function reset(formLog,formReg) {
 	formLog.reset();
-	formReg.reset()
+	formReg.reset();
 }
 
 function clearStyle(formLog,formReg) {

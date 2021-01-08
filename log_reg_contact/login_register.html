@@ -2,7 +2,7 @@
 
 <html xml:lang="it" lang="it">	
 	<head>
-		<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>TuttoPizza</title>
 		<link rel = "icon" href ="../img/logo.png"  type = "image/x-icon"> 
 		<meta name="description" content="Pagina per accedere o registrarsi al sito TuttoPizza" />
@@ -24,10 +24,10 @@
 			<div class="pop-window">
 				<form id="log" action="login_register.html" method="POST">
 					<h2 class="form-title">ACCEDI</h2>
-					<label for="username" class="form-label" xml:lang="en">Username</label>
+					<label for="username" class="form-label" xml:lang="en" lang="en">Username</label>
 					<input id="username" type="text" class="form-input" placeholder="Username" required/>
 
-    				<label for="password-log" class="form-label" xml:lang="en">Password</label>
+    				<label for="password-log" class="form-label" xml:lang="en" lang="en">Password</label>
     				<input id="password-log" type="password" class="form-input" placeholder="Password" required/>
       				<div class="eye-conatiner">
         				<i id="eye1" class="fas fa-eye" aria-hidden="true" onclick="toggle(this)"></i>
@@ -37,19 +37,19 @@
 
 				<form id="reg" action="login_register.html" method="POST">
 					<h2 class="form-title" id="title-reg">REGISTRATI</h2>
-					<label for="username-reg" class="form-label" xml:lang="en">Username</label>
+					<label for="username-reg" class="form-label" xml:lang="en" lang="en">Username</label>
 					<input id="username-reg" type="text" class="form-input" placeholder="Es. mariorossi99" required/>
 					<div class="esito">
 			      		<i class="fas fa-check-circle" aria-hidden="true"></i>
 			      		<i class="fas fa-exclamation-circle" aria-hidden="true"></i>
 			      		<span class="err-msg" tabindex="0">Messaggio d'errore</span>
 			      	</div>
-					<ul  class="name-requirements">
-			      		<li>Deve essere di almeno 4 caratteri e massimo di 20</li>
-			      		<li>Deve contenere solo caratteri alfanumerici</li>
+					<ul class="name-requirements">
+			      		<li tabindex="0">Deve essere di almeno 4 caratteri e massimo di 20</li>
+			      		<li tabindex="0">Deve contenere solo caratteri alfanumerici</li>
 			    	</ul>
 
-					<label for="email-reg" class="form-label" xml:lang="en">Email</label>
+					<label for="email-reg" class="form-label" xml:lang="en" lang="en">Email</label>
 					<input id="email-reg" type="text" class="form-input" placeholder="Es. mariorossi@libero.it" required/>
 					<div class="esito">
 			      		<i class="fas fa-check-circle" aria-hidden="true"></i>
@@ -60,7 +60,7 @@
 			      		<li tabindex="0">Deve essere valida</li>
 			    	</ul>
 
-					<label for="password-reg" class="form-label" xml:lang="en">Password</label>
+					<label for="password-reg" class="form-label" xml:lang="en" lang="en">Password</label>
 					<input id="password-reg" type="password" class="form-input" placeholder="Password" required/>
 					<div class="esito">
 			      		<i class="fas fa-check-circle" aria-hidden="true"></i>
@@ -68,13 +68,13 @@
 			      		<span class="err-msg" tabindex="0">Messaggio d'errore</span>
 			      	</div>
 					<ul class="pass-requirements">
-				      	<li>Deve essere di almeno 5 caratteri e massimo di 15</li>
-				      	<li>Deve contenere una lettera maiuscola e un numero</li>
+				      	<li tabindex="0">Deve essere di almeno 5 caratteri e massimo di 15</li>
+				      	<li tabindex="0">Deve contenere una lettera maiuscola e un numero</li>
 				    </ul>
 				    <div class="eye-conatiner">
-			  			<i id="eye2" class="fas fa-eye" onclick="toggle(this)"></i>
+			  			<i id="eye2" class="fas fa-eye" onclick="toggle(this)" aria-hidden="true"></i>
 					</div>
-					<label for="password-reg1" class="form-label">Conferma <span xml:lang="en">password</span></label>
+					<label for="password-reg1" class="form-label">Conferma <span xml:lang="en" lang="en">password</span></label>
 					<input id="password-reg1" type="password" class="form-input" placeholder="Password" required/>
 					<div class="esito">
 			      		<i class="fas fa-check-circle" aria-hidden="true"></i>
@@ -82,14 +82,15 @@
 			      		<span class="err-msg" tabindex="0">Messaggio d'errore</span>
 			      	</div>
 					<div class="eye-conatiner">
-			      		<i id="eye3" class="fas fa-eye" onclick="toggle(this)"></i>
+			      		<i id="eye3" class="fas fa-eye" onclick="toggle(this)" aria-hidden="true"></i>
 					</div>
 					<button class="form-bottone">Registrati</button>
 				</form>
-				<i class="far fa-times-circle" tabindex="0" onclick="exit()" title="Esci"></i>
+				<i class="far fa-times-circle" aria-hidden="true" onclick="exit()" title="Chiudi la pagina popup"></i>
+				<button class="sr-only" onclick="exit()">Ritorna alla pagina principale di login e registrazione</button>
 			</div>
 		</div>
 		<script src="https://kit.fontawesome.com/ebcd1d18d4.js" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="js/contact.js"></script>
+		<script src="js/contact.js"></script>
 	</body>
 </html>

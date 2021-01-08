@@ -183,13 +183,12 @@ textarea:focus::placeholder , input:focus::placeholder {
 }
 
 /* accedi e registrati */	
-
 .box {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 5px;
 	max-width: 300px;
-	margin: 300px auto;
+	margin: 325px auto;
 }
 
 .title {
@@ -318,6 +317,17 @@ textarea:focus::placeholder , input:focus::placeholder {
 
 #eye3 {
     top: -52px
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }
 
 /* mobile */
