@@ -2,13 +2,14 @@
 <html lang="it">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <placeholder_head_default_tags />
   <title>Aggiungi Ricetta</title>
 </head>
 
 <body>
+  <placeholder_header />
+  <placeholder_breadcrumbs />
+  <placeholder_nav />
   <main>
     <h1>Aggiuingi Ricetta</h1>
     <!-- TODO: implementare action php script -->
@@ -19,12 +20,12 @@
       </div>
       <div class="aggiungi-ricetta-section">
         <label for="ricetta-descrizione"><strong>Descrizione</strong> ricetta: </label>
-        <textarea name="descrizione" id="ricetta-descrizione" rows="6" cols="50" placeholder="esempio: storia, curiosità, origine" required></textarea>
+        <textarea name="descrizione" id="ricetta-descrizione" placeholder="esempio: storia, curiosità, origine" required></textarea>
       </div>
       <!-- TODO: modo migliore per ingredienti? quantità ingredienti? -->
       <div class="aggiungi-ricetta-section">
         <label for="ricetta-ingredienti"><strong>Ingredienti</strong> ricetta <em>(separati da virgola)</em>: </label>
-        <textarea name="ingredienti" id="ricetta-ingredienti" rows="4" cols="50" placeholder="mozzarella, gorgonzola, parmigiano, fontina, asiago" required></textarea>
+        <textarea name="ingredienti" id="ricetta-ingredienti" placeholder="mozzarella, gorgonzola, parmigiano, fontina, asiago" required></textarea>
       </div>
       <div class="aggiungi-ricetta-section">
         <label for="ricetta-vegetariana">Questa è una ricetta <strong>vegetariana</strong>: </label>
@@ -38,8 +39,7 @@
       <input class="aggiungi-ricetta-section" type="submit" value="Aggiungi Ricetta" />
     </form>
   </main>
+  <placeholder_footer />
 </body>
 
 </html>
-
-<!-- TODO: textarea evitare di definire dimensioni in html (rows="6" cols="50"), fare in CSS -->
