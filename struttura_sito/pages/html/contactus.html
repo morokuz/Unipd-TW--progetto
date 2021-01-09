@@ -1,70 +1,67 @@
 <!DOCTYPE html>
 <html lang="it">
 
-<head>
+  <head>
   <placeholder_head_default_tags />
-  <!-- TODO: migliorare nome -->
+    <!-- TODO: migliorare nome -->
   <title>Contacts</title>
-</head>
+  </head>
 
-<body>
-  <placeholder_header />
-  <placeholder_breadcrumbs />
-  <placeholder_nav />
+  <body>
+    <placeholder_header />
+    <placeholder_breadcrumbs />
+    <placeholder_nav />
 
-  <h2 id="who-am-i">Chi siamo?</h2>
-  <p>
-    Siamo un gruppo di 4 ragazzi che frequenta il corso di Tecnologie Web per la laurea in Informatica all'Univeristà di
-    Padova. Il sito è stato interamente realizzato da noi come progetto per tale insegnamento.
-  </p>
-  <h2>Come contattarci?</h2>
-  <p>
-    Potete contattrci via email (gruppo@gmail.com). Viene fornita una form sottostante per velocizzare questa
-    operazione. Contattateci se:
-  </p>
-  <ul class="list">
-    <li>Volete chiedere informazioni su come è stato realizzato il sito; </li>
-    <li>Trovate errori di qualsiasi genere; </li>
-    <li>Avete consigli su come migliorare il sito. </li>
-  </ul>
-  <form id="contatti" action="contactus.html" method="post">
-    <h2 class="form-title">Contattaci</h2>
-    <label for="nome-cont" class="form-label">Nome</label>
-    <input type="text" id="nome-cont" class="form-input" placeholder="Es. Mario Rossi" />
-    <div class="esito">
-      <i class="fas fa-check-circle" aria-hidden="true"></i>
-      <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
-      <span class="err-msg" tabindex="0">Messaggio d'errore</span>
-    </div>
-    <ul class="name-requirements">
-      <li tabindex="0">Deve essere di almeno 4 caratteri e massimo di 20</li>
-      <li tabindex="0">Deve contenere solo caratteri alfanumerici</li>
-    </ul>
+      <h2 id="who-am-i">Chi siamo?</h2>
+      <p>
+        Siamo un gruppo di 4 ragazzi che frequenta il corso di Tecnologie Web per la laurea in Informatica all'Univeristà di Padova. Il sito è stato interamente realizzato da noi come progetto per tale insegnamento.
+      </p>
+      <h2>Come contattarci?</h2>
+      <p>
+        Potete contattrci via email (gruppo@gmail.com). Viene fornita una form sottostante per velocizzare questa operazione. Contattateci se:
+      </p>
+      <ul class="list">
+        <li>Volete chiedere informazioni su come è stato realizzato il sito; </li>
+        <li>Trovate errori di qualsiasi genere; </li>
+        <li>Avete consigli su come migliorare il sito. </li>
+      </ul>
+      <form id="contatti" action="contactus.html" method="post">
+        <h2 class="form-title">Contattaci</h2>
+        <label  for="nome-cont" class="form-label">Nome</label>
+        <input type="text" id="nome-cont" class="form-input" placeholder="Es. Mario Rossi"/>
+        <div class="esito">
+            <i class="fas fa-check-circle" aria-hidden="true"></i>
+            <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+            <span class="err-msg" tabindex="0">Messaggio d'errore</span>
+        </div>
+        <ul class="name-requirements">
+            <li tabindex="0">Nome di almeno 4 caratteri e massimo di 20</li>
+            <li tabindex="0">Nome con solo caratteri alfanumerici</li>
+        </ul>
 
-    <label for="email-cont" class="form-label" xml:lang="en" lang="en">Email</label>
-    <input type="text" id="email-cont" class="form-input" placeholder="Es. mario.rossi@libero.it" />
-    <div class="esito">
-      <i class="fas fa-check-circle" aria-hidden="true"></i>
-      <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
-      <span class="err-msg" tabindex="0">Messaggio d'errore</span>
-    </div>
-    <ul class="email-requirements">
-      <li tabindex="0">Deve essere valida</li>
-    </ul>
+        <label for="email-cont" class="form-label" xml:lang="en" lang="en">Email</label>
+        <input type="text" id="email-cont" class="form-input" placeholder="Es. mario.rossi@libero.it"/>
+        <div class="esito">
+            <i class="fas fa-check-circle" aria-hidden="true"></i>
+            <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+            <span class="err-msg" tabindex="0">Messaggio d'errore</span>
+        </div>
+        <ul class="email-requirements">
+            <li tabindex="0">L'email deve essere valida</li>
+        </ul>
 
-    <label class="form-label" for="oggetto">Oggetto*</label>
-    <input type="text" id="oggetto" class="form-input" placeholder="Oggetto(facoltativo)" />
+        <label class="form-label" for="oggetto">Oggetto*</label>
+        <input type="text" id="oggetto" class="form-input"  placeholder="Oggetto(facoltativo)"/>
 
-    <label class="form-label" for="messaggio">Messaggio</label>
-    <textarea id="messaggio" class="form-input" placeholder="Messaggio" required></textarea>
+        <label class="form-label" for="messaggio">Messaggio</label>
+        <textarea id="messaggio" class="form-input" placeholder="Messaggio" required></textarea>
 
-    <span class="opz-msg" tabindex="0">I campi seguiti dal simbolo * sono opzionali</span>
-    <button class="form-bottone">Invia</button>
-  </form>
-  <script src="https://kit.fontawesome.com/ebcd1d18d4.js" crossorigin="anonymous"></script>
-  <script src="../../scripts/js/contact.js"></script>
-
-  <placeholder_footer />
-</body>
-
+        <span class="opz-msg" tabindex="0">I campi seguiti dal simbolo * sono opzionali</span>
+        <button class="form-bottone">Invia</button>
+      </form>
+    <script src="https://kit.fontawesome.com/ebcd1d18d4.js" crossorigin="anonymous"></script>
+    <script src="js/contact.js"></script>
+    <placeholder_footer />
+  </body>
 </html>
+

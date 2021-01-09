@@ -1,4 +1,3 @@
-//Controlli sugli input
 var formContatti = document.getElementById('contatti');
 var formReg = document.getElementById('reg');
 var formLog = document.getElementById("log");
@@ -113,17 +112,50 @@ function setSuccessFor(input) {
   esito.className = 'esito success';
 }
 
-//Gestione del popup per login/registrazione
-var popup = document.querySelector(".popup");
-document.getElementById("btn-accedi").addEventListener("click", function() {
-	popup.className = 'popup open';
-	formLog.setAttribute("id","accedi");
-})
+//Gestione del modal per login/registrazione
+var modal = document.querySelector(".popup");
+function formOpen(btn) {
+	modal.className = 'popup open';
+	if(btn.id == "btn-accedi"){
+		formLog.setAttribute("id","accedi");
+		TrapFocus(formLog);
+	} else {
+		formReg.setAttribute("id","registrati");
+		TrapFocus(formReg);
+	}
+}
 
-document.getElementById("btn-registrati").addEventListener("click", function() {
-	popup.className = 'popup open';
-	formReg.setAttribute("id","registrati");
-})
+function TrapFocus(form) {
+	var title = form.querySelector('h2');
+	title.focus();
+}
+
+var logTitle = document.getElementById('log-title');
+var regTitle = document.getElementById('reg-title');
+var btnClose = document.getElementById('btn-close');
+document.addEventListener('keydown', function(e) {
+  	let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+ 	if (!isTabPressed) {
+		return;
+	}
+
+	if (e.shiftKey) { 
+		if (document.activeElement === logTitle || document.activeElement === regTitle) {
+  			btnClose.focus(); 
+  			e.preventDefault();
+		}
+	} else { 
+		if (document.activeElement === btnClose) { 
+	      	if(logTitle){
+	      		logTitle.focus(); 
+	      	}
+	      	if(regTitle) {
+	      		regTitle.focus(); 
+	      	}
+	      	e.preventDefault();
+		}
+	}
+});
 
 function exit() {
 	close(formLog,formReg);
@@ -132,7 +164,7 @@ function exit() {
 }
 
 function close(formLog,formReg) {
-	popup.className = 'popup';
+	modal.className = 'popup';
 	formLog.setAttribute("id","log");
 	formReg.setAttribute("id","reg");
 }
@@ -152,7 +184,6 @@ function clearStyle(formLog,formReg) {
 	}
 }
 
-
 //Gestione degli eye per vedere/nascondere le password
 var stato = false;
 function toggle(elem) {
@@ -164,7 +195,7 @@ function toggle(elem) {
 			document.getElementById("password-reg").setAttribute("type","password");
 		} else {
 			document.getElementById("password-reg1").setAttribute("type","password");
-		}
+		}	
 		stato = false;
 	} else {
 		if(id == "eye1"){
