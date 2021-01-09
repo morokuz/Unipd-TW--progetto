@@ -475,3 +475,408 @@ hr.sep_calc{
   width: 20%;
   float: left;
 }
+
+
+
+/* --- */
+
+
+/* CSS LOGIN, CONTACT */
+/* contattaci */
+
+.list {
+  margin: 10px;
+}
+
+.list li, .name-requirements li, .email-requirements li , .pass-requirements li{
+  margin-left: 40px; 
+  list-style-type: none;
+}
+
+.list li:before, .name-requirements li:before , 
+.email-requirements li:before , .pass-requirements li:before {
+content: "\1F355";
+}
+
+#contatti {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  max-width: 700px;
+  margin-top: 15px;
+}
+
+.name-requirements , .email-requirements , .pass-requirements {
+  margin-top: 15px;
+  grid-column: 1/3;
+}
+
+.form-title {
+  grid-column: 1/3;	
+  margin: auto;  
+text-transform: uppercase;
+font-weight: bold;
+}
+
+.form-label {
+  grid-column: 1;
+font-weight: bold;
+margin-left: 15px;
+}
+
+.form-input {
+  grid-column: 1;
+margin-top: 4px;
+border: none;
+background: #FAEBD7;
+padding: 20px 40px;
+border-radius: 10px;
+color: #000000;
+box-shadow: 4px 4px #DEB887;
+transition: 0.3s;
+}
+
+.form-input:focus {
+outline: none;
+  transition: 0.3s;
+  box-shadow: 4px 4px 4px 4px #DEB887;
+}
+
+.form-input.valido {
+  border: solid;
+  border-width: thin;
+  border-color: #7CFC00; 
+  box-shadow: 4px 4px #7CFC00;
+} 
+
+.form-input.not-valido {
+  border: solid;
+  border-width: thin;
+  border-color: #FF0000; 
+  box-shadow: 4px 4px #FF0000;
+} 
+
+.form-input.valido:focus {
+  box-shadow: 3px 3px 3px 3px #7CFC00;
+} 
+
+.form-input.not-valido:focus {
+  box-shadow: 3px 3px 3px 3px #FF0000;
+} 
+
+.esito {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 4% 96%;
+  visibility: hidden;
+}
+
+.esito.success i.fa-check-circle {
+visibility: visible;
+}
+
+.esito.error i.fa-exclamation-circle , .esito.error span{
+visibility: visible;
+}
+
+.fa-check-circle {
+  grid-column: 1;
+  color: #7CFC00;
+  visibility: hidden;
+}
+
+.fa-exclamation-circle{
+  grid-column: 1;
+  color: #FF0000;
+  visibility: hidden;
+}
+
+.err-msg {
+  grid-column: 2;
+  display: inline-block;
+  margin-left: 15px;
+  margin-bottom: 10px; 
+  font-variant: small-caps;
+  color: #FF0000;
+  visibility: hidden;
+}
+
+.opz-msg {
+font-style: italic;
+margin-left: 15px;
+grid-column: 1;
+}
+
+textarea.form-input {
+grid-column: 1/3;
+resize: none;
+height: 100px;
+}
+
+textarea::placeholder, input::placeholder{
+font-family: 'Poppins', sans-serif;
+letter-spacing: 0.5px;
+color: #000000;
+font-size: 14px;
+opacity: 0.7;
+}
+
+textarea:focus::placeholder , input:focus::placeholder {
+  color: transparent;
+} 
+
+#contatti .form-bottone {
+grid-column: 2;
+justify-self: end;
+}
+
+.form-bottone {
+  border: 0;
+background: #FAEBD7;
+font-family: 'Poppins', sans-serif;
+letter-spacing: 0.5px;
+color: #000000;
+text-align: center;
+margin-top:15px;
+padding: 12px 50px;
+border-radius: 10px;
+  box-shadow: 4px 4px #DEB887;
+  outline: none;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.form-bottone:hover {
+  background: #FF7F50;
+  color: white;
+}
+
+.form-bottone:active {
+box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  box-shadow: 1px 1px #FF7F50;
+}
+
+/* accedi e registrati */	
+.box {
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-gap: 5px;
+max-width: 300px;
+margin: 325px auto;
+}
+
+.title {
+text-align: center;
+}
+
+.btn {
+padding: 10px 15px;
+margin-top: 10px;
+font-weight: bold;
+text-align: center;
+text-transform: uppercase;
+font-size: 18px;
+border: 0;
+text-decoration: none;
+outline: none;
+transition: 0.4s;
+border-radius: 5px;
+box-shadow: 6px 6px 29px -4px rgba(0,0,0,0.75);	
+cursor: pointer;
+}
+
+.popup {
+display: none;
+position:fixed;
+  padding:0;
+  margin:0;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+justify-content: center;
+background: rgba(177, 147, 71, 0.3);
+}
+
+.popup.open {
+display: flex;
+}
+
+.pop-window {
+width: 500px;
+background: #F0F8FF; 
+padding:20px;
+border-radius: 10px;
+position: relative;
+}
+
+.fa-times-circle {
+position: absolute;
+top: -20px;
+right: -20px;
+font-size: 30px;
+color: black;
+opacity: 0.7;
+outline: none;
+cursor: pointer;
+}
+
+#title-reg {
+grid-column: 1;
+}
+
+#accedi {
+display: grid;
+grid-template-columns: 100%;
+  max-width: 500px;
+border-radius: 10px;
+padding: 5px; 
+}
+
+#registrati {
+display: grid;
+grid-template-columns: 100%;
+max-width: 500px;
+border-radius: 10px;
+padding: 5px; 
+}
+
+#log , #reg {
+display: none; 
+} 
+
+#accedi .form-bottone , #registrati .form-bottone{
+grid-column: 1;
+justify-self: end;
+}
+
+#registrati .esito {
+grid-column: 1;
+grid-template-columns: 2%  2% 96%;
+grid-template-rows: 1px 1px; 
+}
+
+#registrati i.fa-check-circle {
+grid-column: 1;
+}
+
+#registrati	i.fa-exclamation-circle {
+grid-column: 2;
+}
+
+#registrati	span {
+grid-column: 3;
+}
+
+.eye-conatiner {
+grid-column: 2;
+position: relative;
+}
+
+.fa-eye {
+  position: absolute;
+  left: -50px;
+opacity: 0.7;
+cursor: pointer; 
+}
+
+#eye1 {
+  top: 15px
+}
+
+#eye2 {
+  top: -140px
+}
+
+#eye3 {
+  top: -52px
+}
+
+.sr-only {
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0,0,0,0);
+border: 0;
+}
+
+/* mobile */
+@media screen and (max-width: 768px) {
+#who-am-i , #who-am-i + p {
+  display: none;
+}
+
+#contatti {
+  grid-template-columns: 58% 42%;
+}
+
+.form-bottone , .opz-msg {
+  margin-top: 15px;
+}
+
+.form-accedi .form-bottone , .form-registrati .form-bottone {
+  grid-column: 2;
+}
+
+.form-input{
+    grid-column: 1/3;
+  margin-bottom: 0px;
+}
+
+.esito {
+  grid-column: 1/3;
+  display: none;
+}
+
+.esito.success , .esito.error {
+  display: grid;
+  grid-template-columns: 2%  2% 96%;
+  grid-template-rows: 1px 1px; 
+}
+
+.esito.success i.fa-check-circle {
+  grid-column: 1;
+}
+
+.esito.error i.fa-exclamation-circle {
+  grid-column: 2;
+}
+
+.esito.error span {
+  grid-column: 3;
+}
+
+  #eye1 ,#eye3 {
+    top: -45px;
+  }
+  
+  #eye2 {
+      top: -124px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+.err-msg {
+  font-size: 14px;
+}
+
+  .popup {
+    position: absolute;
+  }
+
+  .pop-window {
+  margin: auto;
+}
+.fa-times-circle{
+  top:3px;
+  right: 3px;
+}
+
+.fa-eye {
+  visibility: hidden;
+}
+}
