@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html xml:lang="it" lang="it">	
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>TuttoPizza</title>
+		<link rel = "icon" href ="../img/logo.png"  type = "image/x-icon"> 
+		<meta name="description" content="Pagina per contattare gli autori del sito TuttoPizza" />
+		<meta name="keywords" content="TuttoPizza, pizza, contatti, email, progetto, tecnologie web, univeristà di padova" />
+		<meta name="title" content="TuttoPizza | Contattaci" />
+		<meta name="author" content="TuttoPizza group" />
+		<meta name= "viewport" content="width=device-width, initial-scale=1.0"/>
+    	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen"/>
+	</head>
+	<body>
+  		<h2 id="who-am-i">Chi siamo?</h2>
+  		<p>
+    		Siamo un gruppo di 4 ragazzi che frequenta il corso di Tecnologie Web per la laurea in Informatica all'Univeristà di Padova. Il sito è stato interamente realizzato da noi come progetto per tale insegnamento.
+  		</p>
+  		<h2>Come contattarci?</h2>
+		<p>
+    		Potete contattrci via email (gruppo@gmail.com). Viene fornita una form sottostante per velocizzare questa operazione. Contattateci se:
+  		</p>
+  		<ul class="list">
+    		<li>Volete chiedere informazioni su come è stato realizzato il sito; </li>
+    		<li>Trovate errori di qualsiasi genere; </li>
+    		<li>Avete consigli su come migliorare il sito. </li>
+  		</ul>
+  		<form id="contatti" action="contactus.html" method="post">
+    		<h2 class="form-title">Contattaci</h2>
+		    <label  for="nome-cont" class="form-label">Nome</label>
+		    <input type="text" id="nome-cont" class="form-input" placeholder="Es. Mario Rossi"/>
+		    <div class="esito">
+		      	<i class="fas fa-check-circle" aria-hidden="true"></i>
+		      	<i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+		      	<span class="err-msg" tabindex="0">Messaggio d'errore</span>
+		    </div>
+		    <ul class="name-requirements">
+		      	<li tabindex="0">Deve essere di almeno 4 caratteri e massimo di 20</li>
+		      	<li tabindex="0">Deve contenere solo caratteri alfanumerici</li>
+		    </ul>
+
+		    <label for="email-cont" class="form-label" xml:lang="en" lang="en">Email</label>
+		    <input type="text" id="email-cont" class="form-input" placeholder="Es. mario.rossi@libero.it"/>
+		    <div class="esito">
+		      	<i class="fas fa-check-circle" aria-hidden="true"></i>
+		      	<i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+		      	<span class="err-msg" tabindex="0">Messaggio d'errore</span>
+		    </div>
+		    <ul class="email-requirements">
+		      	<li tabindex="0">Deve essere valida</li>
+		    </ul>
+
+		    <label class="form-label" for="oggetto">Oggetto*</label>
+		    <input type="text" id="oggetto" class="form-input"  placeholder="Oggetto(facoltativo)"/>
+
+		    <label class="form-label" for="messaggio">Messaggio</label>
+		    <textarea id="messaggio" class="form-input" placeholder="Messaggio" required></textarea>
+
+		    <span class="opz-msg" tabindex="0">I campi seguiti dal simbolo * sono opzionali</span>
+		    <button class="form-bottone">Invia</button>
+  		</form>
+  		<script src="https://kit.fontawesome.com/ebcd1d18d4.js" crossorigin="anonymous"></script>
+  		<script src="js/contact.js"></script>
+	</body>
+</html>
+
+
