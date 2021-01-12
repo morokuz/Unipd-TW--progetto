@@ -658,6 +658,18 @@ textarea.form-input {
     box-shadow: 1px 1px #FF7F50;
 }
 
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 99, 71, 0.3);
+  visibility: hidden;
+}
+
+
 .box-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -717,7 +729,7 @@ textarea.form-input {
   cursor: pointer;
 }
 
-.modal.visible {
+.modal.visible, .overlay.visible {
   visibility: visible;
 }
 
@@ -845,6 +857,10 @@ textarea.form-input {
 
   .content {
     overflow-x: hidden;
+  }
+
+  .modal {
+    margin-top: 0;
   }
 
   #registrati, #accedi {

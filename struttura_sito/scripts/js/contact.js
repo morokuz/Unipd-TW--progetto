@@ -143,6 +143,7 @@ function setSuccessFor(input) {
 }
 
 //Gestione del modal per login/registrazione
+var	overlay = document.querySelector(".overlay");
 var modal = document.querySelector(".modal");
 var title = document.querySelector(".title");
 var containerReg = document.getElementById('reg');
@@ -152,6 +153,7 @@ var btnClose = document.getElementById('btn-close');
 var prevElement;
 function formOpen(btn) {
 	prevElement = document.activeElement;
+	overlay.className = 'overlay visible';
 	modal.className = 'modal visible';
 	if(btn.id === "btn-accedi"){
 		containerLog.setAttribute("id","accedi");
@@ -191,6 +193,7 @@ function exit() {
 }
 
 function close() {
+	overlay.className = 'overlay';
 	modal.className = 'modal';
 	containerLog.setAttribute("id","log");
 	containerReg.setAttribute("id","reg");
