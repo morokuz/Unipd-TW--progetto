@@ -1,6 +1,7 @@
-var formContatti = document.getElementById('contatti');
-var formReg = document.getElementById('reg');
-var formLog = document.getElementById("log");
+//Controlli sugli input
+var formContatti = document.getElementById('form-contatti');
+var formReg = document.getElementById('form-registrazione');
+var formLog = document.getElementById('form-accedi');
 
 var nome = document.getElementById('nome-cont');
 var email = document.getElementById('email-cont');
@@ -10,9 +11,11 @@ var emailReg = document.getElementById('email-reg');
 var password = document.getElementById('password-reg');
 var password1 = document.getElementById('password-reg1');
 
+var flag = false;
 if(formReg) {
 	formReg.addEventListener('submit', function(e) {
 		e.preventDefault();
+		flag = false;
 		var usernameValue = username.value.trim();
 		var emailRegValue = emailReg.value.trim();
 		var passwordValue = password.value.trim();
@@ -27,16 +30,23 @@ if(formReg) {
 if(formContatti) {
 	formContatti.addEventListener('submit', function(e) {
 		e.preventDefault();
-		var nomeValue = nome.value.trim();
-		var emailValue = email.value.trim();
+		flag = false;
+		let nomeValue = nome.value.trim();
+		let emailValue = email.value.trim();
 		checkName(nomeValue, nome);
 		checkEmail(emailValue, email);
 	});
 }
 
 function checkName(nameValue, inp) {
-	if(nameValue  === ''){
-		setErrorFor(inp, 'Il nome è vuoto');
+	if (nameValue  === '' || nameValue.length < 4 || nameValue.length > 20 || rightName(nameValue)){
+		if(!flag){
+			flag=true;
+			inp.focus();
+		}
+	}
+	if(nameValue === ''){
+		setErrorFor(inp, 'Nome mancante');
 	} else if (nameValue.length < 4){
      	setErrorFor(inp, 'Il nome ha meno di 4 caratteri');
   	} else if (nameValue.length > 20) {
@@ -49,6 +59,12 @@ function checkName(nameValue, inp) {
 }
 
 function checkEmail(emailValue, inp) {
+	if(emailValue === '' || !isEmail(emailValue)) {
+		if(!flag) {
+			flag=true;
+			inp.focus();
+		}
+	}
 	if(emailValue === '') {
 		setErrorFor(inp, 'L\' email non può essere vuota');
 	} else if (!isEmail(emailValue)) {
@@ -59,8 +75,14 @@ function checkEmail(emailValue, inp) {
 }
 
 function checkPassword(passValue, inp) {
-	if (passValue === '') {
-		setErrorFor(inp, 'Scrivere una password');
+	if(passValue.length < 4 || passValue.length > 15 || !numbPassword(passValue) || !uppPassword(passValue)) {
+		if(!flag){
+			flag=true;
+			inp.focus();
+		}
+	}
+	if (passValue === ''){
+		setErrorFor(inp, 'Password mancante');	
 	} else if (passValue.length < 4){
 		setErrorFor(inp, 'Password troppo corta');		                                             
 	} else if (passValue.length > 15){
@@ -75,8 +97,16 @@ function checkPassword(passValue, inp) {
 }
 
 function equalPassword(passValue, passValue1, inp) {
+	if(passValue != passValue1) {
+		if(!flag){
+			flag=true;
+			inp.focus();
+		}
+	}
 	if (passValue != passValue1){
 		setErrorFor(inp,'Le password non coincidono');
+	} else if (passValue === '') {
+		setErrorFor(inp,'Password mancante');
 	} else {
 		setSuccessFor(inp);
 	}
@@ -99,88 +129,78 @@ function rightName(name) {
 }
 
 function setErrorFor(input, message) {
-  var esito = input.nextElementSibling;
-  var span = esito.querySelector('span');
+  let esito = input.nextElementSibling;
+  let span = esito.querySelector('span');
   input.className = 'form-input not-valido';
   esito.className = 'esito error';
   span.innerText = message;
 }
 
 function setSuccessFor(input) {
-  var esito = input.nextElementSibling;
+  let esito = input.nextElementSibling;
   input.className = 'form-input valido';
   esito.className = 'esito success';
 }
 
 //Gestione del modal per login/registrazione
-var modal = document.querySelector(".popup");
-function formOpen(btn) {
-	modal.className = 'popup open';
-	if(btn.id == "btn-accedi"){
-		formLog.setAttribute("id","accedi");
-		TrapFocus(formLog);
-	} else {
-		formReg.setAttribute("id","registrati");
-		TrapFocus(formReg);
-	}
-}
-
-function TrapFocus(form) {
-	var title = form.querySelector('h2');
-	title.focus();
-}
-
-var logTitle = document.getElementById('log-title');
-var regTitle = document.getElementById('reg-title');
+var modal = document.querySelector(".modal");
+var title = document.querySelector(".title");
+var containerReg = document.getElementById('reg');
+var containerLog = document.getElementById('log');
+var titleSRO = document.getElementById('SRO');
 var btnClose = document.getElementById('btn-close');
+var prevElement;
+function formOpen(btn) {
+	prevElement = document.activeElement;
+	modal.className = 'modal visible';
+	if(btn.id === "btn-accedi"){
+		containerLog.setAttribute("id","accedi");
+		titleSRO.textContent = 'Finestra con form per accedere.';
+		title.textContent = 'ACCEDI';
+	} else {
+		containerReg.setAttribute("id","registrati");
+		titleSRO.textContent = 'Finestra con form per registrarsi.';
+		title.textContent = 'REGISTRATI';
+	}
+	titleSRO.focus();
+}
+	
 document.addEventListener('keydown', function(e) {
   	let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
- 	if (!isTabPressed) {
-		return;
-	}
-
-	if (e.shiftKey) { 
-		if (document.activeElement === logTitle || document.activeElement === regTitle) {
-  			btnClose.focus(); 
-  			e.preventDefault();
-		}
-	} else { 
-		if (document.activeElement === btnClose) { 
-	      	if(logTitle){
-	      		logTitle.focus(); 
-	      	}
-	      	if(regTitle) {
-	      		regTitle.focus(); 
-	      	}
-	      	e.preventDefault();
+ 	if (isTabPressed) {
+		if (e.shiftKey) { 
+			if (document.activeElement === titleSRO) {
+	  			btnClose.focus(); 
+	  			e.preventDefault();
+			}
+		} else { 
+			if (document.activeElement === btnClose) { 
+				titleSRO.focus();
+		      	e.preventDefault();
+			}
 		}
 	}
 });
 
 function exit() {
-	close(formLog,formReg);
-	clearStyle(formLog,formReg);
-	reset(formLog,formReg);
-}
-
-function close(formLog,formReg) {
-	modal.className = 'popup';
-	formLog.setAttribute("id","log");
-	formReg.setAttribute("id","reg");
-}
-
-function reset(formLog,formReg) {
-	formLog.reset();
+	close();
 	formReg.reset();
+	formLog.reset();
+	clearStyle();
+	prevElement.focus();
 }
 
-function clearStyle(formLog,formReg) {
-	var inputs = formReg.getElementsByTagName("input");
-	for (var i = 0; i < inputs.length; i++) {
-		var a = inputs[i];
-		var esito = a.nextElementSibling;
-		a.className = 'form-input';
-		esito.className = 'esito';
+function close() {
+	modal.className = 'modal';
+	containerLog.setAttribute("id","log");
+	containerReg.setAttribute("id","reg");
+}
+
+function clearStyle() {
+	var inputs = formReg.querySelectorAll(".form-input.not-valido, .form-input.valido");
+	for(var i = 0; i < inputs.length ; i++) {
+		inputs[i].className = 'form-input';
+		inputs[i].nextElementSibling.className = 'esito';
 	}
 }
 

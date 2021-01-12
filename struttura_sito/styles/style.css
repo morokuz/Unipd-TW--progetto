@@ -483,45 +483,41 @@ hr.sep_calc{
 
 /* CSS LOGIN, CONTACT */
 /* contattaci */
-
 .list {
     margin: 10px;
 }
 
-.list li, .name-requirements li, .email-requirements li , .pass-requirements li{
-    margin-left: 40px; 
+.list li, .requirements li{
+    margin-left: 25px; 
     list-style-type: none;
 }
 
-.list li:before, .name-requirements li:before , 
-  .email-requirements li:before , .pass-requirements li:before {
+.list li:before, .requirements li:before {
   content: "\1F355";
 }
 
 #contatti {
     display: grid;
-    grid-template-columns: 55% 45%;
+    grid-template-columns: 42% 58%;
     max-width: 700px;
     margin-top: 15px;
 }
 
-.name-requirements , .email-requirements , .pass-requirements {
+.requirements {
     margin-top: 15px;
     grid-column: 1/3;
 }
 
-.form-title {
-    grid-column: 1/3; 
-    margin: auto;  
-  text-transform: uppercase;
-  outline: none;
-  font-weight: bold;
+.contact-title {
+    margin-left: 50px; 
+  font-weight: bold; 
 }
 
 .form-label {
     grid-column: 1;
   font-weight: bold;
   margin-left: 15px;
+  margin-top: 10px;
 }
 
 .form-input {
@@ -534,6 +530,8 @@ hr.sep_calc{
   color: #000000;
   box-shadow: 4px 4px #DEB887;
   transition: 0.3s;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .form-input:focus {
@@ -565,8 +563,11 @@ hr.sep_calc{
 } 
 
 .esito {
+  margin-left: 10px;
+  margin-bottom: 2px;
     grid-column: 2;
     display: grid;
+    align-items: end;
     grid-template-columns: 4% 96%;
     visibility: hidden;
 }
@@ -594,8 +595,7 @@ hr.sep_calc{
 .err-msg {
     grid-column: 2;
     display: inline-block;
-    margin-left: 15px;
-    margin-bottom: 10px; 
+    margin-left: 10px;
     font-variant: small-caps;
     color: #FF0000;
     visibility: hidden;
@@ -604,16 +604,16 @@ hr.sep_calc{
 .opz-msg {
   font-style: italic;
   margin-left: 15px;
-  grid-column: 1;
+  grid-column: 1/3;
 }
 
 textarea.form-input {
   grid-column: 1/3;
   resize: none;
-  height: 100px;
+  height: 80px;
 }
 
-textarea::placeholder, input::placeholder{
+.form-input::placeholder{
   font-family: 'Poppins', sans-serif;
   letter-spacing: 0.5px;
   color: #000000;
@@ -621,14 +621,9 @@ textarea::placeholder, input::placeholder{
   opacity: 0.7;
 }
 
-textarea:focus::placeholder , input:focus::placeholder {
+.form-input:focus::placeholder {
     color: transparent;
 } 
-
-#contatti .form-bottone {
-  grid-column: 2;
-  justify-self: end;
-}
 
 .form-bottone {
     border: 0;
@@ -638,12 +633,18 @@ textarea:focus::placeholder , input:focus::placeholder {
   color: #000000;
   text-align: center;
   margin-top:15px;
-  padding: 12px 50px;
+  margin-bottom: 2px;
+  padding: 15px 80px;
   border-radius: 10px;
     box-shadow: 4px 4px #DEB887;
-    outline: none;
+    outline-color: #DEB887;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.btn-invia {
+  grid-column: 2;
+  justify-self: end;
 }
 
 .form-bottone:hover {
@@ -657,17 +658,17 @@ textarea:focus::placeholder , input:focus::placeholder {
     box-shadow: 1px 1px #FF7F50;
 }
 
-/* accedi e registrati */ 
-.box {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 5px;
-  max-width: 300px;
-  margin: 325px auto;
-}
-
-.title {
-  text-align: center;
+.box-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+    align-items: center;
+    text-align: center;
+    margin:auto;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .btn {
@@ -679,76 +680,74 @@ textarea:focus::placeholder , input:focus::placeholder {
   font-size: 18px;
   border: 0;
   text-decoration: none;
-  outline: none;
   transition: 0.4s;
   border-radius: 5px;
   box-shadow: 6px 6px 29px -4px rgba(0,0,0,0.75); 
   cursor: pointer;
 }
 
-.popup {
-  display: none;
-  position:fixed;
-    padding:0;
-    margin:0;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-  justify-content: center;
-  background: rgba(177, 147, 71, 0.3);
+.title {
+  text-align: center;
+  margin-top: 10px;
 }
 
-.popup.open {
+.container {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.pop-window {
-  width: 500px;
-  background: #F0F8FF; 
-  padding:20px;
-  border-radius: 10px;
+.modal {
   position: relative;
+    padding: 20px;
+  border-radius: 10px;
+  background: #E6E6FA;
+  border: solid;
+  max-width: 500px;
+  margin-top: 60px;
+  visibility: hidden;
 }
 
-.fa-times-circle {
+.chiudi-form {
   position: absolute;
-  top: -20px;
-  right: -20px;
-  font-size: 30px;
+  top: 5px;
+  right: 5px;
+  width: 50px;
   color: black;
-  opacity: 0.7;
   cursor: pointer;
 }
 
-#accedi {
-  display: grid;
-  grid-template-columns: 100%;
-    max-width: 500px;
-  border-radius: 10px;
-  padding: 5px; 
-}
-
-#registrati {
-  display: grid;
-  grid-template-columns: 100%;
-  max-width: 500px;
-  border-radius: 10px;
-  padding: 5px; 
+.modal.visible {
+  visibility: visible;
 }
 
 #log , #reg {
   display: none; 
 } 
 
-#accedi .form-bottone , #registrati .form-bottone{
+#accedi {
+  display: grid;
+  grid-template-columns: 100%;
+    width: 450px;
+}
+
+#registrati {
+  display: grid;
+  grid-template-columns: 100%;
+  width: 500px;
+}
+
+.btn-sub {
   grid-column: 1;
+  margin-top: 0px;
   justify-self: end;
 }
 
 #registrati .esito {
+  margin: 10px 0;
   grid-column: 1;
+  display: grid;
+  align-items: start;
   grid-template-columns: 2%  2% 96%;
   grid-template-rows: 1px 1px; 
 }
@@ -766,14 +765,14 @@ textarea:focus::placeholder , input:focus::placeholder {
 }
 
 .eye-conatiner {
-  grid-column: 2;
+  grid-column: 1;
   position: relative;
 }
 
 .fa-eye {
     position: absolute;
-    left: -50px;
   opacity: 0.4;
+  left: 465px;
   cursor: pointer; 
 }
 
@@ -782,15 +781,16 @@ textarea:focus::placeholder , input:focus::placeholder {
 }
 
 #eye1 {
-    top: 15px;
+  left: 400px;
+    top: -35px;
 }
 
 #eye2 {
-    top: -165px;
+  top: -135px;
 }
 
 #eye3 {
-    top: -52px;
+  top: -58px;
 }
 
 .sr-only {
@@ -804,7 +804,7 @@ textarea:focus::placeholder , input:focus::placeholder {
   border: 0;
 }
 
-/* mobile */
+/* Parte mobile */
 @media screen and (max-width: 768px) {
   #who-am-i , #who-am-i + p {
     display: none;
@@ -814,17 +814,8 @@ textarea:focus::placeholder , input:focus::placeholder {
     grid-template-columns: 58% 42%;
   }
 
-  .form-bottone , .opz-msg {
-    margin-top: 15px;
-  }
-
-  .form-accedi .form-bottone , .form-registrati .form-bottone {
-    grid-column: 2;
-  }
-
   .form-input{
       grid-column: 1/3;
-    margin-bottom: 0px;
   }
 
   .esito {
@@ -833,7 +824,9 @@ textarea:focus::placeholder , input:focus::placeholder {
   }
 
   .esito.success , .esito.error {
+    margin: 10px 0;
     display: grid;
+    align-items: start;
     grid-template-columns: 2%  2% 96%;
     grid-template-rows: 1px 1px; 
   }
@@ -850,30 +843,12 @@ textarea:focus::placeholder , input:focus::placeholder {
     grid-column: 3;
   }
 
-    #eye1 ,#eye3 {
-      top: -45px;
-    }
-    
-    #eye2 {
-        top: -150px;
-    }
-}
-
-@media screen and (max-width: 560px) {
-  .err-msg {
-    font-size: 14px;
+  .content {
+    overflow-x: hidden;
   }
-  
-    .popup {
-      position: absolute;
-    }
 
-    .pop-window {
-    margin: auto;
-  }
-  .fa-times-circle{
-    top:3px;
-    right: 3px;
+  #registrati, #accedi {
+    width: 100%;
   }
 
   .fa-eye {
