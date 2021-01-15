@@ -3,54 +3,48 @@
 
 <head>
   <placeholder_head_default_tags />
-  <title>Quattro Formaggi</title>
+  <title>
+    <placeholder_sql_ricetta_nome />
+  </title>
 </head>
 
 <body>
   <placeholder_header />
   <placeholder_breadcrumbs />
   <placeholder_nav />
-  <main id="content">
-    <section class="ricetta">
-      <img class="hero" src="../../imgs/ricette_quattro_formaggi.jpg" alt="Foto di una pizza quattro formaggi" />
-      <h1 class="titolo">Quattro Formaggi</h1>
-      <p class="author">CLASSICA</p>
-      <ul class="tags">
-        <li>Pizza Napoletana</li>
-        <li class="vegetariana">Vegetariana</li>
+  <main>
+    <section>
+      <h2>
+        <placeholder_sql_ricetta_nome />
+      </h2>
+      <h3>
+        <placeholder_sql_ricetta_autore />
+      </h3>
+      <ul class="ricette-tags">
+        <li class="ricetta-tag-pizza">
+          <placeholder_sql_ricetta_tipo />
+        </li>
+        <placeholder_sql_ricetta_vegetariana_tag />
       </ul>
-      <p>La pizza ai quattro formaggi è un classico che si trova in ogni pizzeria d’Italia. Ognuno la propone con tipi
-        di
-        formaggio differenti, in base alla disponibilità e alla zone in cui viene preparata. Il formaggio che non manca
-        mai, però, è il gorgonzola, dolce o piccante. La fontina serve a dare cremosità e a bilanciare il sapore deciso
-        del gorgonzola e puoi sostituirla con dell’Asiago, ad esempio. Alla mozzarella puoi preferire il fiordilatte e
-        volendo puoi optare per del pecorino al posto del grana o del parmigiano. Oppure puoi aggiungere altri formaggi,
-        secondo i tuoi gusti.
+      <p>
+        <placeholder_sql_ricetta_informazioni />
       </p>
       <div class="ricetta-ingredienti-container">
         <p>Ingredienti:</p>
         <ul>
-          <li>mozzarella</li>
-          <li>gorgonzola</li>
-          <li>parmigiano</li>
-          <li>fontina</li>
+          <placeholder_sql_ricetta_ingredienti />
         </ul>
       </div>
+      <img class="ricetta-image" src="../../imgs/ricette/<placeholder_sql_ricetta_immagine />" alt="Foto di una pizza <placeholder_sql_ricetta_nome />" />
       <p>Scopri come preparare: <a href="./calcolatore.php">vai al Calcolatore</a></p>
       <button>♥ Like Pizza</button>
-      <span>53 Likes</span>
+      <span>
+        <placeholder_sql_likes /> Like</span>
     </section>
-    <!-- TODO: UI per rimuovere commenti? -->
+    <!-- TODO: UI per inserire e rimuovere commenti? -->
     <section class="commenti">
       <h2>Commenti</h2>
-      <article class="commento">
-        <h3>Mario Rossi</h3>
-        <p>commento</p>
-      </article>
-      <article class="commento">
-        <h3>Fabio Verdi</h3>
-        <p>commento</p>
-      </article>
+      <placeholder_sql_ricetta_commenti />
     </section>
   </main>
   <placeholder_footer />

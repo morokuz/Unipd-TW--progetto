@@ -18,69 +18,69 @@ VALUES (
     TRUE
 );
 
-INSERT INTO ricette (nome, is_vegan, tipo, tag, ingredienti, procedimento, autore)
+INSERT INTO ricette (nome, vegetariana, tipo, ingredienti, informazioni, autore, nome_immagine)
 VALUES (
     "Diavola",
     FALSE,
     "Napoletana",
-    tag,
     "mozzarella, pomodoro, salamino piccante",
-    "Procedimento per la diavola",
-    3
+    "Informazioni diavola",
+    3,
+    "default.jpg"
 ),
 (
     "Quattro Formaggi",
-    FALSE,
+    TRUE,
     "Napoletana",
-    "Vegetariana",
     "mozzarella, pomodoro, fontina, gorgonzola, parimgiano",
-    "Procedimento per la qauttro formaggi",
-    3
+    "Informazioni qauttro formaggi",
+    3,
+    "quattro_formaggi.jpg"
 ),
 (
     "Carbonara",
     FALSE,
     "Napoletana",
-    tag,
     "mozzarella, pomodoro, uova, pancetta, parmigiano",
-    "Procedimento per la carbonara",
-    3
+    "Informazioni carbonara",
+    3,
+    "default.jpg"
 ),
 (
     "Patatine e wurstel",
     FALSE,
     "Napoletana",
-    tag,
     "mozzarella, pomodoro, patatine, wurstel",
-    "Procedimento per la patatine e wurstel",
-    3
+    "Informazioni patatine e wurstel",
+    3,
+    "default.jpg"
 ),
 (
     "Funghi",
-    FALSE,
+    TRUE,
     "Napoletana",
-    "Vegetariana",
     "mozzarella, pomodoro, funghi",
-    "Procedimento per la pizza coi funghi",
-    3
+    "Informazioni pizza coi funghi",
+    3,
+    "default.jpg"
 ),
 (
     "Alpina",
     FALSE,
     "Napoletana",
-    tag,
     "mozzarella, pomodoro, gorgonzola, scamorza affumicata, brie, misto funghi, speck",
-    "Procedimento per la alpina",
-    2
+    "Informazioni alpina",
+    2,
+    "default.jpg"
 ),
 (
     "Pizza in teglia",
-    FALSE,
+    TRUE,
     "In teglia",
-    "Vegetariana",
     "mozzarella, pomodoro", 
-    "Procedimento per la pizza in teglia",
-    3
+    "Informazioni pizza in teglia",
+    3,
+    "default.jpg"
 );
 
 
