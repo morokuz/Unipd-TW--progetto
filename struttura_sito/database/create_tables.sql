@@ -11,12 +11,12 @@ CREATE TABLE utenti (
 CREATE TABLE ricette (
     id INT AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
-    is_vegan BOOLEAN DEFAULT FALSE,
+    vegetariana BOOLEAN DEFAULT FALSE,
     tipo VARCHAR(20) NOT NULL, 
-    tag VARCHAR(20),
     ingredienti TEXT NOT NULL,
-    procedimento TEXT NOT NULL,
+    informazioni TEXT NOT NULL,
     autore INT NOT NULL,
+    nome_immagine VARCHAR(255) DEFAULT "default.jpg",
     PRIMARY KEY (id),
     UNIQUE (nome),
     FOREIGN KEY (autore) REFERENCES utenti (id)

@@ -37,16 +37,33 @@ function html_ricette_card($ricetta_nome) {
   
   $sql = "SELECT utenti.username AS autore,
                  ricette.tipo AS tipo,
-                 ricette.is_vegan AS is_vegan,
-                 ricette.ingredienti AS ingredienti
+                 ricette.vegetariana AS vegetariana,
+                 ricette.ingredienti AS ingredienti,
+                 ricette.nome_immagine AS immagine,
+                 ricette.id AS id
           FROM ricette JOIN utenti ON ricette.autore=utenti.id
           WHERE ricette.nome=\"$ricetta_nome\"";
   $result = $GLOBALS["db_connection"]->query($sql);
   $row = $result->fetch_assoc();
   $ricetta_autore = $row["autore"];
   $ricetta_tipo = $row["tipo"];
-  $ricetta_is_vegan = $row["is_vegan"];
-  $ricetta_ingrediente = $row["ingredienti"];
+  $ricetta_immagine = $row["immagine"];
+  $ricetta_id = $row["id"];
+
+  $ricetta_ingredienti = "";
+  $ingredienti = $row["ingredienti"];
+  $ingredienti = str_replace(" ", "", $ingredienti);
+  $array_ingredienti = explode(',', $ingredienti);
+  foreach ($array_ingredienti as $ingrediente) {
+    $html_ingrediente = file_get_contents(__DIR__ . "/../html/components/ricette_card_ingrediente.html");
+    $html_ingrediente = str_replace("<placeholder_sql_ricetta_ingrediente />", $ingrediente, $html_ingrediente);
+    $ricetta_ingredienti .= $html_ingrediente . "\n";
+  }
+
+  $ricetta_vegetariana = "";
+  if ($row["vegetariana"] == true) {
+    $ricetta_vegetariana = file_get_contents(__DIR__ . "/../html/components/ricette_card_tag_vegetariana.html");
+  }
   
   $sql = "SELECT COUNT(*) AS n_likes
           FROM likes JOIN ricette ON likes.ricetta=ricette.id
@@ -54,18 +71,18 @@ function html_ricette_card($ricetta_nome) {
   $result = $GLOBALS["db_connection"]->query($sql);
   $row = $result->fetch_assoc();
   $ricetta_likes = $row["n_likes"];
+
   
   $replacements = [
     "<placeholder_sql_ricetta_nome />" => $ricetta_nome,
     "<placeholder_sql_ricetta_autore />" => $ricetta_autore,
     "<placeholder_sql_ricetta_tipo />" => $ricetta_tipo,
-    "<placeholder_sql_ricetta_is_vegan />" => $ricetta_is_vegan,
-    "<placeholder_sql_ricetta_ingredienti />" => $ricetta_ingrediente,
-    "<placeholder_sql_likes />" => $ricetta_likes
+    "<placeholder_sql_ricetta_vegetariana_tag />" => $ricetta_vegetariana,
+    "<placeholder_sql_ricetta_ingredienti />" => $ricetta_ingredienti,
+    "<placeholder_sql_likes />" => $ricetta_likes,
+    "<placeholder_sql_ricetta_immagine />" => $ricetta_immagine,
+    "<placeholder_sql_ricetta_id />" => $ricetta_id
   ];
   return replace($ricette_card, $replacements);;
 }
-
-// TODO: test and commit working code
-// TODO: update database script, so it only uses info you need. update names in this script
 ?>

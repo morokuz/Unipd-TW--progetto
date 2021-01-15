@@ -1,19 +1,19 @@
 <article class="card-ricetta">
-  <img class="card-ricetta-image" src="../../imgs/ricette_quattro_formaggi.jpg" alt="Foto di una pizza quattro formaggi" />
+  <img class="card-ricetta-image" src="../../imgs/ricette/<placeholder_sql_ricetta_immagine />" alt="Foto di una pizza quattro formaggi" />
   <div class="card-ricetta-content">
     <h2 class="ricette-titolo"><placeholder_sql_ricetta_nome /></h2>
     <p class="ricette-text"><placeholder_sql_ricetta_autore /></p>
     <ul class="ricette-tags">
       <li class="ricetta-tag-pizza"><placeholder_sql_ricetta_tipo /></li>
-      <li class="ricetta-tag-vegetariana"><placeholder_sql_ricetta_is_vegan /></li>
+      <placeholder_sql_ricetta_vegetariana_tag />
     </ul>
     <p class="ricette-text-ingredienti">INGREDIENTI:</p>
     <ul class="ricette-text-container">
-      <li class="ricette-ingredienti"><placeholder_sql_ricetta_ingredienti /></li>
+      <placeholder_sql_ricetta_ingredienti />
     </ul>
   </div>
   <footer>
     <span class="ricette-likes"><placeholder_sql_likes /> Likes </span>
-    <a class="card-ricette-scopri" href="./ricetta.php">Scopri</a>
+    <a class="card-ricette-scopri" href="./ricetta.php?id=<placeholder_sql_ricetta_id />">Scopri</a>
   </footer>
 </article>
