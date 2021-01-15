@@ -24,7 +24,7 @@ VALUES (
     FALSE,
     "Napoletana",
     "mozzarella, pomodoro, salamino piccante",
-    "Procedimento per la diavola",
+    "Informazioni diavola",
     3,
     "default.jpg"
 ),
@@ -33,7 +33,7 @@ VALUES (
     TRUE,
     "Napoletana",
     "mozzarella, pomodoro, fontina, gorgonzola, parimgiano",
-    "Procedimento per la qauttro formaggi",
+    "Informazioni qauttro formaggi",
     3,
     "quattro_formaggi.jpg"
 ),
@@ -42,7 +42,7 @@ VALUES (
     FALSE,
     "Napoletana",
     "mozzarella, pomodoro, uova, pancetta, parmigiano",
-    "Procedimento per la carbonara",
+    "Informazioni carbonara",
     3,
     "default.jpg"
 ),
@@ -51,7 +51,7 @@ VALUES (
     FALSE,
     "Napoletana",
     "mozzarella, pomodoro, patatine, wurstel",
-    "Procedimento per la patatine e wurstel",
+    "Informazioni patatine e wurstel",
     3,
     "default.jpg"
 ),
@@ -60,7 +60,7 @@ VALUES (
     TRUE,
     "Napoletana",
     "mozzarella, pomodoro, funghi",
-    "Procedimento per la pizza coi funghi",
+    "Informazioni pizza coi funghi",
     3,
     "default.jpg"
 ),
@@ -69,7 +69,7 @@ VALUES (
     FALSE,
     "Napoletana",
     "mozzarella, pomodoro, gorgonzola, scamorza affumicata, brie, misto funghi, speck",
-    "Procedimento per la alpina",
+    "Informazioni alpina",
     2,
     "default.jpg"
 ),
@@ -78,7 +78,7 @@ VALUES (
     TRUE,
     "In teglia",
     "mozzarella, pomodoro", 
-    "Procedimento per la pizza in teglia",
+    "Informazioni pizza in teglia",
     3,
     "default.jpg"
 );

@@ -52,9 +52,9 @@ function html_ricette_card($ricetta_nome) {
 
   $ricetta_ingredienti = "";
   $ingredienti = $row["ingredienti"];
-  $ingredienti = str_replace(" ", "", $ingredienti);
   $array_ingredienti = explode(',', $ingredienti);
   foreach ($array_ingredienti as $ingrediente) {
+    $ingrediente = trim($ingrediente);
     $html_ingrediente = file_get_contents(__DIR__ . "/../html/components/ricette_card_ingrediente.html");
     $html_ingrediente = str_replace("<placeholder_sql_ricetta_ingrediente />", $ingrediente, $html_ingrediente);
     $ricetta_ingredienti .= $html_ingrediente . "\n";
