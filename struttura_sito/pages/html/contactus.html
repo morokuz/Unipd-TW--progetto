@@ -1,77 +1,82 @@
 <!DOCTYPE html>
 
-<html lang="it">	
+<html lang="it">
 	<head>
-  		<placeholder_head_default_tags />
-  		<title>Contatti</title>
+  	<placeholder_head_default_tags />
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>PizzaaTuttoTondo | Contattaci</title>
+		<meta name="description" content="Pagina per contattare gli autori del sito TuttoPizza" />
+		<meta name="keywords" content="PizzaaTuttoTondo, pizza, contatti, email, progetto, tecnologie web, univeristà di padova" />
+		<meta name="author" content="PizzaaTuttoTondo group" />
 	</head>
 	<body>
-  		<placeholder_header />
-  		<placeholder_breadcrumbs />
-  		<placeholder_nav />
-		<main>
-			<h2 id="who-am-i">Chi siamo?</h2>
-	  		<p>
-	    		Siamo un gruppo di 4 ragazzi che frequenta il corso di Tecnologie Web per la laurea in Informatica all'Univeristà di Padova. Il sito è stato interamente realizzato da noi come progetto per tale insegnamento.
-	  		</p>
-	  		<h2>Come contattarci?</h2>
-			<p>
-	    		Potete contattrci via email (raghesh99@gmail.com). Viene fornita una form sottostante dove, inserendo il vostro nome e la vostra mail, potete velocizzare questa operazione. Contattateci se:
-	  		</p>
-	  		<ul class="list">
-	    		<li>Volete chiedere informazioni su come è stato realizzato il sito; </li>
-	    		<li>Trovate errori di qualsiasi genere; </li>
-	    		<li>Avete consigli su come migliorare il sito. </li>
-	  		</ul>
-			<h2 class="contact-title">CONTATTACI</h2>
-	  		<form id="form-contatti" action="contactus.html" method="post">
-	  			<div id="contatti">
-		  			<p class="opz-msg" tabindex="0">I campi seguiti dal simbolo * sono opzionali</p>
-				    <label for="nome-cont" class="form-label">Nome</label>
-				    <input type="text" id="nome-cont" class="form-input" name="nome" placeholder="Esempio: Mario Rossi" aria-describedby="err1"/>
-				    <div id="es1" class="esito">
-				      	<i class="fas fa-check-circle" aria-hidden="true"></i>
-				      	<i class="fas fa-exclamation-circle" aria-hidden="true"></i>
-				      	<span id="err1" class="err-msg">Di 4 caratteri, al massimo 20, senza simboli.</span>
-				    </div>
-				    <div class="requirements">
-				    	<ul>
-			      			<li>Nome di almeno 4 caratteri e massimo di 20</li>
-				      		<li>Nome con solo caratteri alfanumerici</li>
-			    		</ul>
-				    </div>
-				    
-				    <label for="email-cont" class="form-label" xml:lang="en" lang="en">Email</label>
-				    <input type="text" id="email-cont" class="form-input" name="email" placeholder="Esempio: mario.rossi@libero.it" aria-describedby="err2"/>
-				    <div id="es2" class="esito">
-				      	<i class="fas fa-check-circle" aria-hidden="true"></i>
-				      	<i class="fas fa-exclamation-circle" aria-hidden="true"></i>
-				      	<span id="err2" class="err-msg">Deve essere valida.</span>
-				    </div>
-				    <div class="requirements">
-			    		<ul>
-				      		<li>L'email deve essere valida</li>
-				    	</ul>
-				    </div>
-				    
-				    <label class="form-label" for="oggetto">Oggetto*</label>
-				    <input type="text" id="oggetto" class="form-input" name="oggetto" placeholder="Oggetto(facoltativo)"/>
+  		<header>
+				<placeholder_header />
+				<placeholder_breadcrumbs />
+				<placeholder_nav />
+  		</header>
+			<div id="page-cont">
+					<h2 id="who-am-i">Chi siamo?</h2>
+						<p>
+							Siamo un gruppo di 4 ragazzi che frequenta il corso di Tecnologie Web per la laurea in Informatica all'Univeristà di Padova. Il sito è stato interamente realizzato da noi come progetto per tale insegnamento.
+						</p>
+						<h2>Come contattarci?</h2>
+					<p>
+							Potete contattrci via email (pizzatuttotondo@gmail.com). Viene fornita una form sottostante dove, inserendo il vostro nome e la vostra mail, potete velocizzare questa operazione. Contattateci se:
+						</p>
+						<ul class="list">
+							<li>Volete chiedere informazioni su come è stato realizzato il sito</li>
+							<li>Trovate errori di qualsiasi genere</li>
+							<li>Avete consigli su come migliorare il sito</li>
+						</ul>
+					<h2 class="contact-title">CONTATTACI</h2>
+						<form id="form-contatti" action="contactus.php" method="POST" onsubmit="return validateFormCont()">
+							<div id="contatti">
+								<p class="opz-msg" tabindex="0">I campi seguiti dal simbolo * sono opzionali</p>
+								<label for="nome-cont" class="form-label">Nome</label>
+								<input type="text" id="nome-cont" class="form-input" name="nome" placeholder="Esempio: Mario Rossi" aria-describedby="err1"/>
+								<div id="es1" class="esito">
+										<i class="fas fa-check-circle" aria-hidden="true"></i>
+										<i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+										<span id="err1" class="msg">Di 4 caratteri, al massimo 20, senza simboli.</span>
+								</div>
+								<div class="requirements">
+									<ul>
+											<li>Nome di almeno 4 caratteri e massimo di 20</li>
+											<li>Nome con solo caratteri alfanumerici</li>
+									</ul>
+								</div>
 
-				    <label class="form-label" for="messaggio">Messaggio</label>
-				    <textarea id="messaggio" class="form-input" name="messaggio" placeholder="Messaggio" required></textarea>
+								<label for="email-cont" class="form-label" xml:lang="en" lang="en">Email</label>
+								<input type="text" id="email-cont" class="form-input" name="email" placeholder="Esempio: mario.rossi@libero.it" aria-describedby="err2"/>
+								<div id="es2" class="esito">
+										<i class="fas fa-check-circle" aria-hidden="true"></i>
+										<i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+										<span id="err2" class="msg">Deve essere valida.</span>
+								</div>
+								<div class="requirements">
+									<ul>
+											<li>L'email deve essere valida</li>
+									</ul>
+								</div>
 
-			      	<div class="btn-invia">
-			      		<input class="form-bottone" type="submit" name="invia_email" value="Invia"/>
-			      	</div>	
-	  			</div>
-	  		</form>	
+								<label class="form-label" for="oggetto">Oggetto*</label>
+								<input type="text" id="oggetto" class="form-input" name="oggetto" placeholder="Oggetto(facoltativo)"/>
+
+								<label class="form-label" for="messaggio">Messaggio</label>
+								<textarea id="messaggio" class="form-input" name="messaggio" placeholder="Messaggio" required></textarea>
+
+									<div class="btn-invia">
+										<input class="form-bottone" type="submit" name="submit" value="Invia"/>
+									</div>
+							</div>
+						</form>
+				</div>
 		</main>
 		<footer>
 			<placeholder_footer />
 		</footer>
   		<script src="https://kit.fontawesome.com/ebcd1d18d4.js" crossorigin="anonymous"></script>
-  		<script src=" ../../scripts/js/contact.js"></script>
+  		<script src="../../scripts/js/contact.js"></script>
 	</body>
 </html>
-
-

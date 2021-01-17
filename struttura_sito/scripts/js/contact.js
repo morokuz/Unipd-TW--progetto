@@ -5,41 +5,39 @@ var formLog = document.getElementById('form-accedi');
 
 var nome = document.getElementById('nome-cont');
 var email = document.getElementById('email-cont');
-
 var username = document.getElementById('username-reg');
 var emailReg = document.getElementById('email-reg');
 var password = document.getElementById('password-reg');
 var password1 = document.getElementById('password-reg1');
 
+var result = true;
 var flag = false;
-if(formReg) {
-	formReg.addEventListener('submit', function(e) {
-		e.preventDefault();
-		flag = false;
-		var usernameValue = username.value.trim();
-		var emailRegValue = emailReg.value.trim();
-		var passwordValue = password.value.trim();
-		var password1Value = password1.value.trim();
-		checkName(usernameValue, username);
-		checkEmail(emailRegValue, emailReg);
-		checkPassword(passwordValue, password);
-		equalPassword(passwordValue, password1Value, password1);
-	});
+function validateFormReg() {
+	flag = false;
+	var usernameValue = username.value.trim();
+	var emailRegValue = emailReg.value.trim();
+	var passwordValue = password.value.trim();
+	var password1Value = password1.value.trim();
+
+	var a = checkName(usernameValue, username);
+	var b = checkEmail(emailRegValue, emailReg);
+	var c = checkPassword(passwordValue, password);
+	var d = equalPassword(passwordValue, password1Value, password1);
+	return a && b && c && d;
 }
 
-if(formContatti) {
-	formContatti.addEventListener('submit', function(e) {
-		e.preventDefault();
-		flag = false;
-		let nomeValue = nome.value.trim();
-		let emailValue = email.value.trim();
-		checkName(nomeValue, nome);
-		checkEmail(emailValue, email);
-	});
+function validateFormCont() {
+	flag = false;
+	var nomeValue = nome.value.trim();
+	var emailValue = email.value.trim();
+	var a = checkName(nomeValue, nome);
+	var b = checkEmail(emailValue, email);
+	return a && b;
 }
 
 function checkName(nameValue, inp) {
 	if (nameValue  === '' || nameValue.length < 4 || nameValue.length > 20 || rightName(nameValue)){
+		result = false;
 		if(!flag){
 			flag=true;
 			inp.focus();
@@ -54,12 +52,15 @@ function checkName(nameValue, inp) {
   	} else if (rightName(nameValue)){
     	setErrorFor(inp, 'Il nome contiene simboli');
   	} else {
-    	setSuccessFor(inp);
-	}	
+    	setSuccessFor(inp,'Nome valido');
+			result = true;
+	}
+	return result;
 }
 
 function checkEmail(emailValue, inp) {
 	if(emailValue === '' || !isEmail(emailValue)) {
+		result = false;
 		if(!flag) {
 			flag=true;
 			inp.focus();
@@ -70,34 +71,40 @@ function checkEmail(emailValue, inp) {
 	} else if (!isEmail(emailValue)) {
 		setErrorFor(inp, 'Email non valida');
 	} else {
-		setSuccessFor(inp);
+		setSuccessFor(inp, 'Email valida');
+		result = true;
 	}
+	return result;
 }
 
 function checkPassword(passValue, inp) {
-	if(passValue.length < 4 || passValue.length > 15 || !numbPassword(passValue) || !uppPassword(passValue)) {
+	if(passValue.length < 5 || passValue.length > 15 || !numbPassword(passValue) || !uppPassword(passValue)) {
+		result = false;
 		if(!flag){
 			flag=true;
 			inp.focus();
 		}
 	}
 	if (passValue === ''){
-		setErrorFor(inp, 'Password mancante');	
-	} else if (passValue.length < 4){
-		setErrorFor(inp, 'Password troppo corta');		                                             
+		setErrorFor(inp, 'Password mancante');
+	} else if (passValue.length < 5){
+		setErrorFor(inp, 'Password con meno di 5 caratteri');
 	} else if (passValue.length > 15){
-		setErrorFor(inp, 'Password troppo lunga');
+		setErrorFor(inp, 'Passord più lunga di 15 caratteri');
 	} else if (!numbPassword(passValue)) {
 		setErrorFor(inp, 'Manca il numero obbligatorio');
 	} else if (!uppPassword(passValue)) {
 		setErrorFor(inp, 'Manca la lettera maiuscola obbligatoria');
 	} else {
-		setSuccessFor(inp);
+		setSuccessFor(inp, 'Password valida');
+		result = true;
 	}
+	return result;
 }
 
 function equalPassword(passValue, passValue1, inp) {
 	if(passValue != passValue1) {
+		result=false;
 		if(!flag){
 			flag=true;
 			inp.focus();
@@ -108,8 +115,10 @@ function equalPassword(passValue, passValue1, inp) {
 	} else if (passValue === '') {
 		setErrorFor(inp,'Password mancante');
 	} else {
-		setSuccessFor(inp);
+		setSuccessFor(inp, 'Le password coincidono');
+		result=true;
 	}
+	return result;
 }
 
 function numbPassword(pass) {
@@ -129,82 +138,19 @@ function rightName(name) {
 }
 
 function setErrorFor(input, message) {
-  let esito = input.nextElementSibling;
-  let span = esito.querySelector('span');
-  input.className = 'form-input not-valido';
-  esito.className = 'esito error';
-  span.innerText = message;
+	let esito = input.nextElementSibling;
+	let span = esito.querySelector('span');
+	input.className = 'form-input not-valido';
+	esito.className = 'esito error';
+	span.innerText = message;
 }
 
-function setSuccessFor(input) {
-  let esito = input.nextElementSibling;
-  input.className = 'form-input valido';
-  esito.className = 'esito success';
-}
-
-//Gestione del modal per login/registrazione
-var	overlay = document.querySelector(".overlay");
-var modal = document.querySelector(".modal");
-var title = document.querySelector(".title");
-var containerReg = document.getElementById('reg');
-var containerLog = document.getElementById('log');
-var titleSRO = document.getElementById('SRO');
-var btnClose = document.getElementById('btn-close');
-var prevElement;
-function formOpen(btn) {
-	prevElement = document.activeElement;
-	overlay.className = 'overlay visible';
-	modal.className = 'modal visible';
-	if(btn.id === "btn-accedi"){
-		containerLog.setAttribute("id","accedi");
-		titleSRO.textContent = 'Finestra con form per accedere.';
-		title.textContent = 'ACCEDI';
-	} else {
-		containerReg.setAttribute("id","registrati");
-		titleSRO.textContent = 'Finestra con form per registrarsi.';
-		title.textContent = 'REGISTRATI';
-	}
-	titleSRO.focus();
-}
-	
-document.addEventListener('keydown', function(e) {
-  	let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
- 	if (isTabPressed) {
-		if (e.shiftKey) { 
-			if (document.activeElement === titleSRO) {
-	  			btnClose.focus(); 
-	  			e.preventDefault();
-			}
-		} else { 
-			if (document.activeElement === btnClose) { 
-				titleSRO.focus();
-		      	e.preventDefault();
-			}
-		}
-	}
-});
-
-function exit() {
-	close();
-	formReg.reset();
-	formLog.reset();
-	clearStyle();
-	prevElement.focus();
-}
-
-function close() {
-	overlay.className = 'overlay';
-	modal.className = 'modal';
-	containerLog.setAttribute("id","log");
-	containerReg.setAttribute("id","reg");
-}
-
-function clearStyle() {
-	var inputs = formReg.querySelectorAll(".form-input.not-valido, .form-input.valido");
-	for(var i = 0; i < inputs.length ; i++) {
-		inputs[i].className = 'form-input';
-		inputs[i].nextElementSibling.className = 'esito';
-	}
+function setSuccessFor(input, message) {
+	let esito = input.nextElementSibling;
+	let span = esito.querySelector('span');
+	input.className = 'form-input valido';
+	esito.className = 'esito success';
+	span.innerText = message;
 }
 
 //Gestione degli eye per vedere/nascondere le password
@@ -213,16 +159,16 @@ function toggle(elem) {
 	var id = elem.id;
 	if(stato){
 		if(id == "eye1"){
-			document.getElementById("password-log").setAttribute("type","password");	
+			document.getElementById("password-log").setAttribute("type","password");
 		} else if (id == "eye2"){
 			document.getElementById("password-reg").setAttribute("type","password");
 		} else {
 			document.getElementById("password-reg1").setAttribute("type","password");
-		}	
+		}
 		stato = false;
 	} else {
 		if(id == "eye1"){
-			document.getElementById("password-log").setAttribute("type","text");	
+			document.getElementById("password-log").setAttribute("type","text");
 		} else if (id == "eye2"){
 			document.getElementById("password-reg").setAttribute("type","text");
 		} else {

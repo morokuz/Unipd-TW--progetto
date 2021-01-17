@@ -1,5 +1,5 @@
-<?php 
-require_once(__DIR__ . "/../../scripts/php/replace.php");
+<?php
+require_once (__DIR__ . "/../../scripts/php/useful_functions.php");
 
 $page = file_get_contents(__DIR__ . "/../html/calcolatore.html");
 $replacements = [

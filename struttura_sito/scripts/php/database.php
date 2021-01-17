@@ -6,6 +6,12 @@ function db_connect() {
   $password = "pw";
   $db = "test";
 
+// da togliere
+  // $servername = "localhost";
+  // $username = "root";
+  // $password = "";
+  // $db = "pizzadb";
+
   $connection = mysqli_connect($servername, $username, $password,$db);
   if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
@@ -16,7 +22,7 @@ function db_connect() {
 function db_close($connection) {
   $connection->close();
 }
-  
+
 // Test query: Stampa tutto dalla tabella "ricette"
 function db_unsafee_query_test ($connection) {
   $sql = "SELECT * FROM ricette";

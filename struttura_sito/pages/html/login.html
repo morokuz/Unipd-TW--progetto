@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="it">
+	<head>
+  	<placeholder_head_default_tags />
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>	PizzaaTuttoTondo | Accedi</title>
+		<meta name="description" content="Pagina per contattare gli autori del sito TuttoPizza" />
+		<meta name="keywords" content="PizzaaTuttoTondo, pizza, contatti, email, progetto, tecnologie web, univeristà di padova" />
+		<meta name="author" content="PizzaaTuttoTondo group" />
+	</head>
+	<body>
+  		<header>
+  			<placeholder_header />
+  			<placeholder_breadcrumbs />
+  			<placeholder_nav />
+  		</header>
+  		<main>
+  			<div id="container">
+				<div class="modal">
+					<p tabindex="0">Non hai ancora un account? <a href="../php/signup.php">Registrati</a> </p>
+			  		<h2 class = "title" tabindex="0">ACCEDI</h2>
+			        <form id="form-accedi" action="login.php" method="POST">
+			        	<div id="accedi">
+			        		<label for="username" class="form-label" xml:lang="en" lang="en">Username</label>
+				          	<input type="text" id="username" class="form-input" name="username" placeholder="Username" required/>
+
+				          	<div class="eye-conatiner">
+				                <i id="eye1" class="fas fa-eye fa-lg" aria-hidden="true" onclick="toggle(this)"></i>
+			                </div>
+				            <label for="password-log" class="form-label" xml:lang="en" lang="en">Password</label>
+				            <input type="password" id="password-log" class="form-input" name="password" placeholder="Password" required/>
+
+					      	<div class="btn-sub">
+				      			<input class="form-bottone" type="submit" name="submit" value="Accedi"/>
+				      		</div>
+			        	</div>
+			        </form>
+						<messaggioFinale />
+        	</div>
+		    </div>
+	    </main>
+  		<script src="https://kit.fontawesome.com/ebcd1d18d4.js" crossorigin="anonymous"></script>
+  		<script src="../../scripts/js/contact.js"></script>
+	</body>
+</html>
