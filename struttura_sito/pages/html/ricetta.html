@@ -11,40 +11,49 @@
 <body>
   <placeholder_header />
   <placeholder_breadcrumbs />
-  <placeholder_nav />
-  <main>
-    <section>
-      <h2>
+  <main id="content" class="ricetta">
+    <section class="hero">
+      <img class="image-ricetta" src="../../imgs/ricette/<placeholder_sql_ricetta_immagine />" alt="Foto di una pizza <placeholder_sql_ricetta_nome />" />
+      <p class="author">
+        <placeholder_sql_ricetta_autore />
+      </p>
+      <h2 class="titolo">
         <placeholder_sql_ricetta_nome />
       </h2>
-      <h3>
-        <placeholder_sql_ricetta_autore />
-      </h3>
-      <ul class="ricette-tags">
-        <li class="ricetta-tag-pizza">
+      <ul class="tags">
+        <li>
           <placeholder_sql_ricetta_tipo />
         </li>
         <placeholder_sql_ricetta_vegetariana_tag />
       </ul>
-      <p>
-        <placeholder_sql_ricetta_informazioni />
-      </p>
-      <div class="ricetta-ingredienti-container">
-        <p>Ingredienti:</p>
-        <ul>
+    </section>
+
+    <section class="container">
+      <div>
+        <p class="title-ingredienti">Ingredienti:</p>
+        <ul class="ingredienti">
           <placeholder_sql_ricetta_ingredienti />
         </ul>
-      </div>
-      <img class="ricetta-image" src="../../imgs/ricette/<placeholder_sql_ricetta_immagine />" alt="Foto di una pizza <placeholder_sql_ricetta_nome />" />
-      <p>Scopri come preparare: <a href="./calcolatore.php">vai al Calcolatore</a></p>
-      <button>♥ Like Pizza</button>
-      <span>
-        <placeholder_sql_likes /> Like</span>
+
+        <p class="title-informazioni">Informazioni:</p>
+        <p class="informazioni">
+          <placeholder_sql_ricetta_informazioni />
+        </p>
+
+        <!-- <p>Scopri come preparare: <a href="./calcolatore.php">vai al Calcolatore</a></p> -->
+
+        <button class="like-button" aria-label="Like pizza"></button>
+        <span>
+          <placeholder_sql_likes /> Like
+        </span>
+
     </section>
-    <!-- TODO: UI per inserire e rimuovere commenti? -->
-    <section class="commenti">
+
+    <section id="commenti">
       <h2>Commenti</h2>
-      <placeholder_sql_ricetta_commenti />
+      <div>
+        <placeholder_sql_ricetta_commenti />
+      </div>
     </section>
   </main>
   <placeholder_footer />

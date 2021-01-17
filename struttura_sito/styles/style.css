@@ -228,8 +228,6 @@ main#content {
   width: 70%;
   margin: auto;
   padding: 2em;
-
-  /* background-color: white; */
 }
 
 .title-page {
@@ -237,10 +235,10 @@ main#content {
   text-align: center;
   font-size: 4em;
   font-weight: 900;
-  color: #f12c0e;
+  /* color: #f12c0e; */
 }
 
-section {
+section.container {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -277,7 +275,7 @@ section.space {
   font-size: 2em;
 }
 
-section div {
+section.container div {
   flex: 1 0 16em;
   background-color: white;
   padding: 2em;
@@ -285,9 +283,8 @@ section div {
   box-shadow: 0 0 16px #33333320;
 }
 
-section div.small {
+section.container div.small {
   flex: 0 1 32em;
-  /* max-width: 100%; */
 }
 
 .image-section {
@@ -310,6 +307,10 @@ section div.small {
 .header {
   font-style: italic;
   text-align: center;
+}
+
+section.container div.space {
+  margin: 0.5em;
 }
 
 @media (max-width: 767px) {
@@ -414,7 +415,7 @@ section div.small {
   background-color: white;
   margin: 1em;
   padding: 1.5em;
-  /* box-shadow: 0 0 8px 0 rgba(51, 51, 51, 0.1); */
+  box-shadow: 0 0 16px #33333310;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -501,25 +502,25 @@ section div.small {
   border: 2px solid #6ed264;
 }
 
-.card-ricetta .ingredienti {
+.ingredienti {
   margin: 0;
 }
 
-.card-ricetta .ingredienti li {
+.ingredienti li {
   display: inline;
   font-style: italic;
   text-transform: capitalize;
 }
 
-.card-ricetta .ingredienti li::after {
+.ingredienti li::after {
   content: ",";
 }
 
-.card-ricetta .ingredienti li:last-child::after {
+.ingredienti li:last-child::after {
   content: "";
 }
 
-.card-ricetta footer {
+.card-ricetta section.footer {
   margin-top: 1em;
   width: 100%;
   display: flex;
@@ -527,7 +528,7 @@ section div.small {
   justify-content: space-between;
 }
 
-.card-ricetta .likes {
+.likes {
   background-color: #ffd037;
   border-radius: 10em;
   padding: 0.3em 1em;
@@ -544,7 +545,14 @@ section div.small {
   width: 100%;
 }
 
+.image-ricetta {
+  object-fit: cover;
+  width: 100%;
+  height: 32em;
+}
+
 .ricetta .titolo {
+  margin-top: 0;
   text-align: center;
   font-size: 3em;
   margin-bottom: 0;
@@ -553,12 +561,160 @@ section div.small {
 .ricetta .author {
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-top: 0;
+  margin-bottom: 0;
   text-align: center;
+}
+
+.ricetta .tags {
+  padding: 0;
+  text-align: center;
+}
+
+.ricetta .title-ingredienti {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.ricetta .title-informazioni {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.informazioni {
+  margin-top: 0;
+}
+
+.ricetta .like-button {
+  margin-left: 0.2em;
+  color: white;
+  border: 0;
+  cursor: pointer;
+  background-color: #852fff;
+  border-radius: 10em;
+  padding: 0.3em 1em;
+  font-size: 0.8em;
+  margin-right: 0.5em;
+}
+
+.commento {
+  background-color: white;
+  padding: 1em;
+  margin-bottom: 1em;
+  width: fit-content;
+}
+
+.commento .author::before {
+  content: "👤";
+}
+
+.commento .author {
+  text-align: left;
+}
+
+.commento .data::before {
+  content: "📅";
+}
+.commento .data {
+  margin-top: 0;
+  font-size: small;
+}
+
+.commento .text {
+  margin-bottom: 0;
+}
+
+.ricetta .like-button:hover {
+  background-color: #4c04b3;
+}
+
+.ricetta .like-button::before {
+  content: "❤";
 }
 
 @media (max-width: 767px) {
   .ricetta .titolo {
     font-size: 2em;
   }
+
+  .image-ricetta {
+    height: 16em;
+  }
+
+  #commenti {
+    margin-left: 2em;
+    margin-right: 4em;
+  }
+
+  .commento {
+    width: 100%;
+  }
+
+  .likes,
+  .ricetta .like-button {
+    font-size: 1em;
+  }
+}
+
+#procedimento {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+
+#procedimento .center {
+  text-align: center;
+}
+
+#procedimento ol {
+  list-style: none;
+  padding: 0;
+  width: 60%;
+  margin: 2em auto 1em;
+}
+
+@media (max-width: 767px) {
+  #procedimento ol {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1280px) {
+  #procedimento ol {
+    width: 80%;
+  }
+}
+
+#procedimento ol li {
+  display: block;
+  clear: both;
+  counter-increment: list;
+  padding-bottom: 2em;
+  background-color: white;
+  padding: 1em;
+  margin-top: 1em;
+  box-shadow: 0 0 16px #33333310;
+}
+
+/* ol li span {
+  background-color: white;
+  display: block;
+  padding: 1em 0;
+} */
+
+#procedimento ol li:before {
+  font-size: 2em;
+  font-weight: 700;
+  content: counter(list);
+  width: 2em;
+  height: 2em;
+  float: left;
+  margin: 0 0.5em 0.5em 0;
+  color: white;
+  background: #ed4264;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 16px #33333310;
 }
