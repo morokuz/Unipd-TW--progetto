@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-require_once(__DIR__ . "/../../scripts/php/replace.php");
+require_once(__DIR__ . "/../../scripts/php/useful_functions.php");
 
 $post_output = "";
 if ($_SESSION['post_output']) {
