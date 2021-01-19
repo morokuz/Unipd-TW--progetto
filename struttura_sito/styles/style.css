@@ -599,10 +599,14 @@ section.container div.space {
   margin-right: 0.5em;
 }
 
+#commenti h2 {
+  text-align: center;
+}
+
 .commento {
   background-color: white;
   padding: 1em;
-  margin-bottom: 1em;
+  margin: 0 auto 1em;
   width: fit-content;
 }
 
@@ -717,4 +721,28 @@ section.container div.space {
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 16px #33333310;
+}
+#calcolatore form {
+  margin: auto;
+}
+#calcolatore .row {
+  display: flex;
+  align-items: center;
+}
+#calcolatore .row .column {
+  margin: 0.5em;
+}
+
+#risultato fieldset {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#risultato fieldset div {
+  margin: 0.5em;
+}
+
+#risultato img {
+  height: 2em;
 }

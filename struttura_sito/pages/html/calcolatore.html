@@ -4,15 +4,18 @@
 <head>
   <placeholder_head_default_tags />
   <script src="../../scripts/js/pizzacalc.js"></script>
-  <title>Calcolatore Pizza</title>
+  <title>Calcolatore - Pizza a tutto Tondo</title>
 </head>
 
 <body>
   <placeholder_header />
   <placeholder_breadcrumbs />
 
-  <div class="container_calcolatore">
-    <div class="titolo_calcolatore">CalcolaPizza2000</div>
+  <h1 class="title-page">Calcolatore</h1>
+
+
+  <section id="calcolatore" class="container">
+    <!-- <div class="titolo_calcolatore">CalcolaPizza2000</div> -->
     <form>
       <div class="row">
         <div class="column">
@@ -37,47 +40,53 @@
           <label id="label_diametro" for="diametro_p">Diametro pizza (cm)</label>
           <input onchange="calcola()" id="diametro_p" type="number" min="10" value="25" max="32" name="diametro_p">
         </div>
-        <div class="column">
+        <div id="larghezza_div" class="column">
           <label id="label_larghezza" for="larghezza">Larghezza teglia (cm)</label>
           <input onchange="calcola()" id="larghezza" type="number" min="10" value="25" max="32" name="larghezza"></input>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="container_bottone">
           <button type="button" id="bottone" onclick="calcola()">Calcola</button>
         </div>
-      </div>
+      </div> -->
     </form>
-    <hr class="sep_calc">
-    <fieldset class="risultati">
+
+  </section>
+
+  <section id="risultato" class="container">
+
+    <!-- <hr class="sep_calc"> -->
+    <fieldset>
       <legend>Risultati</legend>
       <div class="farina">
-        <img src="./../../imgs/icons/flour.png">
+        <img src="./../../imgs/icons/flour.png" alt="">
         Farina
         <span id="res_far">125</span>
       </div>
       <div class="acqua">
-        <img src="./../../imgs/icons/water.png">
+        <img src="./../../imgs/icons/water.png" alt="">
         Acqua
         <span id="res_h2o">81.25</span>
       </div>
       <div class="lievito">
-        <img src="./../../imgs/icons/yeast.png">
+        <img src="./../../imgs/icons/yeast.png" alt="">
         Lievito
         <span id="res_lie">1.25</span>
       </div>
       <div class="sale">
-        <img src="./../../imgs/icons/salt.png">
+        <img src="./../../imgs/icons/salt.png" alt="">
         Sale
         <span id="res_sal">2.5</span>
       </div>
       <div class="olio">
-        <img src="./../../imgs/icons/oil.png">
+        <img src="./../../imgs/icons/oil.png" alt="">
         Olio
         <span id="res_oli">6.25</span>
       </div>
     </fieldset>
-  </div>
+
+  </section>
 
   <placeholder_footer />
 </body>

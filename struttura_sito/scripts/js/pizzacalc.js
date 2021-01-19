@@ -17,12 +17,16 @@ function calcola() {
 function teglia(style) {
   if (style == "Pizza in teglia") {
     document.getElementById("label_diametro").innerHTML = "Profondità teglia (cm)";
-    label_larghezza.style.display = "block";
-    larghezza.style.display = "block";
+    // label_larghezza.style.display = "block";
+    // larghezza.style.display = "block";
+    larghezza_div.style.display = "block";
+
+
   } else {
     document.getElementById("label_diametro").innerHTML = "Diametro pizza (cm)";
-    label_larghezza.style.display = "none";
-    larghezza.style.display = "none";
+    // label_larghezza.style.display = "none";
+    // larghezza.style.display = "none";
+    larghezza_div.style.display = "none";
 
   }
 }
