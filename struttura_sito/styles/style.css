@@ -608,6 +608,23 @@ section.container div.space {
   text-align: center;
 }
 
+.comment-form_container{
+  text-align: center;
+}
+
+.comment-form_container textarea{
+  border: 1px solid #000;
+  margin: 0 auto 1em;
+  padding: 0.5em;
+  width: 60em;
+  height: 10em;
+  font-size: small;
+}
+
+.comment-form_container button{
+  margin: 0 auto 1em;
+}
+
 .commento {
   background-color: white;
   padding: 1em;

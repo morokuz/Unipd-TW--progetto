@@ -54,7 +54,8 @@ $sql = "SELECT commenti.contenuto AS contenuto,
                commenti.data_ora AS data_ora,
                utenti.username AS username
         FROM commenti JOIN utenti ON commenti.autore=utenti.id
-        WHERE commenti.ricetta=\"$ricetta_id\"";
+        WHERE commenti.ricetta=\"$ricetta_id\"
+        ORDER BY data_ora DESC";
 $result = $GLOBALS["db_connection"]->query($sql);
 
 while ($row = $result->fetch_assoc()) {
@@ -90,4 +91,3 @@ $replacements = [
 db_close($db_connection);
 
 echo replace($page, $replacements);
-?>
