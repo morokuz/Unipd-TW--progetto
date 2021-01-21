@@ -1,16 +1,16 @@
 <?php
 function db_connect() {
   // TODO: i parametri della funzione variano in base al ambiente in cui sono eseguiti. Andranno modificati correttamente quando installati sul server tecweb
-  $servername = "192.168.178.144:3306";
+  
+  /* $servername = "localhost";
+  $username = "testuser";
+  $password = "pw";
+  $db = "test"; */
+
+  /* $servername = "192.168.178.144:3306";
   $username = "root";
   $password = "admin";
-  $db = "test_pizza";
-
-// da togliere
-  // $servername = "localhost";
-  // $username = "root";
-  // $password = "";
-  // $db = "pizzadb";
+  $db = "test_pizza"; */
 
   $connection = mysqli_connect($servername, $username, $password,$db);
   if (!$connection) {
