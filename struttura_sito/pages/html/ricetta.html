@@ -10,7 +10,16 @@
 
 <body>
   <placeholder_header />
-  <placeholder_breadcrumbs />
+  
+  <nav class="breadcrumbs_block">
+    <p class="breadcrumbs_pre">Ti trovi in:</p>
+    <ul class="breadcrumbs">
+      <li><a href="./home.php">Home</a></li>
+      <li><a href="./ricette.php">Ricette</a></li>
+      <li><placeholder_sql_ricetta_nome /></li>
+    </ul>
+  </nav>
+
   <main id="content" class="ricetta">
     <section class="hero">
       <img class="image-ricetta" src="../../imgs/ricette/<placeholder_sql_ricetta_immagine />" alt="Foto di una pizza <placeholder_sql_ricetta_nome />" />
