@@ -13,7 +13,6 @@ $replacements = [
   "<placeholder_header />" => file_get_contents(__DIR__ . "/../html/components/header.html"),
   "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html"),
   "<placeholder_breadcrumbs />" => file_get_contents(__DIR__ . "/../html/components/breadcrumbs.html"),
-  "<placeholder_nav />" => file_get_contents(__DIR__ . "/../html/components/nav.html"),
   "<placeholder_log />" => $links[0],
   "<placeholder_reg />" => $links[1],
   "<placeholder_ricette_cards />" => html_ricette_cards()
