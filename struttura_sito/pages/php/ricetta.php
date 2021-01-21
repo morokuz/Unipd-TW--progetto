@@ -1,8 +1,11 @@
-<?php 
-require_once(__DIR__ . "/../../scripts/php/useful_functions.php");
-require_once(__DIR__ . "/../../scripts/php/database.php");
+<?php
+session_start();
+require_once (__DIR__ . "/../../scripts/php/useful_functions.php");
+require_once (__DIR__ . "/../../scripts/php/database.php");
 
 $db_connection = db_connect();
+$links = array();
+$links = checkSession();
 
 $ricetta_id = $_GET['id'];
 
@@ -71,7 +74,8 @@ $replacements = [
   "<placeholder_header />" => file_get_contents(__DIR__ . "/../html/components/header.html"),
   "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html"),
   "<placeholder_breadcrumbs />" => file_get_contents(__DIR__ . "/../html/components/breadcrumbs.html"),
-  "<placeholder_nav />" => file_get_contents(__DIR__ . "/../html/components/nav.html"),
+  "<placeholder_log />" => $links[0],
+  "<placeholder_reg />" => $links[1],
   "<placeholder_sql_ricetta_nome />" => $ricetta_nome,
   "<placeholder_sql_ricetta_autore />" => $ricetta_autore,
   "<placeholder_sql_ricetta_tipo />" => $ricetta_tipo,

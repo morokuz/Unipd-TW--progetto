@@ -1,8 +1,11 @@
-<?php 
-require_once(__DIR__ . "/../../scripts/php/useful_functions.php");
-require_once(__DIR__ . "/../../scripts/php/database.php");
+<?php
+session_start();
+require_once (__DIR__ . "/../../scripts/php/useful_functions.php");
+require_once (__DIR__ . "/../../scripts/php/database.php");
 
 $db_connection = db_connect();
+$links = array();
+$links = checkSession();
 
 $page = file_get_contents(__DIR__ . "/../html/ricette.html");
 $replacements = [
@@ -11,15 +14,14 @@ $replacements = [
   "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html"),
   "<placeholder_breadcrumbs />" => file_get_contents(__DIR__ . "/../html/components/breadcrumbs.html"),
   "<placeholder_nav />" => file_get_contents(__DIR__ . "/../html/components/nav.html"),
+  "<placeholder_log />" => $links[0],
+  "<placeholder_reg />" => $links[1],
   "<placeholder_ricette_cards />" => html_ricette_cards()
 ];
 
 db_close($db_connection);
 
 echo replace($page, $replacements);
-
-
-
 
 function html_ricette_cards() {
   $ricette_cards = "";
@@ -34,7 +36,7 @@ function html_ricette_cards() {
 
 function html_ricette_card($ricetta_nome) {
   $ricette_card = file_get_contents(__DIR__ . "/../html/components/ricette_card.html");
-  
+
   $sql = "SELECT utenti.username AS autore,
                  ricette.tipo AS tipo,
                  ricette.vegetariana AS vegetariana,
@@ -64,7 +66,7 @@ function html_ricette_card($ricetta_nome) {
   if ($row["vegetariana"] == true) {
     $ricetta_vegetariana = file_get_contents(__DIR__ . "/../html/components/ricette_card_tag_vegetariana.html");
   }
-  
+
   $sql = "SELECT COUNT(*) AS n_likes
           FROM likes JOIN ricette ON likes.ricetta=ricette.id
           WHERE ricette.nome=\"$ricetta_nome\"";
@@ -72,7 +74,7 @@ function html_ricette_card($ricetta_nome) {
   $row = $result->fetch_assoc();
   $ricetta_likes = $row["n_likes"];
 
-  
+
   $replacements = [
     "<placeholder_sql_ricetta_nome />" => $ricetta_nome,
     "<placeholder_sql_ricetta_autore />" => $ricetta_autore,
