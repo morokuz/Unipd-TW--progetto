@@ -7,6 +7,7 @@ $page = file_get_contents(__DIR__ . "/../html/signup.html");
 
 $msg = array('username' => '', 'email' => '', 'password' => '', 'passwordRpt' => '');
 $finalmsg = '' ; $username = '' ; $email = ''; $password = ''; $passwordRpt = '';
+
 $connection = db_connect();
 if (isset($_POST['submit'])) {
   $username = $_POST['username'];
@@ -76,7 +77,6 @@ $replacements = [
   "<placeholder_header />" => file_get_contents(__DIR__ . "/../html/components/header.html"),
   "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html"),
   "<placeholder_breadcrumbs />" => file_get_contents(__DIR__ . "/../html/components/breadcrumbs.html"),
-  "<placeholder_nav />" => file_get_contents(__DIR__ . "/../html/components/nav.html"),
   "<messaggioUsername />" => $msg['username'] ,
   "<messaggioEmail />" => $msg['email'] ,
   "<messaggioPassword />" => $msg['password'] ,
@@ -86,6 +86,7 @@ $replacements = [
   "<valoreEmail />" => $email ,
   "<valorePass />" => $password ,
   "<valorePassRpt />" => $passwordRpt
+
 ];
 db_close($connection);
 
