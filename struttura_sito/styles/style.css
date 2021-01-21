@@ -747,3 +747,28 @@ section.container div.space {
 #risultato img {
   height: 2em;
 }
+
+/*Start Breadcrumbs*/
+.breadcrumbs_block {
+  margin: 0.5em;
+}
+.breadcrumbs_pre {
+  display: inline;
+}
+.breadcrumbs {
+  list-style-type: none;
+  display: inline;
+  padding-left: 0em;
+}
+.breadcrumbs li{
+  display: inline;
+}
+.breadcrumbs li:before {
+  content: "\276F";
+  padding: 0em 1em;
+}
+.breadcrumbs li:first-child:before {
+  content: "";
+  padding-left: 0em;
+}
+/*End Breadcrumbs*/
