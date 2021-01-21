@@ -728,6 +728,7 @@ section.container div.space {
 #calcolatore .row {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 #calcolatore .row .column {
   margin: 0.5em;
