@@ -1,39 +1,33 @@
-INSERT INTO utenti (email, pword, username, is_admin) VALUES 
+INSERT INTO utenti (email, pword, username) VALUES 
 (
   "pizzaadmin@mail.com",
   "$2y$10$1hgewpV8puZzoBALrmXyLeOgtTf1zNno9I0ZpvEB43GtOKHGVEO66",
-  "admin",
-  TRUE
+  "admin"
 ),
 (
   "pizzauser@mail.com",
   "$2y$10$db5xt4FXph6fLv.iTeQ2.Oe9q/HxB/HzBlpv5J93JaA3yxrItxZKW",
-  "user",
-  FALSE
+  "user"
 ),
 (
   "gordon@mail.com",
   "$2y$10$y2GMVQlUKaRJGmXWGSNcVesgybz/PT9M.7rsERvushv.N1ZeQWghW",
-  "gordon",
-  FALSE
+  "gordon"
 ),
 (
   "benedetta@mail.com",
   "$2y$10$K57uL2lB5eiw4V/6fJzfyurVS6B5Ll2wTSMvAknO5KD5gxHLF.VFK",
-  "benedetta",
-  FALSE
+  "benedetta"
 ),
 (
   "jamie@mail.com",
   "$2y$10$dlRHIKpO9PgbTtKKIqyMWejFRPGnZIDecEG4UIUVYEvF8ol0ojAhC",
-  "jamie",
-  FALSE
+  "jamie"
 ),
 (
   "massimo@mail.com",
   "$2y$10$HtAY7eapiS/4ll3iYDdNYOX2bvkMkOEISFxqQrvfuYfkU/JLMduZW",
-  "massimo",
-  FALSE
+  "massimo"
 );
 
 INSERT INTO ricette (nome, vegetariana, tipo, ingredienti, informazioni, autore, nome_immagine) VALUES
@@ -49,7 +43,7 @@ INSERT INTO ricette (nome, vegetariana, tipo, ingredienti, informazioni, autore,
 (
   "Quattro Formaggi",
   TRUE,
-  "Napoletana",
+  "Tonda",
   "mozzarella, fontina, gorgonzola, parimgiano",
   "La pizza 4 formaggi è una meravigliosa pizza bianca morbida e golosa, che si può realizzare anche nella versione con il pomodoro. Questa versione è una delle più apprezzate in Italia e non solo, ed è un modo perfetto per valorizzare i formaggi e gustarli in un piatto dal sapore incredibile.",
   1,
@@ -83,78 +77,59 @@ INSERT INTO ricette (nome, vegetariana, tipo, ingredienti, informazioni, autore,
   "patate_e_rosmarino.jpg"
 );
 
-/* INSERT INTO commenti (autore, ricetta, contenuto, data_ora) VALUES
+INSERT INTO commenti (autore, ricetta, contenuto, data_ora) VALUES
 (
+  3,
   1,
-  1,
-  "buonissima",
-  "2020-01-09T20:10:00"
+  "La migliore se siete amanti del piccante",
+  "2021-01-10 13:08:22"
 ),
 (
-  1,
+  4,
   2,
-  "buonissima",
-  "2020-01-11T20:10:00"
+  "Fantastica! E' possibile anche cambiare le combinazioni di formaggi",
+  "2021-01-11 14:08:00"
+),
+(
+  3,
+  3,
+  "Classica! La pizza per eccellenza. Non cambiare niente in questa ricetta",
+  "2021-01-12 07:23:00"
+),
+(
+  5,
+  3,
+  "100 vlte meglio cn la mozzarella di bufala!!1!",
+  "2021-01-13 22:11:00"
+),
+(
+  4,
+  4,
+  "Fantastica ricetta che non necessita di forno a legna",
+  "2021-01-15 15:08:00"
+),
+(
+  5,
+  4,
+  "La VERA pizza è sottile, non si fa così!!!",
+  "2021-01-16 21:16:00"
 ),
 (
   3,
   5,
-  "buonissima",
-  "2020-01-10T20:10:00"
-),
-(
-  2,
-  2,
-  "buonissima",
-  "2020-01-08T20:10:00"
-),
-(
-  3,
-  4,
-  "buonissima",
-  "2020-01-08T20:10:00"
-),
-(
-  3,
-  1,
-  "molto buona",
-  "2020-01-10T20:10:00"
-),
-(
-  1,
-  6,
-  "molto buona",
-  "2020-01-12T20:10:00"
-),
-(
-  2,
-  3,
-  "fantastica",
-  "2020-01-12T20:10:00"
-),
-(
-  1,
-  6,
-  "cattiva",
-  "2002-01-10T20:10:00"
-),
-(
-  2,
-  4,
-  "fantastica",
-  "2020-01-12T20:10:00"
+  "Pizza invernale per una bella carica",
+  "2021-01-17 14:43:00"
 );
 
 INSERT INTO likes (utente, ricetta) VALUES 
-(1, 1),
-(1, 2),
-(1, 5),
-(1, 3),
-(2, 1),
-(2, 5),
-(2, 6),
 (3, 1),
-(3, 4),
-(3, 6),
-(3, 5);
- */
+(4, 1),
+(4, 2),
+(3, 3),
+(4, 3),
+(5, 3),
+(6, 3),
+(5, 4),
+(6, 4),
+(3, 5),
+(5, 5);

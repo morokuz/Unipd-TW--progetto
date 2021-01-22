@@ -3,7 +3,6 @@ CREATE TABLE utenti (
     email VARCHAR(50) NOT NULL,
     pword VARCHAR(256) NOT NULL,
     username VARCHAR(20) NOT NULL,
-    is_admin BOOLEAN DEFAULT FALSE,
     PRIMARY KEY (id),
     UNIQUE (username)
 );
