@@ -866,10 +866,76 @@ section.container div.space {
 
 /*End Breadcrumbs*/
 
+/* Error pages */
+#cont-404{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#img-pizza {
+  content: url(../imgs/pizza.png);
+  width: 200px;
+  height: 250px;
+}
+
+#cont-error {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#cont-error h2 {
+  font-size: 18em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#cont-404 p {
+  font-size: 2em;
+  margin: 1em 0;
+}
+
+@media (max-width: 767px) {
+  #cont-error h2 {
+    font-size: 10em;
+  }
+
+  #cont-404 p {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+  }
+
+  #img-pizza {
+    width: 125px;
+    height: 150px;
+  }
+}
+/* Error pages End */
+
 footer {
+  margin-top: 1em;
   background-color: white;
-  padding: 1em 2em;
+  padding-bottom: 1em;
   text-align: center;
+  box-shadow: 0 0 16px #33333310;
+}
+
+.foot-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#torna-su {
+  width: 100%;
+  padding: 1em 0;
+  font-weight: bold;
+  background-color: #f5e8c1cc;
   box-shadow: 0 0 16px #33333310;
 }
 
