@@ -1,0 +1,2 @@
+ErrorDocument 404 /Pizza_a_Tutto_Tondo/pages/php/404.php
+ErrorDocument 403 /Pizza_a_Tutto_Tondo/pages/php/403.php

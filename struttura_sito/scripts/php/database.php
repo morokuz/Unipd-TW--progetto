@@ -1,7 +1,12 @@
 <?php
 function db_connect() {
   // TODO: i parametri della funzione variano in base al ambiente in cui sono eseguiti. Andranno modificati correttamente quando installati sul server tecweb
-  
+
+  // $servername = "localhost";
+  // $username = "root";
+  // $password = "";
+  // $db = "test";
+
   /* $servername = "localhost";
   $username = "testuser";
   $password = "pw";
