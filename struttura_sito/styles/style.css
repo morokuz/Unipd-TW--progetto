@@ -608,6 +608,23 @@ section.container div.space {
   text-align: center;
 }
 
+.comment-form_container{
+  text-align: center;
+}
+
+.comment-form_container textarea{
+  border: 1px solid #000;
+  margin: 0 auto 1em;
+  padding: 0.5em;
+  width: 60em;
+  height: 10em;
+  font-size: small;
+}
+
+.comment-form_container button{
+  margin: 0 auto 1em;
+}
+
 .commento {
   background-color: white;
   padding: 1em;
@@ -783,3 +800,28 @@ section.container div.space {
 #risultato img {
   height: 2em;
 }
+
+/*Start Breadcrumbs*/
+.breadcrumbs_block {
+  margin: 0.5em;
+}
+.breadcrumbs_pre {
+  display: inline;
+}
+.breadcrumbs {
+  list-style-type: none;
+  display: inline;
+  padding-left: 0em;
+}
+.breadcrumbs li{
+  display: inline;
+}
+.breadcrumbs li:before {
+  content: "\276F";
+  padding: 0em 1em;
+}
+.breadcrumbs li:first-child:before {
+  content: "";
+  padding-left: 0em;
+}
+/*End Breadcrumbs*/
