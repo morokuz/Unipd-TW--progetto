@@ -608,11 +608,11 @@ section.container div.space {
   text-align: center;
 }
 
-.comment-form_container{
+.comment-form_container {
   text-align: center;
 }
 
-.comment-form_container textarea{
+.comment-form_container textarea {
   border: 1px solid #000;
   margin: 0 auto 1em;
   padding: 0.5em;
@@ -621,7 +621,7 @@ section.container div.space {
   font-size: small;
 }
 
-.comment-form_container button{
+.comment-form_container button {
   margin: 0 auto 1em;
 }
 
@@ -701,6 +701,7 @@ section.container div.space {
   background-color: white;
   padding: 1em 2em;
   margin-top: 1em;
+  box-shadow: 0 0 16px #33333310;
 }
 
 .ricetta-content #procedimento {
@@ -769,15 +770,49 @@ section.container div.space {
   float: left;
   margin: 0 0.5em 0.5em 0;
   color: white;
-  background: #ed4264;
+  background-color: #ed4264;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 16px #33333310;
 }
+
+#procedimento ol.variant li:before {
+  background-color: #cfb776;
+}
+
+.after-ol {
+  margin-top: 2.5em;
+}
+
+.subtitle {
+  font-size: 1.2em;
+}
+
+@media (max-width: 767px) {
+  .ricetta-content aside {
+    width: 100%;
+    position: static;
+  }
+
+  .ricetta-content #procedimento {
+    width: 100%;
+  }
+
+  #procedimento ol {
+    width: 100%;
+  }
+
+  .subtitle {
+    font-size: 1.1em;
+    padding: 0 1em;
+  }
+}
+
 #calcolatore form {
   margin: auto;
 }
+
 #calcolatore .row {
   display: flex;
   align-items: center;
@@ -803,25 +838,42 @@ section.container div.space {
 
 /*Start Breadcrumbs*/
 .breadcrumbs_block {
-  margin: 0.5em;
+  margin: 1em;
 }
+
 .breadcrumbs_pre {
   display: inline;
 }
+
 .breadcrumbs {
   list-style-type: none;
   display: inline;
   padding-left: 0em;
 }
-.breadcrumbs li{
+
+.breadcrumbs li {
   display: inline;
 }
-.breadcrumbs li:before {
-  content: "\276F";
-  padding: 0em 1em;
+
+.breadcrumbs li::after {
+  content: "/";
+  margin: 0 0.25em 0 0.5em;
 }
-.breadcrumbs li:first-child:before {
+
+.breadcrumbs li:last-child::after {
   content: "";
-  padding-left: 0em;
 }
+
 /*End Breadcrumbs*/
+
+footer {
+  background-color: white;
+  padding: 1em 2em;
+  text-align: center;
+  box-shadow: 0 0 16px #33333310;
+}
+
+footer .title-footer {
+  font-size: 1.5em;
+  font-weight: bold;
+}
