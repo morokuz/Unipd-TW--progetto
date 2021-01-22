@@ -1,4 +1,4 @@
-INSERT INTO utenti (email, pword, username, is_admin) VALUES 
+INSERT INTO utenti (email, pword, username, is_admin) VALUES
 (
   "pizzaadmin@mail.com",
   "$2y$10$1hgewpV8puZzoBALrmXyLeOgtTf1zNno9I0ZpvEB43GtOKHGVEO66",
@@ -144,8 +144,7 @@ INSERT INTO ricette (nome, vegetariana, tipo, ingredienti, informazioni, autore,
   "fantastica",
   "2020-01-12T20:10:00"
 );
-
-INSERT INTO likes (utente, ricetta) VALUES 
+INSERT INTO likes (utente, ricetta) VALUES
 (1, 1),
 (1, 2),
 (1, 5),

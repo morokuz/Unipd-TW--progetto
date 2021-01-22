@@ -939,6 +939,11 @@ footer {
   box-shadow: 0 0 16px #33333310;
 }
 
+#torna-su:hover {
+  background-color: #FF6347;
+  transition: background-color 500ms;
+}
+
 footer .title-footer {
   font-size: 1.5em;
   font-weight: bold;

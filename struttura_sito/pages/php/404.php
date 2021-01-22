@@ -9,7 +9,7 @@ $links = checkSession();
 
 $replacements = [
   "<placeholder_head_default_tags />" => file_get_contents(__DIR__ . "/../html/components/head_default_tags.html"),
-  "<placeholder_header />" => file_get_contents(__DIR__ . "../../html/components/header.html"),
+  "<placeholder_header />" => file_get_contents(__DIR__ . "/../html/components/header.html"),
   "<placeholder_log />" => $links[0],
   "<placeholder_reg />" => $links[1]
 ];
