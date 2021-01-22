@@ -1,13 +1,14 @@
 <?php
 session_start();
-require_once (__DIR__ . "/../../scripts/php/useful_functions.php");
-require_once (__DIR__ . "/../../scripts/php/database.php");
+require_once(__DIR__ . "/../../scripts/php/useful_functions.php");
+require_once(__DIR__ . "/../../scripts/php/database.php");
 
 $db_connection = db_connect();
 $links = array();
 $links = checkSession();
 
 $ricetta_id = $_GET['id'];
+$_SESSION['id_ricetta'] = $ricetta_id;
 
 $sql = "SELECT utenti.username AS autore,
                ricette.nome AS nome,
@@ -22,7 +23,7 @@ $result = $GLOBALS["db_connection"]->query($sql);
 $row = $result->fetch_assoc();
 $ricetta_nome = $row["nome"];
 $ricetta_autore = $row["autore"];
-if($row["autore"] == "admin") {
+if ($row["autore"] == "admin") {
   $ricetta_autore = "CLASSICA";
 }
 $ricetta_tipo = $row["tipo"];
