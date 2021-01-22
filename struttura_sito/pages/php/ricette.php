@@ -15,7 +15,8 @@ $replacements = [
   "<placeholder_breadcrumbs />" => file_get_contents(__DIR__ . "/../html/components/breadcrumbs.html"),
   "<placeholder_log />" => $links[0],
   "<placeholder_reg />" => $links[1],
-  "<placeholder_ricette_cards />" => html_ricette_cards()
+  "<placeholder_ricette_cards />" => html_ricette_cards(),
+  "<placeholder_ricette_aggiungi_link />" => ricette_aggiungi_link()
 ];
 
 db_close($db_connection);
@@ -85,5 +86,14 @@ function html_ricette_card($ricetta_nome) {
     "<placeholder_sql_ricetta_id />" => $ricetta_id
   ];
   return replace($ricette_card, $replacements);;
+}
+
+function ricette_aggiungi_link() {
+  if(isset($_SESSION['usid'])) {
+    $link = "./ricetta_aggiungi.php";
+  } else {
+    $link = "./login.php";
+  }
+  return $link;
 }
 ?>

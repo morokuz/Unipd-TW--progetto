@@ -28,6 +28,12 @@ function name_ricetta_exists($db_connection) {
 }
 
 function insert_ricetta($db_connection) {
+  if(isset($_SESSION['usid'])) {
+    $ricetta_autore = $_SESSION['usid'];
+  } else {
+    exit_insert("ERRORE: Effettuare login", $db_connection);
+  }
+  
   $insert_db = $db_connection->prepare("INSERT INTO ricette (nome, vegetariana, tipo, ingredienti, informazioni, autore, nome_immagine)
   VALUES (?, ?, ?, ?, ?, ?, ?)");
   $insert_db->bind_param("sisssis", $ricetta_nome, $ricetta_vegetariana, $ricetta_tipo, $ricetta_ingredienti, $ricetta_informazioni, $ricetta_autore, $ricetta_nome_immagine);
@@ -44,16 +50,13 @@ function insert_ricetta($db_connection) {
   if ($_FILES['immagine']['name']) {
     $ext = pathinfo($_FILES['immagine']['name'], PATHINFO_EXTENSION);
     $ricetta_nome_immagine = strtolower(str_replace(" ", "_", $ricetta_nome)) . "." . $ext;
+    if (!save_image($ricetta_nome_immagine)) {
+      exit_insert("ERRORE: Errore nel caricamento dell'immagine", $db_connection);
+    }
   }
-  // TODO: verificare sessione per stabilire l'autore corretto
-  $ricetta_autore = 1;
 
   $insert_db->execute();
   $insert_db->close();
-
-  if (!save_image($ricetta_nome_immagine)) {
-    exit_insert("ERRORE: Errore nel caricamento dell'immagine", $db_connection);
-  }
 }
 
 // TODO: save image: check file size (max size?)?. check file extension? 
@@ -65,5 +68,6 @@ function exit_insert($exit_message, $db_connection) {
   $_SESSION['post_output'] = $exit_message;
   db_close($db_connection);
   header('Location: ../../pages/php/ricetta_aggiungi.php');
+  exit();
 }
 ?>
