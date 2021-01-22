@@ -5,8 +5,17 @@ require_once (__DIR__ . "/../../scripts/php/useful_functions.php");
 $page = file_get_contents(__DIR__ . "/../html/login.html");
 
 $finalmsg = '' ; $username = '' ; $password = '';
-
+$header = file_get_contents(__DIR__ . "/../html/components/header.html");
+$current = '<li class="active current">Home</li>';
+$links = array();
+$links = checkSession();
 $connection = db_connect();
+$header = str_replace("<placeholder_log />" , $links[0] , $header);
+$header = str_replace("<placeholder_reg />" , $links[1] , $header);
+$current = '<li class="current">Accedi</li>';
+$header = str_replace('<li><a href="/Pizza_a_Tutto_Tondo/pages/php/login.php">Accedi</a></li>', $current, $header);
+
+
 if (isset($_POST['submit'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
@@ -21,10 +30,12 @@ if (isset($_POST['submit'])) {
 
 $replacements = [
   "<placeholder_head_default_tags />" => file_get_contents(__DIR__ . "/../html/components/head_default_tags.html"),
-  "<placeholder_header />" => file_get_contents(__DIR__ . "/../html/components/header.html"),
+  "<placeholder_header />" => $header,
   "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html"),
   "<placeholder_breadcrumbs />" => file_get_contents(__DIR__ . "/../html/components/breadcrumbs.html"),
-  "<messaggioFinale />" => $finalmsg
+  "<messaggioFinale />" => $finalmsg,
+  "<placeholder_log />" => $links[0],
+  "<placeholder_reg />" => $links[1]
 ];
 
 db_close($connection);

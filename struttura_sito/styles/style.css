@@ -70,10 +70,16 @@ header nav li a {
   padding: 1em;
 }
 
-header nav li.active {
+.current {
+  padding: 2em;
   background-color: #f5e8c1cc;
   font-weight: bold;
 }
+
+/* .current:before {
+  content: "😋";
+  margin-right: 4px;
+} */
 
 @media (max-width: 1280px) {
   header {

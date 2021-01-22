@@ -4,6 +4,9 @@ session_start();
 require_once (__DIR__ . "/../../scripts/php/useful_functions.php");
 
 $page = file_get_contents(__DIR__ . "/../html/contactus.html");
+$header = file_get_contents(__DIR__ . "/../html/components/header.html");
+$current = '<li class="current">Contatti</li>';
+$header = str_replace('<li><a href="/Pizza_a_Tutto_Tondo/pages/php/contactus.php">Contatti</a></li>', $current, $header);
 $links = array();
 
 $links = checkSession();
@@ -26,7 +29,7 @@ if(isset($_POST['submit'])) {
 
 $replacements = [
   "<placeholder_head_default_tags />" => file_get_contents(__DIR__ . "/../html/components/head_default_tags.html"),
-  "<placeholder_header />" => file_get_contents(__DIR__ . "/../html/components/header.html"),
+  "<placeholder_header />" => $header,
   "<placeholder_log />" => $links[0],
   "<placeholder_reg />" => $links[1],
   "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html"),
