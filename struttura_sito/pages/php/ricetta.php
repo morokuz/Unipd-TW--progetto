@@ -22,6 +22,9 @@ $result = $GLOBALS["db_connection"]->query($sql);
 $row = $result->fetch_assoc();
 $ricetta_nome = $row["nome"];
 $ricetta_autore = $row["autore"];
+if($row["autore"] == "admin") {
+  $ricetta_autore = "CLASSICA";
+}
 $ricetta_tipo = $row["tipo"];
 $ricetta_informazioni = $row["informazioni"];
 $ricetta_immagine = $row["immagine"];

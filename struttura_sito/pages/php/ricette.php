@@ -48,6 +48,9 @@ function html_ricette_card($ricetta_nome) {
   $result = $GLOBALS["db_connection"]->query($sql);
   $row = $result->fetch_assoc();
   $ricetta_autore = $row["autore"];
+  if($row["autore"] == "admin") {
+    $ricetta_autore = "CLASSICA";
+  }
   $ricetta_tipo = $row["tipo"];
   $ricetta_immagine = $row["immagine"];
   $ricetta_id = $row["id"];
