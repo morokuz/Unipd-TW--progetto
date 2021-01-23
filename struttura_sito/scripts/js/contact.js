@@ -153,28 +153,3 @@ function setSuccessFor(input, message) {
   esito.className = 'esito success';
   span.innerText = message;
 }
-
-//Gestione degli eye per vedere/nascondere le password
-// var stato = false;
-// function toggle(elem) {
-// 	var id = elem.id;
-// 	if(stato){
-// 		if(id == "eye1"){
-// 			document.getElementById("password-log").setAttribute("type","password");
-// 		} else if (id == "eye2"){
-// 			document.getElementById("password-reg").setAttribute("type","password");
-// 		} else {
-// 			document.getElementById("password-reg1").setAttribute("type","password");
-// 		}
-// 		stato = false;
-// 	} else {
-// 		if(id == "eye1"){
-// 			document.getElementById("password-log").setAttribute("type","text");
-// 		} else if (id == "eye2"){
-// 			document.getElementById("password-reg").setAttribute("type","text");
-// 		} else {
-// 			document.getElementById("password-reg1").setAttribute("type","text");
-// 		}
-// 		stato = true;
-// 	}
-// }

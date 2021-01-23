@@ -71,15 +71,14 @@ header nav li a {
 }
 
 .current {
-  padding: 2em;
   background-color: #f5e8c1cc;
   font-weight: bold;
 }
 
-/* .current:before {
-  content: "😋";
-  margin-right: 4px;
-} */
+.current:hover {
+  background-color: #cfb776;
+  transition: background-color 250ms;
+}
 
 @media (max-width: 1280px) {
   header {
@@ -950,8 +949,8 @@ footer {
 }
 
 #torna-su:hover {
-  background-color: #ff6347;
-  transition: background-color 500ms;
+  background-color: #cfb776;
+  transition: background-color 250ms;
 }
 
 footer .title-footer {

@@ -13,17 +13,17 @@ $page = file_get_contents(__DIR__ . "/../html/ricetta_aggiungi.html");
 $links = array();
 $links = checkSession();
 $header = file_get_contents(__DIR__ . "/../html/components/header.html");
-$current = '<li class="current">Scopri i gusti</li>';
+$current = '<li class="current"><a href="ricette">Scopri i gusti</a></li>';
 $header = str_replace('<li><a href="ricette">Scopri i gusti</a></li>', $current, $header);
 $replacements = [
   "<placeholder_head_default_tags />" => file_get_contents(__DIR__ . "/../html/components/head_default_tags.html"),
   "<placeholder_header />" => $header,
   "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html"),
   "<placeholder_breadcrumbs />" => file_get_contents(__DIR__ . "/../html/components/breadcrumbs.html"),
-  "<placeholder_log />" => $links[0],
-  "<placeholder_reg />" => $links[1],
   "<placeholder_post_output />" => $post_output
 ];
+
+$replacements = addReplacements($replacements, $links);
 
 echo replace($page, $replacements);
 ?>

@@ -12,10 +12,10 @@ function db_connect() {
   $password = "pw";
   $db = "test"; */
 
-   $servername = "192.168.178.144:3306";
-  $username = "root";
-  $password = "admin";
-  $db = "test_pizza"; 
+  //  $servername = "192.168.178.144:3306";
+  // $username = "root";
+  // $password = "admin";
+  // $db = "test_pizza";
 
   $connection = mysqli_connect($servername, $username, $password,$db);
   if (!$connection) {

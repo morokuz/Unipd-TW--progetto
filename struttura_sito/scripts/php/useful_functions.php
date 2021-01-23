@@ -9,13 +9,22 @@ function replace($string_input, $array_replacements) {
 
 function checkSession() {
   if(isset($_SESSION['usid'])) {
-    $links[0] = '<li><a href="#">Ciao ' . $_SESSION["usname"] . '</a></li>';
-    $links[1] = '<li><a href="logout">Log out</a></li>';
+    $links[0] = '<li><a href="logout">Ciao ' . $_SESSION["usname"] . '! Effettua il logout</a></li>';
   } else {
     $links[0] = '<li><a href="login">Accedi</a></li>';
     $links[1] = '<li><a href="signup">Registrati</a></li>';
   }
   return $links;
+}
+
+function addReplacements($replacements, $links) {
+  if(count($links) == 2){
+    $replacements += ["<placeholder_log />" => $links[0]];
+    $replacements += ["<placeholder_reg />" => $links[1]];
+  } else {
+    $replacements += ["<placeholder_log />" => $links[0]];
+  }
+  return $replacements;
 }
 
 function alreadyTaken ($conn , $username) {

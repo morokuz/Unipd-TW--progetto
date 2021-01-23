@@ -81,8 +81,6 @@ $replacements = [
   "<placeholder_header />" => $header,
   "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html"),
   "<placeholder_breadcrumbs />" => file_get_contents(__DIR__ . "/../html/components/breadcrumbs.html"),
-  "<placeholder_log />" => $links[0],
-  "<placeholder_reg />" => $links[1],
   "<placeholder_sql_ricetta_nome />" => $ricetta_nome,
   "<placeholder_sql_ricetta_autore />" => $ricetta_autore,
   "<placeholder_sql_ricetta_tipo />" => $ricetta_tipo,
@@ -93,6 +91,8 @@ $replacements = [
   "<placeholder_sql_likes />" => $ricetta_likes,
   "<placeholder_sql_ricetta_commenti />" => $ricetta_commenti
 ];
+
+$replacements = addReplacements($replacements, $links);
 
 db_close($db_connection);
 
