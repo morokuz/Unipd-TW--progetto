@@ -1,12 +1,14 @@
 <?php
 session_start();
 
-require_once (__DIR__ . "/../../scripts/php/useful_functions.php");
+require_once(__DIR__ . "/../../scripts/php/useful_functions.php");
 
 $post_output = "";
-if ($_SESSION['post_output']) {
-  $post_output = "<p>" . $_SESSION['post_output'] . "</p>";
-  unset($_SESSION['post_output']);
+if (isset($_SESSION['post_output'])) {
+  if ($_SESSION['post_output']) {
+    $post_output = "<p>" . $_SESSION['post_output'] . "</p>";
+    unset($_SESSION['post_output']);
+  }
 }
 
 $page = file_get_contents(__DIR__ . "/../html/ricetta_aggiungi.html");
@@ -26,4 +28,3 @@ $replacements = [
 $replacements = addReplacements($replacements, $links);
 
 echo replace($page, $replacements);
-?>

@@ -18,42 +18,51 @@
     </ul>
   </nav>
 
-  <main>
-    <h1>Aggiuingi Ricetta</h1>
-    <form action="scripts/php/ricetta_new.php" method="POST" enctype="multipart/form-data">
-      <div class="aggiungi-ricetta-section">
-        <label for="ricetta-nome"><strong>Nome</strong> ricetta: </label>
-        <input name="nome" id="ricetta-nome" placeholder="Cinque Formaggi" required />
+  <main id="content">
+    <h1 class="title-page">Aggiungi Ricetta</h1>
+    <section class="container">
+      <div>
+        <form action="scripts/php/ricetta_new.php" method="POST" enctype="multipart/form-data">
+          <!-- <div class="aggiungi-ricetta-section"> -->
+          <label for="ricetta-nome"><strong>Nome</strong> ricetta: </label>
+          <input name="nome" id="ricetta-nome" placeholder="Cinque Formaggi" required />
+          <!-- </div> -->
+          <!-- <div class="aggiungi-ricetta-section"> -->
+          <label for="ricetta-tipo"><strong>Tipo</strong> pizza: </label>
+          <select name="tipo" id="ricetta-tipo" required />
+          <option selected disabled value=''>Seleziona tipo pizza</option>
+          <option value="Napoletana">Napoletana</option>
+          <option value="In Teglia">In Teglia</option>
+          <option value="Tonda">Tonda</option>
+          </select>
+
+          <!-- </div> -->
+          <!-- <div class="aggiungi-ricetta-section"> -->
+          <label for="ricetta-descrizione"><strong>Descrizione</strong> ricetta: </label>
+          <textarea name="descrizione" id="ricetta-descrizione" placeholder="esempio: storia, curiosità, origine" required="true"></textarea>
+          <!-- </div> -->
+          <!-- <div class="aggiungi-ricetta-section"> -->
+          <label for="ricetta-ingredienti"><strong>Ingredienti</strong> ricetta <em>(separati da virgola)</em>: </label>
+          <textarea name="ingredienti" id="ricetta-ingredienti" placeholder="mozzarella, gorgonzola, parmigiano, fontina, asiago" required="true"></textarea>
+          <!-- </div> -->
+          <!-- <div class="aggiungi-ricetta-section"> -->
+
+          <label for="ricetta-vegetariana">Questa è una ricetta <strong>vegetariana</strong>: </label>
+          <input type="checkbox" name="vegetariana" id="ricetta-vegetariana" />
+          <!-- </div> -->
+          <!-- TODO: sicurezza: check estensione e dimensioni -->
+          <!-- <div class="aggiungi-ricetta-section"> -->
+          <label for="ricetta-immagine"><em>[opzionale]</em> <strong>Immagine</strong>: </label>
+          <input type="file" name="immagine" id="ricetta-immagine" />
+          <!-- </div> -->
+
+          <!-- <input class="aggiungi-ricetta-section" type="submit" value="Aggiungi Ricetta" /> -->
+          <button type="submit">Aggiungi ricetta</button>
+          <placeholder_post_output />
+
+        </form>
       </div>
-      <div class="aggiungi-ricetta-section">
-        <label for="ricetta-tipo"><strong>Tipo</strong> pizza: </label>
-        <select name="tipo" id="ricetta-tipo" required />
-        <option selected disabled value=''>Seleziona tipo pizza</option>
-        <option value="Napoletana">Napoletana</option>
-        <option value="In Teglia">In Teglia</option>
-        <option value="Tonda">Tonda</option>
-        </select>
-      </div>
-      <div class="aggiungi-ricetta-section">
-        <label for="ricetta-descrizione"><strong>Descrizione</strong> ricetta: </label>
-        <textarea name="descrizione" id="ricetta-descrizione" placeholder="esempio: storia, curiosità, origine" required="true"></textarea>
-      </div>
-      <div class="aggiungi-ricetta-section">
-        <label for="ricetta-ingredienti"><strong>Ingredienti</strong> ricetta <em>(separati da virgola)</em>: </label>
-        <textarea name="ingredienti" id="ricetta-ingredienti" placeholder="mozzarella, gorgonzola, parmigiano, fontina, asiago" required="true"></textarea>
-      </div>
-      <div class="aggiungi-ricetta-section">
-        <label for="ricetta-vegetariana">Questa è una ricetta <strong>vegetariana</strong>: </label>
-        <input type="checkbox" name="vegetariana" id="ricetta-vegetariana" />
-      </div>
-      <!-- TODO: sicurezza: check estensione e dimensioni -->
-      <div class="aggiungi-ricetta-section">
-        <label for="ricetta-immagine"><em>[opzionale]</em> <strong>Immagine</strong>: </label>
-        <input type="file" name="immagine" id="ricetta-immagine" />
-      </div>
-      <input class="aggiungi-ricetta-section" type="submit" value="Aggiungi Ricetta" />
-      <placeholder_post_output />
-    </form>
+    </section>
   </main>
   <placeholder_footer />
 </body>

@@ -675,8 +675,7 @@ section.container > div.space {
   }
 
   #commenti {
-    margin-left: 2em;
-    margin-right: 4em;
+    margin: 0 2em;
   }
 
   .commento {
@@ -823,6 +822,7 @@ section.container > div.space {
   align-items: center;
   flex-wrap: wrap;
 }
+
 #calcolatore .row .column {
   margin: 0.5em;
 }
@@ -903,25 +903,6 @@ section.container > div.space {
   margin: 1em 0;
 }
 
-@media (max-width: 767px) {
-  #cont-error h2 {
-    font-size: 10em;
-  }
-
-  #cont-404 p {
-    font-size: 1.5em;
-    margin: 0.5em 0;
-  }
-
-  #img-pizza {
-    width: 125px;
-    height: 150px;
-  }
-
-  form {
-    width: 100%;
-  }
-}
 /* Error pages End */
 
 footer {
@@ -974,16 +955,27 @@ input,
 textarea {
   display: block;
   width: 100%;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  box-sizing: border-box;
 }
 
 form label {
+  margin-top: 1em;
   margin-bottom: 0.2em;
+}
+
+label[for="ricetta-vegetariana"] {
+  display: inline;
+}
+
+form input[type="checkbox"] {
+  display: inline;
+  width: auto;
 }
 
 form input,
 textarea {
-  padding: 0.1em 0.5em;
+  padding: 0.5em;
   border: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 2px;
@@ -1035,21 +1027,25 @@ form button:active {
   display: none;
 }
 
-.esito.success span {
+.esito.success span,
+.correct {
   color: #228b22;
   display: block;
 }
 
-.esito.error span {
+.esito.error span,
+.errore {
   color: #ff0000;
   display: block;
 }
 
-.esito.error span:before {
+.esito.error span:before,
+.errore:before {
   content: "❗ ";
 }
 
-.esito.success span:before {
+.esito.success span:before,
+.correct:before {
   content: "✔ ";
 }
 
@@ -1067,3 +1063,64 @@ form button:active {
   font-size: 3em;
   margin-bottom: 0;
 } */
+
+textarea.commenta {
+  width: 100%;
+  resize: none;
+  /* box-sizing: border-box; */
+}
+
+button.commenta {
+  margin-top: 0;
+  width: 100%;
+}
+
+form.elimina {
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: -1em;
+}
+
+button.elimina {
+  width: 100%;
+  margin: 0 1em 0 0;
+  font-size: 1em;
+  background-color: #e0002d;
+}
+
+button.elimina:hover {
+  background-color: #aa0022;
+}
+
+button.elimina:active {
+  background-color: #680015;
+}
+
+#commenti-lista {
+  margin-top: 3em;
+  flex-direction: column;
+}
+
+@media (max-width: 767px) {
+  #cont-error h2 {
+    font-size: 10em;
+  }
+
+  #cont-404 p {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+  }
+
+  #img-pizza {
+    width: 125px;
+    height: 150px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  #commenti-lista {
+    flex-direction: row;
+  }
+}

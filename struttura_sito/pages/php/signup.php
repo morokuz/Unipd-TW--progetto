@@ -24,55 +24,55 @@ if (isset($_POST['submit'])) {
   $passwordRpt = $_POST['conferma_password'];
 
   if(empty($username)) {
-    $msg['username'] = '<p class="errore" tabindex="0">Lo username non può essere vuoto</p>';
+    $msg['username'] = '<p  id="err1" class="errore" tabindex="0">Lo username non può essere vuoto</p>';
   } else if (strlen($username) < 4) {
-    $msg['username'] = '<p class="errore" tabindex="0">Lo username deve avere più di 4 caratteri</p>';
+    $msg['username'] = '<p  id="err1" class="errore" tabindex="0">Lo username deve avere più di 4 caratteri</p>';
   } else if (strlen($username) > 20) {
-    $msg['username'] = '<p class="errore" tabindex="0">Lo username deve avere meno di 20 caratteri</p>';
+    $msg['username'] = '<p  id="err1" class="errore" tabindex="0">Lo username deve avere meno di 20 caratteri</p>';
   } else if (preg_match("/[`!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?~]/" , $username)) {
-    $msg['username'] = '<p class="errore" tabindex="0">Lo username può contenere SOLO caratteri o numeri</p>';
+    $msg['username'] = '<p  id="err1" class="errore" tabindex="0">Lo username può contenere SOLO caratteri o numeri</p>';
   } else if (alreadyTaken($connection , $username) === false){
-    $msg['username'] = '<p class="correct" tabindex="0">Nome valido</p>';
+    $msg['username'] = '<p id="err1" class="correct" tabindex="0">Nome valido</p>';
   } else {
-    $msg['username'] = '<p class="errore" tabindex="0">Username già utilizzato da un altro utente</p>';
+    $msg['username'] = '<p id="err1" class="errore" tabindex="0">Username già utilizzato da un altro utente</p>';
   }
 
   if(empty($email)) {
-    $msg['email'] = '<p class="errore" tabindex="0">L\'email non può essere vuota</p>';
+    $msg['email'] = '<p id="err2" class="errore" tabindex="0">L\'email non può essere vuota</p>';
   } else if (!preg_match("/^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/", $email)) {
-    $msg['email'] = '<p class="errore" tabindex="0">Email non valida, ricontrollala</p>';
+    $msg['email'] = '<p id="err2" class="errore" tabindex="0">Email non valida, ricontrollala</p>';
   } else {
-    $msg['email'] = '<p class="correct" tabindex="0">Email valida</p>';
+    $msg['email'] = '<p id="err2" class="correct" tabindex="0">Email valida</p>';
   }
 
   if(empty($password)) {
-    $msg['password'] = '<p class="errore" tabindex="0">Password mancante</p>';
+    $msg['password'] = '<p id="err3" class="errore" tabindex="0">Password mancante</p>';
   } else if(strlen($password) < 5) {
-    $msg['password'] = '<p class="errore" tabindex="0">Password con meno di 5 caratteri</p>';
+    $msg['password'] = '<p id="err3" class="errore" tabindex="0">Password con meno di 5 caratteri</p>';
   } else if(strlen($password) > 15) {
-    $msg['password'] = '<p class="errore" tabindex="0">Password più lunga di 15 caratteri</p>';
+    $msg['password'] = '<p id="err3" class="errore" tabindex="0">Password più lunga di 15 caratteri</p>';
   } else if (!preg_match("/(?=.*[0-9])/", $password)) {
-    $msg['password'] = '<p class="errore" tabindex="0">Manca il numero obbligatorio</p>';
+    $msg['password'] = '<p id="err3" class="errore" tabindex="0">Manca il numero obbligatorio</p>';
   } else if(!preg_match("/(?=.*[A-Z])/", $password)) {
-    $msg['password'] = '<p class="errore" tabindex="0">Manca la lettera maiuscola obbligatoria</p>';
+    $msg['password'] = '<p id="err3" class="errore" tabindex="0">Manca la lettera maiuscola obbligatoria</p>';
   } else {
-    $msg['password'] = '<p class="correct" tabindex="0">Password valida</p>';
+    $msg['password'] = '<p id="err3" class="correct" tabindex="0">Password valida</p>';
   }
 
   if(empty($password)) {
     $msg['passwordRpt'] = '';
   } else if(empty($passwordRpt)) {
-    $msg['passwordRpt'] = '<p class="errore" tabindex="0">Devi reinserire la password</p>';
+    $msg['passwordRpt'] = '<p id="err4" class="errore" tabindex="0">Devi reinserire la password</p>';
   } else if ($passwordRpt != $password) {
-    $msg['passwordRpt'] = '<p class="errore" tabindex="0">Le password inserite non coincidono</p>';
+    $msg['passwordRpt'] = '<p id="err4" class="errore" tabindex="0">Le password inserite non coincidono</p>';
   } else {
-    $msg['passwordRpt'] = '<p class="correct" tabindex="0">Le password coincidono</p>';
+    $msg['passwordRpt'] = '<p id="err4" class="correct" tabindex="0">Le password coincidono</p>';
   }
 
-  if($msg['username'] == '<p class="correct" tabindex="0">Nome valido</p>'
-    && $msg['email'] == '<p class="correct" tabindex="0">Email valida</p>'
-    && $msg['password'] == '<p class="correct" tabindex="0">Password valida</p>'
-    && $msg['passwordRpt'] == '<p class="correct" tabindex="0">Le password coincidono</p>') {
+  if($msg['username'] == '<p id="err1" class="correct" tabindex="0">Nome valido</p>'
+    && $msg['email'] == '<p id="err2" class="correct" tabindex="0">Email valida</p>'
+    && $msg['password'] == '<p id="err3" class="correct" tabindex="0">Password valida</p>'
+    && $msg['passwordRpt'] == '<p id="err4" class="correct" tabindex="0">Le password coincidono</p>') {
     createUser ($connection , $username, $email, $password);
     $finalmsg = '<p id="fnlmsg" class="correct" tabindex="1">Ti sei registrato correttamente! <a href="login">Accedi</a> ora!</p>';
   } else {
