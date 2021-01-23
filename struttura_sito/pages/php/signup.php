@@ -14,7 +14,7 @@ $links = checkSession();
 $header = str_replace("<placeholder_log />" , $links[0] , $header);
 $header = str_replace("<placeholder_reg />" , $links[1] , $header);
 $current = '<li class="current">Registrati</li>';
-$header = str_replace('<li><a href="/Pizza_a_Tutto_Tondo/pages/php/signup.php">Registrati</a></li>', $current, $header);
+$header = str_replace('<li><a href="signup">Registrati</a></li>', $current, $header);
 
 $connection = db_connect();
 if (isset($_POST['submit'])) {
