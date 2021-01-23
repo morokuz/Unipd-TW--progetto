@@ -21,30 +21,25 @@
     </ul>
   </nav>
 
-  <main>
-    <div id="container">
+  <main id="content">
+    <h1 class="title-page" tabindex="0">Accedi</h1>
+    <section class="container">
       <div class="modal">
         <p tabindex="0">Non hai ancora un account? <a href="signup">Registrati</a> </p>
-        <h2 class="title" tabindex="0">ACCEDI</h2>
         <form id="form-accedi" action="login" method="POST">
           <div id="accedi">
             <label for="username" class="form-label" xml:lang="en" lang="en">Username</label>
             <input type="text" id="username" class="form-input" name="username" placeholder="Username" required="true" />
 
-            <div class="eye-conatiner">
-              <i id="eye1" class="fas fa-eye fa-lg" aria-hidden="true" onclick="toggle(this)"></i>
-            </div>
             <label for="password-log" class="form-label" xml:lang="en" lang="en">Password</label>
             <input type="password" id="password-log" class="form-input" name="password" placeholder="Password" required="true" />
 
-            <div class="btn-sub">
-              <input class="form-bottone" type="submit" name="submit" value="Accedi" />
-            </div>
+            <button class="form-bottone" name="submit">Accedi</button>
           </div>
         </form>
         <messaggioFinale />
       </div>
-    </div>
+    </section>
   </main>
   <script src="https://kit.fontawesome.com/ebcd1d18d4.js" crossorigin="anonymous"></script>
   <script src="scripts/js/contact.js"></script>
