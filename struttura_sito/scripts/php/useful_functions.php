@@ -10,10 +10,10 @@ function replace($string_input, $array_replacements) {
 function checkSession() {
   if(isset($_SESSION['usid'])) {
     $links[0] = '<li><a href="#">Ciao ' . $_SESSION["usname"] . '</a></li>';
-    $links[1] = '<li><a href="/Pizza_a_Tutto_Tondo/pages/php/logout.php">Log out</a></li>';
+    $links[1] = '<li><a href="logout">Log out</a></li>';
   } else {
-    $links[0] = '<li><a href="/Pizza_a_Tutto_Tondo/pages/php/login.php">Accedi</a></li>';
-    $links[1] = '<li><a href="/Pizza_a_Tutto_Tondo/pages/php/signup.php">Registrati</a></li>';
+    $links[0] = '<li><a href="login">Accedi</a></li>';
+    $links[1] = '<li><a href="signup">Registrati</a></li>';
   }
   return $links;
 }
