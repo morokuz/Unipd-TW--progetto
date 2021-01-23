@@ -54,7 +54,8 @@ $ricetta_likes = $row["n_likes"];
 
 $ricetta_commenti = "";
 $html_ricetta_commento_template = file_get_contents(__DIR__ . "/../html/components/ricetta_commento.html");
-$sql = "SELECT commenti.contenuto AS contenuto,
+$sql = "SELECT commenti.id AS id_c,
+               commenti.contenuto AS contenuto,
                commenti.data_ora AS data_ora,
                utenti.username AS username
         FROM commenti JOIN utenti ON commenti.autore=utenti.id
@@ -66,7 +67,8 @@ while ($row = $result->fetch_assoc()) {
   $replacements_commento = [
     "<placeholder_sql_ricetta_commento_username />" => $row["username"],
     "<placeholder_sql_ricetta_commento_dataora />" => $row["data_ora"],
-    "<placeholder_sql_ricetta_commento_contenuto />" => $row["contenuto"]
+    "<placeholder_sql_ricetta_commento_contenuto />" => $row["contenuto"],
+    "<placeholder_sql_ricetta_commento_id />" => $row["id_c"]
   ];
   $html_ricetta_commento = replace($html_ricetta_commento_template, $replacements_commento);
   $ricetta_commenti .= $html_ricetta_commento . "\n";
