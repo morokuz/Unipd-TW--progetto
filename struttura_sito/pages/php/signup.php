@@ -37,13 +37,7 @@ if (isset($_POST['submit'])) {
     $msg['username'] = '<p id="err1" class="errore" tabindex="0">Username già utilizzato da un altro utente</p>';
   }
 
-  if(empty($email)) {
-    $msg['email'] = '<p id="err2" class="errore" tabindex="0">L\'email non può essere vuota</p>';
-  } else if (!preg_match("/^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/", $email)) {
-    $msg['email'] = '<p id="err2" class="errore" tabindex="0">Email non valida, ricontrollala</p>';
-  } else {
-    $msg['email'] = '<p id="err2" class="correct" tabindex="0">Email valida</p>';
-  }
+  $msg['email'] = checkEmail($msg['email'], $email);
 
   if(empty($password)) {
     $msg['password'] = '<p id="err3" class="errore" tabindex="0">Password mancante</p>';
