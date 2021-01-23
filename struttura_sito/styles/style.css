@@ -873,7 +873,7 @@ section.container div.space {
 /*End Breadcrumbs*/
 
 /* Error pages */
-#cont-404{
+#cont-404 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -930,11 +930,11 @@ footer {
 }
 
 .foot-container {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #torna-su {
@@ -946,7 +946,7 @@ footer {
 }
 
 #torna-su:hover {
-  background-color: #FF6347;
+  background-color: #ff6347;
   transition: background-color 500ms;
 }
 

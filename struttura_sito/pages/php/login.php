@@ -13,7 +13,7 @@ $connection = db_connect();
 $header = str_replace("<placeholder_log />" , $links[0] , $header);
 $header = str_replace("<placeholder_reg />" , $links[1] , $header);
 $current = '<li class="current">Accedi</li>';
-$header = str_replace('<li><a href="/Pizza_a_Tutto_Tondo/pages/php/login.php">Accedi</a></li>', $current, $header);
+$header = str_replace('<li><a href="login">Accedi</a></li>', $current, $header);
 
 
 if (isset($_POST['submit'])) {
@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 
   if(loginUser($connection, $username , $password)) {
     $finalmsg = '<p id="fnlmsg" class="correct" tabindex="1">Sei acceduto correttamente! Verrai riportato nella home fra pochi secondi.</p>';
-    header("refresh:5;url=home.php" );
+    header("refresh:5;url=." );
   } else {
     $finalmsg = '<p id="fnlmsg" class="errore" tabindex="1">Utente non trovato. Controlla di aver inserito i dati corretti.</p>';
   }

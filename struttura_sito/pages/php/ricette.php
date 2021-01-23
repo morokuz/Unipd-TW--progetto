@@ -9,8 +9,8 @@ $links = checkSession();
 
 $page = file_get_contents(__DIR__ . "/../html/ricette.html");
 $header = file_get_contents(__DIR__ . "/../html/components/header.html");
-$current = '<li class="current">Scopri i gusti</li>';
-$header = str_replace('<li><a href="/Pizza_a_Tutto_Tondo/pages/php/ricette.php">Scopri i gusti</a></li>', $current, $header);
+$current = '<li class="current"><a href="ricette">Scopri i gusti</a></li>';
+$header = str_replace('<li><a href="ricette">Scopri i gusti</a></li>', $current, $header);
 $replacements = [
   "<placeholder_head_default_tags />" => file_get_contents(__DIR__ . "/../html/components/head_default_tags.html"),
   "<placeholder_header />" => $header,
@@ -96,9 +96,9 @@ function html_ricette_card($ricetta_nome) {
 
 function ricette_aggiungi_link() {
   if(isset($_SESSION['usid'])) {
-    $link = "./ricetta_aggiungi.php";
+    $link = "ricetta-aggiungi";
   } else {
-    $link = "./login.php";
+    $link = "login";
   }
   return $link;
 }

@@ -7,7 +7,7 @@ $page = file_get_contents(__DIR__ . "/../html/calcolatore.html");
 $links = array();
 $header = file_get_contents(__DIR__ . "/../html/components/header.html");
 $current = '<li class="current">Calcola Pizza</li>';
-$header = str_replace('<li><a href="/Pizza_a_Tutto_Tondo/pages/php/calcolatore.php">Calcola Pizza</a></li>', $current, $header);
+$header = str_replace('<li><a href="calcolatore">Calcola Pizza</a></li>', $current, $header);
 $links = checkSession();
 
 $replacements = [

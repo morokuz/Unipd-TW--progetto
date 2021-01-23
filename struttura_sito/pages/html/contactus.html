@@ -16,7 +16,7 @@
   <nav class="breadcrumbs_block">
     <p class="breadcrumbs_pre">Ti trovi in:</p>
     <ul class="breadcrumbs">
-      <li><a href="./home.php">Home</a></li>
+      <li><a href=".">Home</a></li>
       <li>Contatti</li>
     </ul>
   </nav>
@@ -36,7 +36,7 @@
       <li>Avete consigli su come migliorare il sito</li>
     </ul>
     <h2 class="contact-title">CONTATTACI</h2>
-    <form id="form-contatti" action="contactus.php" method="POST" onsubmit="return validateFormCont()">
+    <form id="form-contatti" action="contatti" method="POST" onsubmit="return validateFormCont()">
       <div id="contatti">
         <p class="opz-msg" tabindex="0">I campi seguiti dal simbolo * sono opzionali</p>
         <label for="nome-cont" class="form-label">Nome</label>
@@ -67,10 +67,10 @@
         </div>
 
         <label class="form-label" for="oggetto">Oggetto*</label>
-        <input type="text" id="oggetto" class="form-input" name="oggetto" placeholder="Oggetto(facoltativo)" />
+        <input type="text" id="oggetto" class="form-input" name="oggetto" placeholder="Oggetto(facoltativo)" required="true" />
 
         <label class="form-label" for="messaggio">Messaggio</label>
-        <textarea id="messaggio" class="form-input" name="messaggio" placeholder="Messaggio" required></textarea>
+        <textarea id="messaggio" class="form-input" name="messaggio" placeholder="Messaggio" required="true"></textarea>
 
         <div class="btn-invia">
           <input class="form-bottone" type="submit" name="submit" value="Invia" />
@@ -81,7 +81,7 @@
   </main>
   <placeholder_footer />
   <script src="https://kit.fontawesome.com/ebcd1d18d4.js" crossorigin="anonymous"></script>
-  <script src="../../scripts/js/contact.js"></script>
+  <script src="scripts/js/contact.js"></script>
 </body>
 
 </html>

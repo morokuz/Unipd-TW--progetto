@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
     && $msg['password'] == '<p class="correct" tabindex="0">Password valida</p>'
     && $msg['passwordRpt'] == '<p class="correct" tabindex="0">Le password coincidono</p>') {
     createUser ($connection , $username, $email, $password);
-    $finalmsg = '<p id="fnlmsg" class="correct" tabindex="1">Ti sei registrato correttamente! <a href="login.php">Accedi</a> ora!</p>';
+    $finalmsg = '<p id="fnlmsg" class="correct" tabindex="1">Ti sei registrato correttamente! <a href="login">Accedi</a> ora!</p>';
   } else {
     $finalmsg = '<p id="fnlmsg" class="errore" tabindex="1">Ci sono degli errori! Ricontrolla i campi</p>';
   }

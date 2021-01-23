@@ -1,2 +1,21 @@
-ErrorDocument 404 /Pizza_a_Tutto_Tondo/pages/php/404.php
-ErrorDocument 403 /Pizza_a_Tutto_Tondo/pages/php/403.php
+ErrorDocument 404 /404
+ErrorDocument 403 /403
+
+RewriteEngine On
+# RewriteBase /dzanardo
+#RewriteCond %{HTTP_HOST} ^/
+#RewriteRule ^(.*)$ dzanardo/$1 [R=301,L]
+RewriteRule ^$ pages/php/home.php [NC]
+RewriteRule ^napoletana$ pages/php/napoletana.php [NC]
+RewriteRule ^ricette$ pages/php/ricette.php [NC]
+RewriteRule ^napoletana$ pages/php/napoletana.php [NC]
+RewriteRule ^calcolatore$ pages/php/calcolatore.php [NC]
+RewriteRule ^contatti$ pages/php/contactus.php [NC]
+RewriteRule ^login$ pages/php/login.php [NC]
+RewriteRule ^scripts/php/login$ /login [R=301]
+RewriteRule ^signup$ pages/php/signup.php [NC]
+RewriteRule ^logout$ scripts/php/logout.php [NC]
+RewriteRule ^ricetta_id=([0-9]+) pages/php/ricetta.php?id=$1 [QSA]
+RewriteRule ^ricetta-aggiungi$ pages/php/ricetta_aggiungi.php [NC]
+RewriteRule ^404$ pages/php/404.php [NC]
+RewriteRule ^403$ pages/php/403.php [NC]

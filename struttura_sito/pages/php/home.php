@@ -5,7 +5,7 @@ require_once (__DIR__ . "/../../scripts/php/useful_functions.php");
 $page = file_get_contents(__DIR__ . "/../html/home.html");
 $header = file_get_contents(__DIR__ . "/../html/components/header.html");
 $current = '<li class="active current">Home</li>';
-$header = str_replace('<li class="active"><a href="/Pizza_a_Tutto_Tondo/pages/php/home.php">Home</a></li>', $current, $header);
+$header = str_replace('<li class="active"><a href=".">Home</a></li>', $current, $header);
 $links = array();
 
 $links = checkSession();

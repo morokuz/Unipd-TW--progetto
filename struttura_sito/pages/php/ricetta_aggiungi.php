@@ -14,7 +14,7 @@ $links = array();
 $links = checkSession();
 $header = file_get_contents(__DIR__ . "/../html/components/header.html");
 $current = '<li class="current">Scopri i gusti</li>';
-$header = str_replace('<li><a href="/Pizza_a_Tutto_Tondo/pages/php/ricette.php">Scopri i gusti</a></li>', $current, $header);
+$header = str_replace('<li><a href="ricette">Scopri i gusti</a></li>', $current, $header);
 $replacements = [
   "<placeholder_head_default_tags />" => file_get_contents(__DIR__ . "/../html/components/head_default_tags.html"),
   "<placeholder_header />" => $header,

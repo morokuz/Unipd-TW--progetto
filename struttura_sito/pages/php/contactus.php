@@ -6,7 +6,7 @@ require_once (__DIR__ . "/../../scripts/php/useful_functions.php");
 $page = file_get_contents(__DIR__ . "/../html/contactus.html");
 $header = file_get_contents(__DIR__ . "/../html/components/header.html");
 $current = '<li class="current">Contatti</li>';
-$header = str_replace('<li><a href="/Pizza_a_Tutto_Tondo/pages/php/contactus.php">Contatti</a></li>', $current, $header);
+$header = str_replace('<li><a href="contatti">Contatti</a></li>', $current, $header);
 $links = array();
 
 $links = checkSession();
@@ -24,7 +24,7 @@ if(isset($_POST['submit'])) {
   $mex = "Email da : " .$email;
   $text = "Di: " .$name. "\n\n" .$messaggio;
   mail($myemail, $oggetto, $txt , $mex);
-  header("location: home.php");
+  header("location: .");
 }
 
 $replacements = [
