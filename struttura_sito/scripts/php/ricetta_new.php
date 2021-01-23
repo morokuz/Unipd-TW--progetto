@@ -17,8 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 function name_ricetta_exists($db_connection) {
+  $nome=trim($_POST["nome"]);
   $query_name = $db_connection->prepare("SELECT nome FROM ricette WHERE nome=?"); 
-  $query_name->bind_param("s", trim($_POST["nome"]));
+  $query_name->bind_param("s", $nome);
   $query_name->execute();
   $row = $query_name->get_result()->fetch_assoc();
   if($row) {
@@ -40,9 +41,11 @@ function insert_ricetta($db_connection) {
 
   $ricetta_nome = trim($_POST["nome"]);
   $ricetta_vegetariana = FALSE;
-  if ($_POST["vegetariana"]) {
+
+  if (isset($_POST["vegetariana"])) {
     $ricetta_vegetariana = TRUE;
   }
+
   $ricetta_tipo = $_POST["tipo"];
   $ricetta_ingredienti = $_POST["ingredienti"];
   $ricetta_informazioni = $_POST["descrizione"];
@@ -67,7 +70,7 @@ function save_image($image_name) {
 function exit_insert($exit_message, $db_connection) {
   $_SESSION['post_output'] = $exit_message;
   db_close($db_connection);
-  header('Location: ../../pages/php/ricetta_aggiungi.php');
+  header('Location: ../../ricetta-aggiungi');
   exit();
 }
 ?>
