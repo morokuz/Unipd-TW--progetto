@@ -9,8 +9,8 @@ $links = checkSession();
 
 $page = file_get_contents(__DIR__ . "/../html/ricette.html");
 $header = file_get_contents(__DIR__ . "/../html/components/header.html");
-$current = '<li class="current" aria-current="page"><a href="ricette">Scopri i gusti</a></li>';
-$header = str_replace('<li><a href="ricette">Scopri i gusti</a></li>', $current, $header);
+$current = '<li class="current" aria-current="page"><a href="ricette">Scopri le ricette</a></li>';
+$header = str_replace('<li><a href="ricette">Scopri le ricette</a></li>', $current, $header);
 $replacements = [
   "<placeholder_head_default_tags />" => file_get_contents(__DIR__ . "/../html/components/head_default_tags.html"),
   "<placeholder_header />" => $header,
