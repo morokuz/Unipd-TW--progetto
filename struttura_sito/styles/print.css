@@ -20,6 +20,7 @@ body {
   counter-reset: h2counter;
 }
 
+/* Inserimento numerazione alle sezioni */
 h1 {
   counter-reset: h2counter;
 }
