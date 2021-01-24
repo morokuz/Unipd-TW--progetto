@@ -1,3 +1,4 @@
+//funzione principale che a seconda del tipo di pizza scelto chiama altre funzioni
 function checkStyle(){
   var numero_p = document.getElementById("numero_p").value;
   var stile_p = document.getElementById("stile_p").value;
@@ -23,7 +24,7 @@ function checkStyle(){
       }
 }
 
-
+//funzione che calcola le dosi dell'impasto della pizza napoletana
 function calcolaNapoletana(area, numero_p, idratazione) {
   var peso = (area/6.45)*2.5;
   var farina = peso*0.65;
@@ -40,6 +41,7 @@ function calcolaNapoletana(area, numero_p, idratazione) {
   document.getElementById("res_oli").innerHTML = (numero_p*farina*0.01).toFixed(1);
 }
 
+//funzione che calcola le dosi dell'impasto della pizza in teglia
 function calcolaTeglia(area, numero_p, idratazione){
   var peso= area*0.50;
   var farina=peso*0.55;
@@ -51,6 +53,7 @@ function calcolaTeglia(area, numero_p, idratazione){
   document.getElementById("res_oli").innerHTML = ((numero_p*acqua*20)/1000).toFixed(0);
 }
 
+//funzione che calcola le dosi dell'impasto della pizza tonda
 function calcolaTonda(area, numero_p, idratazione){
   var peso = (area/6.45)*2.5;
   var farina = peso*0.65;
@@ -62,6 +65,7 @@ function calcolaTonda(area, numero_p, idratazione){
   document.getElementById("res_oli").innerHTML = (numero_p*farina*0.02).toFixed(1);
 }
 
+//funzioni che "nascondono" o rendono visibili alcune sezioni di calcolatore.html cambiandone l'attributo class
 function tondaMode(){ 
   var biga=document.getElementById("ris_biga");
   if (biga.classList.contains("visible")){

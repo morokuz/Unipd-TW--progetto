@@ -1,70 +1,62 @@
 <!DOCTYPE html>
+<!-- Pagina per aggiungere una ricetta via form -->
 <html lang="it">
+  <head>
+    <placeholder_head_default_tags />
+    <title>Aggiungi Ricetta - Pizza a tutto Tondo</title>
+    <meta name="description" content="Pagina per l'inserimento di ricette per gli utenti loggati" />
+    <meta name="keywords" content="pizza a tutto tondo, pizza, ricette pizza" />
+    <meta name="author" content="Pizza a tutto Tondo's group" />
+  </head>
+  <body>
+    <placeholder_header />
 
-<head>
-  <placeholder_head_default_tags />
-  <title>Aggiungi Ricetta - Pizza a tutto Tondo</title>
-</head>
+    <nav class="breadcrumbs_block">
+      <p class="breadcrumbs_pre">Ti trovi in:</p>
+      <ol class="breadcrumbs">
+        <li><a href=".">Home</a></li>
+        <li><a href="ricette">Ricette</a></li>
+        <li aria-current="page">Aggiungi Ricetta</li>
+      </ol>
+    </nav>
 
-<body>
-  <placeholder_header />
+    <main id="content">
+      <h1 class="title-page">Aggiungi Ricetta</h1>
+      <section class="container">
+        <div>
+          <h3>Form per aggiungere ricetta</h3>
+          <form action="scripts/php/ricetta_new.php" method="POST" enctype="multipart/form-data">
 
-  <nav class="breadcrumbs_block">
-    <p class="breadcrumbs_pre">Ti trovi in:</p>
-    <ol class="breadcrumbs">
-      <li><a href=".">Home</a></li>
-      <li><a href="ricette">Ricette</a></li>
-      <li aria-current="page">Aggiungi Ricetta</li>
-    </ol>
-  </nav>
+            <label for="ricetta-nome"><strong>Nome</strong> ricetta: </label>
+            <input name="nome" id="ricetta-nome" placeholder="Cinque Formaggi" required />
 
-  <main id="content">
-    <h1 class="title-page">Aggiungi Ricetta</h1>
-    <section class="container">
-      <div>
-        <h3>Form per aggiungere ricetta</h3>
-        <form action="scripts/php/ricetta_new.php" method="POST" enctype="multipart/form-data">
-          <!-- <div class="aggiungi-ricetta-section"> -->
-          <label for="ricetta-nome"><strong>Nome</strong> ricetta: </label>
-          <input name="nome" id="ricetta-nome" placeholder="Cinque Formaggi" required />
-          <!-- </div> -->
-          <!-- <div class="aggiungi-ricetta-section"> -->
-          <label for="ricetta-tipo"><strong>Tipo</strong> pizza: </label>
-          <select name="tipo" id="ricetta-tipo" required>
-            <option selected disabled value=''>Seleziona tipo pizza</option>
-            <option value="Napoletana">Napoletana</option>
-            <option value="In Teglia">In Teglia</option>
-            <option value="Tonda">Tonda</option>
-          </select>
+            <label for="ricetta-tipo"><strong>Tipo</strong> pizza: </label>
+            <select name="tipo" id="ricetta-tipo" required>
+              <option selected disabled value=''>Seleziona tipo pizza</option>
+              <option value="Napoletana">Napoletana</option>
+              <option value="In Teglia">In Teglia</option>
+              <option value="Tonda">Tonda</option>
+            </select>
 
-          <!-- </div> -->
-          <!-- <div class="aggiungi-ricetta-section"> -->
-          <label for="ricetta-descrizione"><strong>Descrizione</strong> ricetta: </label>
-          <textarea name="descrizione" id="ricetta-descrizione" placeholder="esempio: storia, curiosità, origine" required></textarea>
-          <!-- </div> -->
-          <!-- <div class="aggiungi-ricetta-section"> -->
-          <label for="ricetta-ingredienti"><strong>Ingredienti</strong> ricetta <em>(separati da virgola)</em>: </label>
-          <textarea name="ingredienti" id="ricetta-ingredienti" placeholder="mozzarella, gorgonzola, parmigiano, fontina, asiago" required></textarea>
-          <!-- </div> -->
-          <!-- <div class="aggiungi-ricetta-section"> -->
+            <label for="ricetta-descrizione"><strong>Descrizione</strong> ricetta: </label>
+            <textarea name="descrizione" id="ricetta-descrizione" placeholder="esempio: storia, curiosità, origine" required></textarea>
 
-          <label for="ricetta-vegetariana">Questa è una ricetta <strong>vegetariana</strong>: </label>
-          <input type="checkbox" name="vegetariana" id="ricetta-vegetariana" />
-          <!-- </div> -->
-          <!-- <div class="aggiungi-ricetta-section"> -->
-          <label for="ricetta-immagine"><em>[opzionale]</em> <strong>Immagine</strong>: </label>
-          <input type="file" name="immagine" id="ricetta-immagine" />
-          <!-- </div> -->
+            <label for="ricetta-ingredienti"><strong>Ingredienti</strong> ricetta <em>(separati da virgola)</em>: </label>
+            <textarea name="ingredienti" id="ricetta-ingredienti" placeholder="mozzarella, gorgonzola, parmigiano, fontina, asiago" required></textarea>
 
-          <!-- <input class="aggiungi-ricetta-section" type="submit" value="Aggiungi Ricetta" /> -->
-          <button type="submit">Aggiungi ricetta</button>
-          <placeholder_post_output />
+            <label for="ricetta-vegetariana">Questa è una ricetta <strong>vegetariana</strong>: </label>
+            <input type="checkbox" name="vegetariana" id="ricetta-vegetariana" />
 
-        </form>
-      </div>
-    </section>
-  </main>
-  <placeholder_footer />
-</body>
+            <label for="ricetta-immagine"><em>[opzionale]</em> <strong>Immagine</strong>: </label>
+            <input type="file" name="immagine" id="ricetta-immagine" />
 
+            <button type="submit">Aggiungi ricetta</button>
+            <placeholder_post_output />
+
+          </form>
+        </div>
+      </section>
+    </main>
+    <placeholder_footer />
+  </body>
 </html>

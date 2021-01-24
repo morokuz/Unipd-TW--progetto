@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
+// Verifica se esiste una ricetta con lo stesso nome
 function name_ricetta_exists() {
   $nome=trim($_POST["nome"]);
   $query_name = $GLOBALS["db_connection"]->prepare("SELECT nome FROM ricette WHERE nome=?"); 
@@ -28,6 +29,7 @@ function name_ricetta_exists() {
   return false;
 }
 
+// Inserisce la ricetta nel database
 function insert_ricetta() {
   if(isset($_SESSION['usid'])) {
     $ricetta_autore = $_SESSION['usid'];
@@ -62,10 +64,12 @@ function insert_ricetta() {
   $insert_db->close();
 }
 
+// Salva nella cartalle /img/ricette il file in POST con il nome richiesto dal parametro
 function save_image($image_name) {
   return move_uploaded_file($_FILES['immagine']['tmp_name'], "../../imgs/ricette/" . $image_name);
 }
 
+// Termina l'inserimento ed imposta il messaggio di output da fornire all'utente
 function exit_insert($exit_message) {
   $_SESSION['post_output'] = $exit_message;
   db_close($GLOBALS["db_connection"]);

@@ -1,87 +1,86 @@
 <!DOCTYPE html>
-
+<!-- Pagina per registarsi al sito -->
 <html lang="it">
+  <head>
+    <placeholder_head_default_tags />
+    <title>Registrati - Pizza a tutto Tondo</title>
+    <meta name="description" content="Pagina per registarsi al sito Pizza a Tutto Tondo" />
+    <meta name="keywords" content="PizzaATuttoTondo, pizza, registrazione" />
+    <meta name="author" content="Pizza a Tutto Tondo group" />
+  </head>
+  <body>
+    <placeholder_header />
 
-<head>
-  <placeholder_head_default_tags />
-  <title>Registrati - Pizza a tutto Tondo</title>
-  <meta name="description" content="Pagina per registarsi al sito Pizza a Tutto Tondo" />
-  <meta name="keywords" content="PizzaATuttoTondo, pizza, registrazione" />
-  <meta name="author" content="Pizza a Tutto Tondo group" />
-</head>
+    <nav class="breadcrumbs_block">
+      <p class="breadcrumbs_pre">Ti trovi in:</p>
+      <ol class="breadcrumbs">
+        <li><a href=".">Home</a></li>
+        <li aria-current="page">Registrati</li>
+      </ol>
+    </nav>
 
-<body>
-  <placeholder_header />
+    <main id="content">
+      <h1 class="title-page">Registrati</h1>
+      <section class="container">
+        <div class="modal">
+          <p tabindex="0">Hai già un account? <a href="login">Accedi</a> </p>
+          <h3>Form di registrazione</h3>
+            <form id="form-registrazione" action="signup" method="POST" onsubmit="return validateFormReg()">
+              <div id="registrati">
+                <label for="username-reg" class="form-label" lang="en">Username</label>
+                <input id="username-reg" type="text" class="form-input" name="username" aria-describedby="err1" placeholder="Esempio: mariorossi99" value="<valoreUsername />" />
+                <messaggioUsername />
+                <div class="esito">
+                  <span id="err1" class="msg">Di 4 caratteri, al massimo 20, senza simboli.</span>
+                </div>
+                <div class="requirements">
+                  <ul>
+                    <li>Username di almeno 4 caratteri e massimo di 20</li>
+                    <li>Username con solo caratteri alfanumerici</li>
+                  </ul>
+                </div>
 
-  <nav class="breadcrumbs_block">
-    <p class="breadcrumbs_pre">Ti trovi in:</p>
-    <ol class="breadcrumbs">
-      <li><a href=".">Home</a></li>
-      <li aria-current="page">Registrati</li>
-    </ol>
-  </nav>
+                <label for="email-reg" class="form-label" lang="en">Email</label>
+                <input id="email-reg" type="email" class="form-input" name="email" aria-describedby="err2" placeholder="Esempio: mariorossi@libero.it" value="<valoreEmail />" />
+                <messaggioEmail />
+                <div class="esito">
+                  <span id="err2" class="msg">Deve essere valida.</span>
+                </div>
+                <div class="requirements">
+                  <ul>
+                    <li>L'email deve essere valida</li>
+                  </ul>
+                </div>
 
-  <main id="content">
-    <h1 class="title-page">Registrati</h1>
-    <section class="container">
-      <div class="modal">
-        <p tabindex="0">Hai già un account? <a href="login">Accedi</a> </p>
-        <h3>Form di registrazione</h3>
-          <form id="form-registrazione" action="signup" method="POST" onsubmit="return validateFormReg()">
-            <div id="registrati">
-              <label for="username-reg" class="form-label" lang="en">Username</label>
-              <input id="username-reg" type="text" class="form-input" name="username" aria-describedby="err1" placeholder="Esempio: mariorossi99" value="<valoreUsername />" />
-              <messaggioUsername />
-              <div class="esito">
-                <span id="err1" class="msg">Di 4 caratteri, al massimo 20, senza simboli.</span>
-              </div>
-              <div class="requirements">
-                <ul>
-                  <li>Username di almeno 4 caratteri e massimo di 20</li>
-                  <li>Username con solo caratteri alfanumerici</li>
-                </ul>
-              </div>
+                <label for="password-reg" class="form-label" lang="en">Password</label>
+                <input id="password-reg" type="password" class="form-input" name="password" aria-describedby="err3" placeholder="Password" value="<valorePass />" />
+                <messaggioPassword />
+                <div class="esito">
+                  <span id="err3" class="msg">Di almeno 5 caratteri, massimo di 15, con almeno un numero e una lettera maiuscola.</span>
+                </div>
+                <div class="requirements">
+                  <ul>
+                    <li>Password di almeno 5 caratteri e massimo di 15</li>
+                    <li>Password deve contenere una lettera maiuscola</li>
+                    <li>Password deve contenere un numero</li>
+                  </ul>
+                </div>
 
-              <label for="email-reg" class="form-label" lang="en">Email</label>
-              <input id="email-reg" type="email" class="form-input" name="email" aria-describedby="err2" placeholder="Esempio: mariorossi@libero.it" value="<valoreEmail />" />
-              <messaggioEmail />
-              <div class="esito">
-                <span id="err2" class="msg">Deve essere valida.</span>
+                <label for="password-reg1" class="form-label">Ripeti <span lang="en">password</span></label>
+                <input id="password-reg1" type="password" class="form-input" name="conferma_password" aria-describedby="err4" placeholder="Ripeti password" value="<valorePassRpt />" />
+                <messaggioPasswordRpt />
+                <div class="esito">
+                  <span id="err4" class="msg"></span>
+                </div>
+                
+                <button name="submit">Registrati</button>
               </div>
-              <div class="requirements">
-                <ul>
-                  <li>L'email deve essere valida</li>
-                </ul>
-              </div>
-              <label for="password-reg" class="form-label" lang="en">Password</label>
-              <input id="password-reg" type="password" class="form-input" name="password" aria-describedby="err3" placeholder="Password" value="<valorePass />" />
-              <messaggioPassword />
-              <div class="esito">
-                <span id="err3" class="msg">Di almeno 5 caratteri, massimo di 15, con almeno un numero e una lettera maiuscola.</span>
-              </div>
-              <div class="requirements">
-                <ul>
-                  <li>Password di almeno 5 caratteri e massimo di 15</li>
-                  <li>Password deve contenere una lettera maiuscola</li>
-                  <li>Password deve contenere un numero</li>
-                </ul>
-              </div>
-
-              <label for="password-reg1" class="form-label">Ripeti <span lang="en">password</span></label>
-              <input id="password-reg1" type="password" class="form-input" name="conferma_password" aria-describedby="err4" placeholder="Ripeti password" value="<valorePassRpt />" />
-              <messaggioPasswordRpt />
-              <div class="esito">
-                <span id="err4" class="msg"></span>
-              </div>
-              <button name="submit">Registrati</button>
-            </div>
-          </form>
-          <messaggioFinale />
-        </div>
-      </section>
-  </main>
-  <placeholder_footer />
-  <script src="scripts/js/contact.js"></script>
-</body>
-
+            </form>
+            <messaggioFinale />
+          </div>
+        </section>
+    </main>
+    <placeholder_footer />
+    <script src="scripts/js/contact.js"></script>
+  </body>
 </html>

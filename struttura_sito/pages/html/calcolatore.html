@@ -1,151 +1,143 @@
 <!DOCTYPE html>
+<!-- Pagina del calcolatore di Ingredienti -->
 <html lang="it">
+  <head>
+    <placeholder_head_default_tags />
+    <script src="scripts/js/pizzacalc.js"></script>
+    <title>Calcolatore - Pizza a tutto Tondo</title>
+    <meta name="description" content="Pagina per aceddere con il proprio profilo al sito Pizza a tutto Tondo" />
+    <meta name="keywords" content="pizza a tutto tondo, pizza, accedi" />
+    <meta name="author" content="Pizza a tutto Tondo's group" />
+  </head>
+  <body>
+    <placeholder_header />
+    <nav class="breadcrumbs_block">
+      <p class="breadcrumbs_pre">Ti trovi in:</p>
+      <ol class="breadcrumbs">
+        <li><a href=".">Home</a></li>
+        <li aria-current="page">Calcolatore</li>
+      </ol>
+    </nav>
+    <main id="content">
+      <h1 class="title-page">Calcolatore</h1>
+      <section id="calcolatore" class="container">
+        <div>
+          <form>
+            <div class="row">
+              <div class="column">
+                <label for="stile_p">Tipo di pizza</label>
+                <select onchange="checkStyle()" id="stile_p" name="stile_p">
+                  <option selected value="Pizza tonda">Pizza tonda</option>
+                  <option value="Pizza in teglia">Pizza in teglia</option>
+                  <option value="Napoletana">Napoletana</option>
+                </select>
+              </div>
+              <div class="column">
+                <label for="numero_p">Numero di pizze</label>
+                <input onchange="checkStyle()" id="numero_p" type="number" min="1" value="1" name="numero_p">
+              </div>
+              <div class="column">
+                <label for="idratazione">Idratazione desiderata (%)</label>
+                <input onchange="checkStyle()" id="idratazione" type="number" min="1" value="55" max="100" name="idratazione">
+              </div>
+            </div>
+            <div class="row">
+              <div id="diametro_div" class="column visible">
+                <label id="label_diametro" for="diametro_p">Diametro pizza (<abbr title="centimetri">cm
+                  </abbr>)</label>
+                <input onchange="checkStyle()" id="diametro_p" type="number" min="10" value="25" max="40" name="diametro_p">
+              </div>
+              <div id="larghezza_div" class="column hidden">
+                <label id="larghezza" for="larghezza_p">Larghezza teglia (<abbr title="centimetri">cm
+                  </abbr>)</label>
+                <input onchange="checkStyle()" id="larghezza_p" type="number" min="10" value="60" max="150" name="larghezza">
+              </div>
+              <div id="profondita_div" class="column hidden">
+                <label id="label_profondita" for="profondita_p">Profondità teglia (<abbr title="centimetri">cm
+                  </abbr>)</label>
+                <input onchange="checkStyle()" id="profondita_p" type="number" min="10" value="40" max="150" name="profondita_p">
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
 
-<head>
-  <placeholder_head_default_tags />
-  <script src="scripts/js/pizzacalc.js"></script>
-  <title>Calcolatore - Pizza a tutto Tondo</title>
-</head>
-
-<body>
-  <placeholder_header />
-
-  <nav class="breadcrumbs_block">
-    <p class="breadcrumbs_pre">Ti trovi in:</p>
-    <ol class="breadcrumbs">
-      <li><a href=".">Home</a></li>
-      <li aria-current="page">Calcolatore</li>
-    </ol>
-  </nav>
-
-
-  <main id="content">
-
-    <h1 class="title-page">Calcolatore</h1>
-
-    <section id="calcolatore" class="container">
-      <div>
-        <form>
-          <div class="row">
-            <div class="column">
-              <label for="stile_p">Tipo di pizza</label>
-              <select onchange="checkStyle()" id="stile_p" name="stile_p">
-                <option selected value="Pizza tonda">Pizza tonda</option>
-                <option value="Pizza in teglia">Pizza in teglia</option>
-                <option value="Napoletana">Napoletana</option>
-              </select>
+      <section id="risultato" class="container">
+        <div>
+          <fieldset tabindex="0">
+            <legend>Risultati</legend>
+            <div id="ris_biga" class="container hidden">
+              <p>Per la biga:</p>
+              <div class="farina">
+                <img src="imgs/icons/flour.png" alt="">
+                <p>Farina:
+                  <span id="res_far_b">125</span>
+                  <abbr title="grammi">g</abbr>
+                </p>
+              </div>
+              <div class="acqua">
+                <img src="imgs/icons/water.png" alt="">
+                <p>
+                  Acqua:
+                  <span id="res_h2o_b">81.25</span>
+                  <abbr title="millilitri">ml</abbr>
+                </p>
+              </div>
+              <div class="lievito">
+                <img src="imgs/icons/yeast.png" alt="">
+                <p>
+                  Lievito:
+                  <span id="res_lie_b">1.25</span>
+                  <abbr title="grammi">g</abbr>
+                </p>
+              </div>
             </div>
-            <div class="column">
-              <label for="numero_p">Numero di pizze</label>
-              <input onchange="checkStyle()" id="numero_p" type="number" min="1" value="1" name="numero_p">
+            <div id="ris_impasto" class="container">
+              <p>Per l'impasto:</p>
+              <div class="farina">
+                <img src="imgs/icons/flour.png" alt="">
+                <p>
+                  Farina:
+                  <span id="res_far">125</span>
+                  <abbr title="grammi">g</abbr>
+                </p>
+              </div>
+              <div class="acqua">
+                <img src="imgs/icons/water.png" alt="">
+                <p>
+                  Acqua:
+                  <span id="res_h2o">81.25</span>
+                  <abbr title="millilitri">ml</abbr>
+                </p>
+              </div>
+              <div class="lievito">
+                <img src="imgs/icons/yeast.png" alt="">
+                <p>
+                  Lievito:
+                  <span id="res_lie">1.25</span>
+                  <abbr title="grammi">g</abbr>
+                </p>
+              </div>
+              <div class="sale">
+                <img src="imgs/icons/salt.png" alt="">
+                <p>
+                  Sale:
+                  <span id="res_sal">2.5</span>
+                  <abbr title="grammi">g</abbr>
+                </p>
+              </div>
+              <div class="olio">
+                <img src="imgs/icons/oil.png" alt="">
+                <p> Olio:
+                  <span id="res_oli">6.25</span>
+                  <abbr title="millilitri">ml</abbr>
+                </p>
+              </div>
             </div>
-            <div class="column">
-              <label for="idratazione">Idratazione desiderata (%)</label>
-              <input onchange="checkStyle()" id="idratazione" type="number" min="1" value="55" max="100" name="idratazione">
-            </div>
-          </div>
-          <div class="row">
-            <div id="diametro_div" class="column visible">
-              <label id="label_diametro" for="diametro_p">Diametro pizza (<abbr title="centimetri">cm
-                </abbr>)</label>
-              <input onchange="checkStyle()" id="diametro_p" type="number" min="10" value="25" max="40" name="diametro_p">
-            </div>
-            <div id="larghezza_div" class="column hidden">
-              <label id="larghezza" for="larghezza_p">Larghezza teglia (<abbr title="centimetri">cm
-                </abbr>)</label>
-              <input onchange="checkStyle()" id="larghezza_p" type="number" min="10" value="60" max="150" name="larghezza">
-            </div>
-            <div id="profondita_div" class="column hidden">
-              <label id="label_profondita" for="profondita_p">Profondità teglia (<abbr title="centimetri">cm
-                </abbr>)</label>
-              <input onchange="checkStyle()" id="profondita_p" type="number" min="10" value="40" max="150" name="profondita_p">
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <section id="risultato" class="container">
-      <div>
-        <fieldset tabindex="0">
-
-          <legend>Risultati</legend>
-          <div id="ris_biga" class="container hidden">
-            <p>Per la biga:</p>
-            <div class="farina">
-              <img src="imgs/icons/flour.png" alt="">
-              <p>Farina:
-                <span id="res_far_b">125</span>
-                <abbr title="grammi">g</abbr>
-              </p>
-            </div>
-            <div class="acqua">
-              <img src="imgs/icons/water.png" alt="">
-              <p>
-                Acqua:
-                <span id="res_h2o_b">81.25</span>
-                <abbr title="millilitri">ml</abbr>
-              </p>
-            </div>
-            <div class="lievito">
-              <img src="imgs/icons/yeast.png" alt="">
-              <p>
-                Lievito:
-                <span id="res_lie_b">1.25</span>
-                <abbr title="grammi">g</abbr>
-              </p>
-            </div>
-          </div>
-
-          <div id="ris_impasto" class="container">
-            <p>Per l'impasto:</p>
-
-            <div class="farina">
-              <img src="imgs/icons/flour.png" alt="">
-              <p>
-                Farina:
-                <span id="res_far">125</span>
-                <abbr title="grammi">g</abbr>
-              </p>
-            </div>
-            <div class="acqua">
-              <img src="imgs/icons/water.png" alt="">
-              <p>
-                Acqua:
-                <span id="res_h2o">81.25</span>
-                <abbr title="millilitri">ml</abbr>
-              </p>
-            </div>
-            <div class="lievito">
-              <img src="imgs/icons/yeast.png" alt="">
-              <p>
-                Lievito:
-                <span id="res_lie">1.25</span>
-                <abbr title="grammi">g</abbr>
-              </p>
-            </div>
-            <div class="sale">
-              <img src="imgs/icons/salt.png" alt="">
-              <p>
-                Sale:
-                <span id="res_sal">2.5</span>
-                <abbr title="grammi">g</abbr>
-              </p>
-            </div>
-            <div class="olio">
-              <img src="imgs/icons/oil.png" alt="">
-              <p> Olio:
-                <span id="res_oli">6.25</span>
-                <abbr title="millilitri">ml</abbr>
-              </p>
-
-            </div>
-          </div>
-        </fieldset>
-      </div>
-    </section>
-  </main>
-  <placeholder_footer />
-</body>
-
+          </fieldset>
+        </div>
+      </section>
+    </main>
+    <placeholder_footer />
+  </body>
 </html>

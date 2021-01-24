@@ -1,8 +1,4 @@
 //Controlli sugli input
-var formContatti = document.getElementById('form-contatti');
-var formReg = document.getElementById('form-registrazione');
-var formLog = document.getElementById('form-accedi');
-
 var nome = document.getElementById('nome-cont');
 var email = document.getElementById('email-cont');
 var username = document.getElementById('username-reg');
@@ -36,6 +32,7 @@ function validateFormCont() {
   return a && b;
 }
 
+//funzioni per controllare la validità dei dati inseriti dall'utente (username, email, password) nel form di registrazione
 function checkName(nameValue, inp) {
   if (nameValue === '' || nameValue.length < 4 || nameValue.length > 20 || rightName(nameValue)) {
     result = false;
@@ -138,6 +135,7 @@ function rightName(name) {
   return /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(name);
 }
 
+//funzioni che regolano l'output finale che informa l'utente del successo/fallimento del submit
 function setErrorFor(input, message) {
   let esito = input.nextElementSibling;
   let span = esito.querySelector('span');

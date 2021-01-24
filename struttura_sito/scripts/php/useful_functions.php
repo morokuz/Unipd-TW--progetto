@@ -1,5 +1,6 @@
 <?php
 
+// Funzione che permette di passare un array associativo di valori da rimpiazzare in una stringa
 function replace($string_input, $array_replacements) {
   foreach ($array_replacements as $key => $value) {
     $string_input = str_replace($key, $value, $string_input);
@@ -7,6 +8,7 @@ function replace($string_input, $array_replacements) {
   return $string_input;
 }
 
+// Controlla se l'utente è correntemente loggato per impostare correttamente i link di navigazione
 function checkSession() {
   if(isset($_SESSION['usid'])) {
     $links[0] = '<li><a href="logout" role="button">Ciao ' . $_SESSION["usname"] . '! Effettua il logout</a></li>';
@@ -17,6 +19,7 @@ function checkSession() {
   return $links;
 }
 
+// Gestisce i segnaposto per i link di navigazione
 function addReplacements($replacements, $links) {
   if(count($links) == 2){
     $replacements += ["<placeholder_log />" => $links[0]];
@@ -27,6 +30,10 @@ function addReplacements($replacements, $links) {
   }
   return $replacements;
 }
+
+
+
+// Insieme di funzioni usate per la creazione e l'autenticazione dell'utente
 
 function checkEmail($msg, $email) {
   if(empty($email)) {
@@ -72,7 +79,6 @@ function createUser ($conn , $username, $email, $password) {
   mysqli_stmt_close($stmt);
 }
 
-
 function loginUser($conn , $username , $password) {
   $usExists = alreadyTaken ($conn , $username);
   if($usExists != false){
@@ -93,7 +99,8 @@ function loginUser($conn , $username , $password) {
 
 
 
-// Funzioni per rimuovere ricetta
+// Insieme di funzioni usate per rimuovere una ricetta
+
 function check_user_owner() {
   if (isset($_SESSION['usid']) && (is_admin() || is_owner())) {
     return true;
