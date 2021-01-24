@@ -1,8 +1,4 @@
 //Controlli sugli input
-var formContatti = document.getElementById('form-contatti');
-var formReg = document.getElementById('form-registrazione');
-var formLog = document.getElementById('form-accedi');
-
 var nome = document.getElementById('nome-cont');
 var email = document.getElementById('email-cont');
 var username = document.getElementById('username-reg');
