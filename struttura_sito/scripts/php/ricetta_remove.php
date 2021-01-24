@@ -54,7 +54,7 @@ function ricetta_remove(&$db_connection) {
     
     $sql = "DELETE FROM ricette WHERE id=$ricetta_id";
     if ($db_connection->query($sql) === TRUE) {
-      echo "DELETED";
+      // echo "DELETED";
     } else {
       echo "ERRORE: " . $db_connection->error;
     }
@@ -63,6 +63,6 @@ function ricetta_remove(&$db_connection) {
 
 function back_to_ricette(&$db_connection) {
   db_close($db_connection);
-  header('Location: ricette');
+  header('Location: ../../ricette');
   exit();
 }
