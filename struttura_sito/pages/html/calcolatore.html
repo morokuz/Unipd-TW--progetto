@@ -28,73 +28,106 @@
         <form>
           <div class="row">
             <div class="column">
-              <label for="stile pizza">Tipo di pizza</label>
-              <select onchange="calcola()" id="stile_p" name="stile_p">
-                <option selected value="Napoletana">Napoletana</option>
+              <label for="stile_p">Tipo di pizza</label>
+              <select onchange="checkStyle()" id="stile_p" name="stile_p">
+                <option selected value="Pizza tonda">Pizza tonda</option>
                 <option value="Pizza in teglia">Pizza in teglia</option>
-                <option value="Pizza tonda">Pizza tonda</option>
+                <option value="Napoletana">Napoletana</option>
               </select>
             </div>
             <div class="column">
-              <label for="numero pizze">Numero di pizze</label>
-              <input onchange="calcola()" id="numero_p" type="number" min="1" value="1" name="numero_p"></input>
+              <label for="numero_p">Numero di pizze</label>
+              <input onchange="checkStyle()" id="numero_p" type="number" min="1" value="1" name="numero_p">
             </div>
             <div class="column">
               <label for="idratazione">Idratazione desiderata (%)</label>
-              <input onchange="calcola()" id="idratazione" type="number" min="1" value="65" max="100" name="idratazione"></input>
+              <input onchange="checkStyle()" id="idratazione" type="number" min="1" value="55" max="100"
+                name="idratazione">
             </div>
           </div>
           <div class="row">
-            <div class="column">
-              <label id="label_diametro" for="diametro_p">Diametro pizza (cm)</label>
-              <input onchange="calcola()" id="diametro_p" type="number" min="10" value="25" max="32" name="diametro_p">
+            <div id="diametro_div" class="column visible">
+              <label id="label_diametro" for="diametro_p">Diametro pizza (<abbr title="centimetri">cm
+                </abbr>)</label>
+              <input onchange="checkStyle()" id="diametro_p" type="number" min="10" value="25" max="40"
+                name="diametro_p">
             </div>
-            <div id="larghezza_div" class="column">
-              <label id="label_larghezza" for="larghezza">Larghezza teglia (cm)</label>
-              <input onchange="calcola()" id="larghezza" type="number" min="10" value="25" max="32" name="larghezza"></input>
+            <div id="larghezza_div" class="column hidden">
+              <label id="larghezza" for="larghezza_p">Larghezza teglia (<abbr title="centimetri">cm
+                </abbr>)</label>
+              <input onchange="checkStyle()" id="larghezza_p" type="number" min="10" value="60" max="150"
+                name="larghezza">
+            </div>
+            <div id="profondita_div" class="column hidden">
+              <label id="label_profondita" for="profondita_p">Profondità teglia (<abbr title="centimetri">cm
+                </abbr>)</label>
+              <input onchange="checkStyle()" id="profondita_p" type="number" min="10" value="40" max="150"
+                name="profondita_p">
             </div>
           </div>
-          <!-- <div class="row">
-        <div class="container_bottone">
-          <button type="button" id="bottone" onclick="calcola()">Calcola</button>
-        </div>
-      </div> -->
         </form>
       </div>
     </section>
 
     <section id="risultato" class="container">
+      <fieldset tabindex="0">
 
-      <!-- <hr class="sep_calc"> -->
-      <fieldset>
         <legend>Risultati</legend>
-        <div class="farina">
-          <img src="imgs/icons/flour.png" alt="">
-          Farina
-          <span id="res_far">125</span>
+        <div id="ris_biga" class="container hidden">
+          <p>Per la biga:</p>
+          <div class="farina">
+            <img src="imgs/icons/flour.png" alt="">
+            Farina:
+            <span id="res_far_b">125</span>
+            <abbr title="grammi">g</abbr>
+          </div>
+          <div class="acqua">
+            <img src="imgs/icons/water.png" alt="">
+            Acqua:
+            <span id="res_h2o_b">81.25</span>
+            <abbr title="millilitri">ml</abbr>
+          </div>
+          <div class="lievito">
+            <img src="imgs/icons/yeast.png" alt="">
+            Lievito:
+            <span id="res_lie_b">1.25</span>
+            <abbr title="grammi">g</abbr>
+          </div>
         </div>
-        <div class="acqua">
-          <img src="imgs/icons/water.png" alt="">
-          Acqua
-          <span id="res_h2o">81.25</span>
-        </div>
-        <div class="lievito">
-          <img src="imgs/icons/yeast.png" alt="">
-          Lievito
-          <span id="res_lie">1.25</span>
-        </div>
-        <div class="sale">
-          <img src="imgs/icons/salt.png" alt="">
-          Sale
-          <span id="res_sal">2.5</span>
-        </div>
-        <div class="olio">
-          <img src="imgs/icons/oil.png" alt="">
-          Olio
-          <span id="res_oli">6.25</span>
+
+        <div id="ris_impasto" class="container">
+          <div class="farina">
+            <img src="imgs/icons/flour.png" alt="">
+            Farina:
+            <span id="res_far">125</span>
+            <abbr title="grammi">g</abbr>
+          </div>
+          <div class="acqua">
+            <img src="imgs/icons/water.png" alt="">
+            Acqua:
+            <span id="res_h2o">81.25</span>
+            <abbr title="millilitri">ml</abbr>
+          </div>
+          <div class="lievito">
+            <img src="imgs/icons/yeast.png" alt="">
+            Lievito:
+            <span id="res_lie">1.25</span>
+            <abbr title="grammi">g</abbr>
+          </div>
+          <div class="sale">
+            <img src="imgs/icons/salt.png" alt="">
+            Sale:
+            <span id="res_sal">2.5</span>
+            <abbr title="grammi">g</abbr>
+          </div>
+          <div class="olio">
+            <img src="imgs/icons/oil.png" alt="">
+            Olio:
+            <span id="res_oli">6.25</span>
+            <abbr title="millilitri">ml</abbr>
+          </div>
         </div>
       </fieldset>
-
     </section>
   </main>
   <placeholder_footer />
