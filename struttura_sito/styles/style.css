@@ -823,6 +823,14 @@ form.like-button {
   margin: 0.5em;
 }
 
+.hidden{
+  display: none;
+}
+
+.visible{
+  display: inline-block;
+}
+
 #risultato fieldset {
   margin: auto;
   display: flex;
