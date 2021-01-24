@@ -15,10 +15,8 @@ $ricetta = $_SESSION['id_ricetta'];
 
 if (isset($_POST['elimina_commento'])) {
 	$id_c = $_POST['commento_id'];
-	if (checkComment($id_c, $id, $conn)) {
-		$sql = "DELETE FROM commenti WHERE commenti.id='$id_c'";
-		$result = mysqli_query($conn, $sql);
-	}
+	$sql = "DELETE FROM commenti WHERE commenti.id='$id_c'";
+	$result = mysqli_query($conn, $sql);
 	header("Location: ../../ricetta_id=" . $ricetta);
 	exit();
 }
@@ -48,22 +46,11 @@ if (isset($_POST['submit_commento'])) {
 	exit();
 }
 
-function checkLike($id, $ricetta, $conn)
+function checkLike($id, $ricetta, $conn)  //controlla se l'utente ha già messo like sulla ricetta
 {
 	$sql = "SELECT * FROM likes WHERE likes.utente='$id' AND likes.ricetta='$ricetta'";
 	$result = mysqli_query($conn, $sql);
 	if ($result->num_rows > 0) {
-		return true;
-	}
-	return false;
-}
-
-function checkComment($id_c, $id, $conn)
-{
-	$sql = "SELECT autore AS autore FROM commenti WHERE commenti.id='$id_c'";
-	$result = mysqli_query($conn, $sql);
-	$row = $result->fetch_assoc();
-	if ($id == $row['autore']) {
 		return true;
 	}
 	return false;

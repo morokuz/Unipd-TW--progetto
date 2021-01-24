@@ -70,12 +70,22 @@ $sql = "SELECT commenti.id AS id_c,
 $result = $GLOBALS["db_connection"]->query($sql);
 
 while ($row = $result->fetch_assoc()) {
-  $replacements_commento = [
-    "<placeholder_sql_ricetta_commento_username />" => $row["username"],
-    "<placeholder_sql_ricetta_commento_dataora />" => $row["data_ora"],
-    "<placeholder_sql_ricetta_commento_contenuto />" => $row["contenuto"],
-    "<placeholder_sql_ricetta_commento_id />" => $row["id_c"]
-  ];
+  if ((isset($_SESSION['usname']) && $_SESSION["usname"] == $row["username"]) || (isset($_SESSION['usname']) && $_SESSION['usid'] == '0')) {
+    $replacements_commento = [
+      "<placeholder_sql_ricetta_commento_username />" => $row["username"], //se l'utente è loggato ed ha username==autore
+      "<placeholder_sql_ricetta_commento_dataora />" => $row["data_ora"], //del commento o è admin
+      "<placeholder_sql_ricetta_commento_contenuto />" => $row["contenuto"], //oltre ai dati di base inserisco il bottone delete
+      "<placeholder_sql_ricetta_commento_delete />" => file_get_contents(__DIR__ . "/../html/components/ricetta_commento_delete.html"),
+      "<placeholder_sql_ricetta_commento_id />" => $row["id_c"]
+    ];
+  } else {
+    $replacements_commento = [ //altrimenti non lo inserisco
+      "<placeholder_sql_ricetta_commento_username />" => $row["username"],
+      "<placeholder_sql_ricetta_commento_dataora />" => $row["data_ora"],
+      "<placeholder_sql_ricetta_commento_contenuto />" => $row["contenuto"],
+      "<placeholder_sql_ricetta_commento_id />" => $row["id_c"]
+    ];
+  }
   $html_ricetta_commento = replace($html_ricetta_commento_template, $replacements_commento);
   $ricetta_commenti .= $html_ricetta_commento . "\n";
 }
@@ -109,7 +119,8 @@ echo replace($page, $replacements);
 
 
 
-function can_remove() {
+function can_remove()
+{
   if (check_user_owner()) {
     return file_get_contents(__DIR__ . "/../html/components/ricetta_form_rimuovi.html");
   }
