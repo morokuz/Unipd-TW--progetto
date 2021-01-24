@@ -815,28 +815,45 @@ form.like-button {
 
 #calcolatore .row .column {
   margin: 0.5em;
+  flex: 1 1 12em;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
-.visible{
+.visible {
   display: inline-block;
 }
 
-#risultato fieldset {
-  margin: auto;
+#risultato fieldset #ris_impasto,
+#risultato fieldset #ris_biga {
+  justify-content: space-evenly;
   display: flex;
   flex-wrap: wrap;
 }
 
-#risultato fieldset div {
+#risultato fieldset #ris_biga.hidden {
+  display: none;
+}
+
+#risultato fieldset #ris_biga > p,
+#risultato fieldset #ris_impasto > p {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+#risultato fieldset #ris_impasto div,
+#risultato fieldset #ris_biga div {
   margin: 0.5em;
+  display: flex;
+  align-items: center;
 }
 
 #risultato img {
   height: 2em;
+  margin-right: 1em;
 }
 
 /*Start Breadcrumbs*/
@@ -950,7 +967,8 @@ form {
 
 form label,
 input,
-textarea {
+textarea,
+select {
   display: block;
   width: 100%;
   font-size: 1.1em;

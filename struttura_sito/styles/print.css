@@ -178,16 +178,46 @@ section#commenti {
   display: none;
 }
 
-#risultato fieldset {
-  margin: auto;
+#risultato fieldset #ris_impasto,
+#risultato fieldset #ris_biga {
+  justify-content: space-evenly;
   display: flex;
   flex-wrap: wrap;
 }
 
-#risultato fieldset div {
+#risultato fieldset #ris_biga.hidden {
+  display: none;
+}
+
+#risultato fieldset #ris_biga > p,
+#risultato fieldset #ris_impasto > p {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+#risultato fieldset #ris_impasto div,
+#risultato fieldset #ris_biga div {
   margin: 0.5em;
+  display: flex;
+  align-items: center;
 }
 
 #risultato img {
   height: 2em;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: inline-block;
+}
+
+#risultato fieldset #ris_biga > p,
+#risultato fieldset #ris_impasto > p {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
 }
