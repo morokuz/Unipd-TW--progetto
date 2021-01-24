@@ -23,6 +23,7 @@ function addReplacements($replacements, $links) {
     $replacements += ["<placeholder_reg />" => $links[1]];
   } else {
     $replacements += ["<placeholder_log />" => $links[0]];
+    $replacements += ["<placeholder_reg />" => ""];
   }
   return $replacements;
 }

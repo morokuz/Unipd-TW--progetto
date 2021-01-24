@@ -52,7 +52,7 @@
         <form id="form-contatti" action="contatti" method="POST" onsubmit="return validateFormCont()">
 
           <label for="nome-cont" class="form-label">Nome</label>
-          <input type="text" id="nome-cont" class="form-input" name="nome" placeholder="Esempio: Mario Rossi" aria-describedby="err1" required="true" />
+          <input type="text" id="nome-cont" class="form-input" name="nome" placeholder="Esempio: Mario Rossi" aria-describedby="err1" required />
           <messaggioUsername />
           <div id="es1" class="esito">
             <span id="err1" class="msg">Di 4 caratteri, al massimo 20, senza simboli.</span>
@@ -66,7 +66,7 @@
           </div>
 
           <label for="email-cont" class="form-label" xml:lang="en" lang="en">Email</label>
-          <input id="email-cont" class="form-input" name="email" type="email" placeholder="Esempio: mario.rossi@libero.it" aria-describedby="err2" required="true" />
+          <input id="email-cont" class="form-input" name="email" type="email" placeholder="Esempio: mario.rossi@libero.it" aria-describedby="err2" required />
           <messaggioEmail />
           <div id="es2" class="esito">
             <span id="err2" class="msg">Deve essere valida.</span>
@@ -82,7 +82,7 @@
           <input type="text" id="oggetto" class="form-input" name="oggetto" placeholder="Oggetto (facoltativo)" />
 
           <label class="form-label" for="messaggio">Messaggio</label>
-          <textarea id="messaggio" class="form-input" name="messaggio" placeholder="Messaggio" required="true"></textarea>
+          <textarea id="messaggio" class="form-input" name="messaggio" placeholder="Messaggio" required></textarea>
 
           <!-- <div class="btn-invia"> -->
           <button name="submit">Invia</button>
