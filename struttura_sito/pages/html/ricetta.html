@@ -1,79 +1,76 @@
 <!DOCTYPE html>
+<!-- Pagina della ricetta selezionata -->
 <html lang="it">
+  <head>
+    <placeholder_head_default_tags />
+    <title> <placeholder_sql_ricetta_nome /> </title>
+    <meta name="description" content="Pagina relativa alla specifica ricetta selezionata dall'utente" />
+    <meta name="keywords" content="pizza a tutto tondo, pizza, ricette pizza" />
+    <meta name="author" content="Pizza a tutto Tondo's group" />
+  </head>
+  <body>
+    <placeholder_header />
 
-<head>
-  <placeholder_head_default_tags />
-  <title>
-    <placeholder_sql_ricetta_nome />
-  </title>
-</head>
-
-<body>
-  <placeholder_header />
-
-  <nav class="breadcrumbs_block">
-    <p class="breadcrumbs_pre">Ti trovi in:</p>
-    <ol class="breadcrumbs">
-      <li><a href=".">Home</a></li>
-      <li><a href="ricette">Ricette</a></li>
-      <li aria-current="page">
-        <placeholder_sql_ricetta_nome />
-      </li>
-    </ol>
-  </nav>
-
-
-  <main id="content" class="ricetta">
-    <section class="hero">
-      <img class="image-ricetta" src="imgs/ricette/<placeholder_sql_ricetta_immagine />" alt="" />
-      <p class="author">
-        <placeholder_sql_ricetta_autore />
-      </p>
-      <h2 class="titolo">
-        <placeholder_sql_ricetta_nome />
-      </h2>
-      <ul class="tags">
-        <li>
-          <placeholder_sql_ricetta_tipo />
+    <nav class="breadcrumbs_block">
+      <p class="breadcrumbs_pre">Ti trovi in:</p>
+      <ol class="breadcrumbs">
+        <li><a href=".">Home</a></li>
+        <li><a href="ricette">Ricette</a></li>
+        <li aria-current="page">
+          <placeholder_sql_ricetta_nome />
         </li>
-        <placeholder_sql_ricetta_vegetariana_tag />
-      </ul>
-    </section>
+      </ol>
+    </nav>
 
-    <section class="container">
-      <div>
-        <h3 class="title-ingredienti">Ingredienti:
-        </h3>
-        <ul class="ingredienti">
-          <placeholder_sql_ricetta_ingredienti />
-        </ul>
-
-        <h3 class="title-informazioni">Informazioni:
-        </h3>
-        <p class="informazioni">
-          <placeholder_sql_ricetta_informazioni />
+    <main id="content" class="ricetta">
+      <section class="hero">
+        <img class="image-ricetta" src="imgs/ricette/<placeholder_sql_ricetta_immagine />" alt="" />
+        <p class="author">
+          <placeholder_sql_ricetta_autore />
         </p>
-
-        <!-- <p>Scopri come preparare: <a href="./calcolatore.php">vai al Calcolatore</a></p> -->
-        <span>
-          <placeholder_sql_likes /> Like
-        </span>
-        <form method="POST" action="scripts/php/handle_like_commenti.php" class="like-button">
-          <button class="like-button" aria-label="Like pizza" type="submit" name="like"></button>
-        </form>
-      </div>
-    </section>
-    <placeholder_form_rimuovi />
-
-    <section id="commenti">
-      <h2>Commenti</h2>
-      <placeholder_ricetta_commento_form />
-      <section id="commenti-lista" class="container" aria-label="Lista commenti">
-        <placeholder_sql_ricetta_commenti />
+        <h2 class="titolo">
+          <placeholder_sql_ricetta_nome />
+        </h2>
+        <ul class="tags">
+          <li>
+            <placeholder_sql_ricetta_tipo />
+          </li>
+          <placeholder_sql_ricetta_vegetariana_tag />
+        </ul>
       </section>
-    </section>
-  </main>
-  <placeholder_footer />
-</body>
 
+      <section class="container">
+        <div>
+          <h3 class="title-ingredienti">Ingredienti:
+          </h3>
+          <ul class="ingredienti">
+            <placeholder_sql_ricetta_ingredienti />
+          </ul>
+
+          <h3 class="title-informazioni">Informazioni:
+          </h3>
+          <p class="informazioni">
+            <placeholder_sql_ricetta_informazioni />
+          </p>
+
+          <span>
+            <placeholder_sql_likes /> Like
+          </span>
+          <form method="POST" action="scripts/php/handle_like_commenti.php" class="like-button">
+            <button class="like-button" aria-label="Like pizza" type="submit" name="like"></button>
+          </form>
+        </div>
+      </section>
+      <placeholder_form_rimuovi />
+
+      <section id="commenti">
+        <h2>Commenti</h2>
+        <placeholder_ricetta_commento_form />
+        <section id="commenti-lista" class="container" aria-label="Lista commenti">
+          <placeholder_sql_ricetta_commenti />
+        </section>
+      </section>
+    </main>
+    <placeholder_footer />
+  </body>
 </html>
