@@ -78,7 +78,6 @@ $replacements = [
   "<placeholder_head_default_tags />" => file_get_contents(__DIR__ . "/../html/components/head_default_tags.html"),
   "<placeholder_header />" => $header,
   "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html"),
-  "<placeholder_breadcrumbs />" => file_get_contents(__DIR__ . "/../html/components/breadcrumbs.html"),
   "<messaggioUsername />" => $msg['username'] ,
   "<messaggioEmail />" => $msg['email'] ,
   "<messaggioPassword />" => $msg['password'] ,

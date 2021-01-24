@@ -13,8 +13,7 @@ $links = checkSession();
 $replacements = [
   "<placeholder_head_default_tags />" => file_get_contents(__DIR__ . "/../html/components/head_default_tags.html"),
   "<placeholder_header />" => $header,
-  "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html"),
-  "<placeholder_breadcrumbs />" => file_get_contents(__DIR__ . "/../html/components/breadcrumbs.html")
+  "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html")
 ];
 
 $replacements = addReplacements($replacements, $links);
