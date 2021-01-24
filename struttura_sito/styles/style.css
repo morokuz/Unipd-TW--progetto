@@ -32,8 +32,8 @@ header {
 }
 
 header img {
-  padding: 0.8em 0;
-  max-width: 40%;
+  padding: 1em 0;
+  max-width: 20%;
   object-fit: scale-down;
 }
 
@@ -83,6 +83,11 @@ header nav li a {
 @media (max-width: 1280px) {
   header {
     justify-content: center;
+  }
+
+  header img {
+    padding: 0.5em 0;
+    max-width: 60%;
   }
 
   /*** START NAVIGATION ***/
@@ -676,6 +681,10 @@ ul.center {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.ricetta-content.variant {
+  flex-direction: row-reverse;
 }
 
 .ricetta-content aside {
