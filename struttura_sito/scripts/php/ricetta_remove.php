@@ -56,7 +56,7 @@ function ricetta_remove(&$db_connection) {
     
     $sql = "DELETE FROM ricette WHERE id=$ricetta_id";
     if ($db_connection->query($sql) === TRUE) {
-      echo "DELETED";
+      // echo "DELETED";
     } else {
       echo "ERRORE: " . $db_connection->error;
     }

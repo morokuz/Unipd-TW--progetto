@@ -13,7 +13,7 @@ $connection = db_connect();
 
 $header = str_replace("<placeholder_log />" , $links[0] , $header);
 $header = str_replace("<placeholder_reg />" , $links[1] , $header);
-$current = '<li class="current"><a href="login">Accedi</a></li>';
+$current = '<li class="current" aria-current="page"><a href="login">Accedi</a></li>';
 $header = str_replace('<li><a href="login">Accedi</a></li>', $current, $header);
 
 

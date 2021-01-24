@@ -13,7 +13,7 @@ $links = array();
 $links = checkSession();
 $header = str_replace("<placeholder_log />" , $links[0] , $header);
 $header = str_replace("<placeholder_reg />" , $links[1] , $header);
-$current = '<li class="current"><a href="signup">Registrati</a></li>';
+$current = '<li class="current" aria-current="page"><a href="signup">Registrati</a></li>';
 $header = str_replace('<li><a href="signup">Registrati</a></li>', $current, $header);
 
 $connection = db_connect();

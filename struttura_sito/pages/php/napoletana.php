@@ -4,7 +4,7 @@ require_once (__DIR__ . "/../../scripts/php/useful_functions.php");
 
 $page = file_get_contents(__DIR__ . "/../html/napoletana.html");
 $header = file_get_contents(__DIR__ . "/../html/components/header.html");
-$current = '<li class="current"><a href="napoletana">Pizza Napoletana</a></li>';
+$current = '<li class="current" aria-current="page"><a href="napoletana">Pizza Napoletana</a></li>';
 $header = str_replace('<li><a href="napoletana">Pizza Napoletana</a></li>', $current, $header);
 $links = array();
 
