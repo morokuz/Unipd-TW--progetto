@@ -63,6 +63,6 @@ function ricetta_remove(&$db_connection) {
 
 function back_to_ricette(&$db_connection) {
   db_close($db_connection);
-  header('Location: ../../ricette');
+  header('Location: ricette');
   exit();
 }
