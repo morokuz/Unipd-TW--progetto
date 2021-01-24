@@ -16,7 +16,9 @@ $sql = "SELECT utenti.username AS autore,
                ricette.vegetariana AS vegetariana,
                ricette.informazioni AS informazioni,
                ricette.ingredienti AS ingredienti,
-               ricette.nome_immagine AS immagine
+               ricette.nome_immagine AS immagine,
+               ricette.autore AS id_autore,
+               ricette.id AS id_ricetta
         FROM ricette JOIN utenti ON ricette.autore=utenti.id
         WHERE ricette.id=\"$ricetta_id\"";
 $result = $GLOBALS["db_connection"]->query($sql);
@@ -29,6 +31,10 @@ if ($row["autore"] == "admin") {
 $ricetta_tipo = $row["tipo"];
 $ricetta_informazioni = $row["informazioni"];
 $ricetta_immagine = $row["immagine"];
+
+$_SESSION['id_autore'] = $row["id_autore"];
+$_SESSION['id_ricetta'] = $row["id_ricetta"];
+$_SESSION['img_nome'] = $row["immagine"];
 
 $ricetta_vegetariana = "";
 if ($row["vegetariana"] == true) {
@@ -91,7 +97,8 @@ $replacements = [
   "<placeholder_sql_ricetta_ingredienti />" => $ricetta_ingredienti,
   "<placeholder_sql_ricetta_immagine />" => $ricetta_immagine,
   "<placeholder_sql_likes />" => $ricetta_likes,
-  "<placeholder_sql_ricetta_commenti />" => $ricetta_commenti
+  "<placeholder_sql_ricetta_commenti />" => $ricetta_commenti,
+  "<placeholder_form_rimuovi />" => can_remove($db_connection)
 ];
 
 $replacements = addReplacements($replacements, $links);
@@ -99,3 +106,38 @@ $replacements = addReplacements($replacements, $links);
 db_close($db_connection);
 
 echo replace($page, $replacements);
+
+
+
+function can_remove(&$db_connection) {
+  if (check_user_owner($db_connection)) {
+    return file_get_contents(__DIR__ . "/../html/components/ricetta_form_rimuovi.html");
+  }
+  return "";
+}
+
+
+// TODO: mettere in useful_functions? (copia di "ricetta_remove.php")
+function check_user_owner(&$db_connection) {
+  if (isset($_SESSION['usid']) && (is_admin() || is_owner($db_connection))) {
+    return true;
+  }
+  return false;
+}
+
+function is_admin() {
+  return $_SESSION['usid'] == 1;
+}
+
+function is_owner(&$db_connection) {
+  return $_SESSION['usid'] == get_ricetta_owner_id($db_connection);
+}
+
+function get_ricetta_owner_id(&$db_connection) {
+  if (isset($_SESSION['id_autore'])) {
+    $id_autore = $_SESSION['id_autore'];
+    unset($_SESSION['ricetta_id']);
+    return $id_autore;
+  }
+  return 0;
+}
