@@ -1,0 +1,193 @@
+header > * {
+  display: none;
+}
+
+header #logo {
+  display: block;
+  margin: auto;
+  width: 16em;
+}
+
+.breadcrumbs_block {
+  display: none;
+}
+
+main {
+  padding: 2em;
+}
+
+body {
+  counter-reset: h2counter;
+}
+
+h1 {
+  counter-reset: h2counter;
+}
+
+h2:before {
+  content: counter(h2counter) ". ";
+  counter-increment: h2counter;
+  counter-reset: h3counter;
+}
+
+h3:before {
+  content: counter(h2counter) "." counter(h3counter) ". ";
+  counter-increment: h3counter;
+}
+
+form {
+  display: none;
+}
+
+.image-section {
+  height: 12em;
+  margin: auto;
+  display: block;
+}
+
+footer {
+  text-align: center;
+}
+
+.foot-container > * {
+  margin: 0;
+}
+
+footer .title-footer {
+  font-weight: bold;
+}
+
+#torna-su {
+  display: none;
+}
+
+.title-page {
+  text-align: center;
+  margin-top: 0.1em;
+}
+
+#immagine {
+  display: none;
+}
+
+.ricetta-content aside {
+  display: flex;
+  font-size: 80%;
+}
+
+.ricetta-content div {
+  flex: 1 1 16em;
+  border: 1px solid black;
+  padding: 0 1em;
+}
+
+.catch {
+  display: none;
+}
+
+#share-pizza {
+  display: none;
+}
+
+#container-ricette {
+  width: 100%;
+  display: table;
+}
+
+#container-ricette .content > * {
+  margin: 0.3em 0;
+}
+
+.card-ricetta {
+  width: calc(50% - 3em - 2px);
+  background-color: white;
+  margin: 0.5em;
+  padding: 1em;
+  border: 1px solid black;
+  display: inline-table;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  break-inside: avoid;
+}
+
+.card-ricetta .image {
+  display: none;
+}
+
+.card-ricetta ul {
+  list-style: none;
+  padding: 0;
+}
+
+.author:before {
+  content: "L'autore è: ";
+}
+
+.tags {
+  list-style: none;
+  margin-top: 0.5em;
+}
+
+.tags li {
+  display: inline-block;
+  background-color: #fff4e7;
+  border: 2px solid #ffc991;
+  border-radius: 10em;
+  padding: 0.2em 0.8em;
+  font-size: 0.8em;
+}
+
+.tags li.vegetariana {
+  background-color: #dbecd9;
+  border: 2px solid #6ed264;
+}
+
+.ingredienti {
+  margin: 0;
+}
+
+.ingredienti li {
+  display: inline;
+  font-style: italic;
+  text-transform: capitalize;
+}
+
+.ingredienti li::after {
+  content: ",";
+}
+
+.ingredienti li:last-child::after {
+  content: "";
+}
+
+.card-ricetta section.footer {
+  display: none;
+}
+
+section#contattaci {
+  display: none;
+}
+
+.image-ricetta {
+  height: 16em;
+  display: block;
+  margin: auto;
+}
+
+section#commenti {
+  display: none;
+}
+
+#risultato fieldset {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#risultato fieldset div {
+  margin: 0.5em;
+}
+
+#risultato img {
+  height: 2em;
+}

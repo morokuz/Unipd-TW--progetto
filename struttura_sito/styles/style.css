@@ -376,26 +376,24 @@ section.container > div.space {
 /* END TABLET */
 
 /* RICETTE */
+ul.center {
+  text-align: center;
+  padding: 0;
+  list-style-position: inside;
+}
+
 #share-pizza {
   width: fit-content;
   margin: 2em auto;
   padding: 1em;
   background: #ffe59d;
-}
-
-#share-pizza p {
-  margin-top: 0;
-  text-align: center;
-  font-size: 1.2em;
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 4px;
-  color: #333;
+  box-shadow: 0 0 16px #33333310;
 }
 
 #share-pizza a {
   width: fit-content;
   margin: auto;
+  margin-top: 1em;
   display: block;
   padding: 1em;
   text-decoration: none;
