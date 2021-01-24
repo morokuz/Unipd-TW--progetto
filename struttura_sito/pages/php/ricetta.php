@@ -83,6 +83,7 @@ while ($row = $result->fetch_assoc()) {
       "<placeholder_sql_ricetta_commento_username />" => $row["username"],
       "<placeholder_sql_ricetta_commento_dataora />" => $row["data_ora"],
       "<placeholder_sql_ricetta_commento_contenuto />" => $row["contenuto"],
+      "<placeholder_sql_ricetta_commento_delete />" => "",
       "<placeholder_sql_ricetta_commento_id />" => $row["id_c"]
     ];
   }
