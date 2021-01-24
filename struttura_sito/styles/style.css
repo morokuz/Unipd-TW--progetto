@@ -32,8 +32,8 @@ header {
 }
 
 header img {
-  padding: 0.8em 0;
-  max-width: 40%;
+  padding: 1em 0;
+  max-width: 20%;
   object-fit: scale-down;
 }
 
@@ -83,6 +83,11 @@ header nav li a {
 @media (max-width: 1280px) {
   header {
     justify-content: center;
+  }
+
+  header img {
+    padding: 0.5em 0;
+    max-width: 60%;
   }
 
   /*** START NAVIGATION ***/
@@ -581,8 +586,8 @@ ul.center {
   margin-top: 0;
 }
 
-.ricetta .like-button {
-  margin-left: 0.2em;
+.ricetta button.like-button {
+  display: inline;
   color: white;
   border: 0;
   cursor: pointer;
@@ -590,7 +595,10 @@ ul.center {
   border-radius: 10em;
   padding: 0.3em 1em;
   font-size: 0.8em;
-  margin-right: 0.5em;
+}
+
+form.like-button {
+  width: 100%;
 }
 
 #commenti h2 {
@@ -641,11 +649,11 @@ ul.center {
   margin-bottom: 0;
 }
 
-.ricetta .like-button:hover {
+.ricetta button.like-button:hover {
   background-color: #4c04b3;
 }
 
-.ricetta .like-button::before {
+.ricetta button.like-button::before {
   content: "❤";
 }
 
@@ -667,7 +675,7 @@ ul.center {
   }
 
   .likes,
-  .ricetta .like-button {
+  .ricetta button.like-button {
     font-size: 1em;
   }
 }
@@ -676,6 +684,10 @@ ul.center {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.ricetta-content.variant {
+  flex-direction: row-reverse;
 }
 
 .ricetta-content aside {
