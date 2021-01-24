@@ -17,12 +17,15 @@ $replacements = [
   "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html"),
   "<placeholder_breadcrumbs />" => file_get_contents(__DIR__ . "/../html/components/breadcrumbs.html"),
   "<placeholder_ricette_cards />" => html_ricette_cards(),
-  "<placeholder_ricette_aggiungi_link />" => ricette_aggiungi_link()
+  "<placeholder_ricette_aggiungi_link />" => ricette_aggiungi_link(),
+  "<placeholder_ricette_check_login />" => replace_check_login()
 ];
 
 db_close($db_connection);
 $replacements = addReplacements($replacements, $links);
 echo replace($page, $replacements);
+
+
 
 function html_ricette_cards() {
   $ricette_cards = "";
@@ -99,5 +102,12 @@ function ricette_aggiungi_link() {
     $link = "login";
   }
   return $link;
+}
+
+function replace_check_login() {
+  if (!isset($_SESSION['usid'])) {
+    return "<strong>(devi aver effettuato il login)</strong>";
+  }
+  return "";
 }
 ?>
