@@ -173,7 +173,6 @@ header nav li a {
   /* START LINK-PIZZA*/
   nav#main-navigation ul li {
     display: flex;
-    background-color: #e2e2e2;
     /* flex: 1 0 20%; */
     justify-content: center;
     align-items: center;
@@ -182,27 +181,16 @@ header nav li a {
     margin: 0;
   }
 
-  li.pizza {
-    background-position: center;
-    background-size: cover;
-    filter: grayscale(0.3);
-    transition: all 0.3s;
+  nav#main-navigation ul li:nth-child(2n) {
+    background-color: #ffe5c7;
   }
 
-  li.pizza:hover {
-    filter: grayscale(0);
+  nav#main-navigation ul li:nth-child(2n + 1) {
+    background-color: #ffd09b;
   }
 
-  #napoletana {
-    background-image: url(../imgs/pizza_napoletana.jpg);
-  }
-
-  #teglia {
-    background-image: url(../imgs/pizza_teglia_min.jpg);
-  }
-
-  #tonda {
-    background-image: url(../imgs/pizza_tonda_min.jpeg);
+  nav#main-navigation ul li.current {
+    background-color: #ff9925;
   }
 
   nav#main-navigation ul li a {
