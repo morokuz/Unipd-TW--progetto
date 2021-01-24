@@ -15,7 +15,6 @@ $replacements = [
   "<placeholder_head_default_tags />" => file_get_contents(__DIR__ . "/../html/components/head_default_tags.html"),
   "<placeholder_header />" => $header,
   "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html"),
-  "<placeholder_breadcrumbs />" => file_get_contents(__DIR__ . "/../html/components/breadcrumbs.html"),
   "<placeholder_ricette_cards />" => html_ricette_cards(),
   "<placeholder_ricette_aggiungi_link />" => ricette_aggiungi_link(),
   "<placeholder_ricette_check_login />" => replace_check_login()

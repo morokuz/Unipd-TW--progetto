@@ -98,7 +98,6 @@ $replacements = [
   "<placeholder_head_default_tags />" => file_get_contents(__DIR__ . "/../html/components/head_default_tags.html"),
   "<placeholder_header />" => $header,
   "<placeholder_footer />" => file_get_contents(__DIR__ . "/../html/components/footer.html"),
-  "<placeholder_breadcrumbs />" => file_get_contents(__DIR__ . "/../html/components/breadcrumbs.html"),
   "<placeholder_sql_ricetta_nome />" => $ricetta_nome,
   "<placeholder_sql_ricetta_autore />" => $ricetta_autore,
   "<placeholder_sql_ricetta_tipo />" => $ricetta_tipo,
