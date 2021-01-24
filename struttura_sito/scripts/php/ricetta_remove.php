@@ -44,7 +44,9 @@ function get_ricetta_owner_id(&$db_connection) {
 function ricetta_remove_img() {
   $img_nome = $_SESSION['img_nome'];
   unset($_SESSION['img_nome']);
-  unlink("../../imgs/ricette/" . $img_nome);
+  if ($img_nome !=  "default.jpg") {
+    unlink("../../imgs/ricette/" . $img_nome);
+  }
 }
 
 function ricetta_remove(&$db_connection) {
