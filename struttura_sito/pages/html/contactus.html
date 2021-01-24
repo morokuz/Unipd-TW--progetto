@@ -2,98 +2,98 @@
 
 <html lang="it">
 
-  <head>
-    <placeholder_head_default_tags />
-    <title>Contatti - Pizza a tutto Tondo</title>
-    <meta name="description" content="Pagina per contattare gli autori del sito Pizza a Tutto Tondo" />
-    <meta name="keywords" content="PizzaATuttoTondo, pizza, contatti" />
-    <meta name="author" content="PizzaATuttoTondo group" />
-  </head>
+<head>
+  <placeholder_head_default_tags />
+  <title>Contatti - Pizza a tutto Tondo</title>
+  <meta name="description" content="Pagina per contattare gli autori del sito Pizza a Tutto Tondo" />
+  <meta name="keywords" content="PizzaATuttoTondo, pizza, contatti" />
+  <meta name="author" content="PizzaATuttoTondo group" />
+</head>
 
-  <body>
-    <placeholder_header />
+<body>
+  <placeholder_header />
 
-    <nav class="breadcrumbs_block">
-      <p class="breadcrumbs_pre">Ti trovi in:</p>
-      <ul class="breadcrumbs">
-        <li><a href=".">Home</a></li>
-        <li>Contatti</li>
-      </ul>
-    </nav>
+  <nav class="breadcrumbs_block">
+    <p class="breadcrumbs_pre">Ti trovi in:</p>
+    <ol class="breadcrumbs">
+      <li><a href=".">Home</a></li>
+      <li aria-current="page">Contatti</li>
+    </ol>
+  </nav>
 
-    <main id="content">
-      <h1 class="title-page">Contatti</h1>
+  <main id="content">
+    <h1 class="title-page">Contatti</h1>
 
-      <section id="chi" class="container">
-        <div>
-          <h2 class="title-section">Chi siamo?</h2>
-          <p>Siamo un gruppo di 4 ragazzi che frequenta il corso di Tecnologie Web per la laurea in Informatica all'Univeristà di Padova. Il sito è stato interamente realizzato da noi come progetto per tale insegnamento.</p>
-        </div>
-      </section>
+    <section id="chi" class="container">
+      <div>
+        <h2 class="title-section">Chi siamo?</h2>
+        <p>Siamo un gruppo di 4 ragazzi che frequenta il corso di Tecnologie Web per la laurea in Informatica all'Univeristà di Padova. Il sito è stato interamente realizzato da noi come progetto per tale insegnamento.</p>
+      </div>
+    </section>
 
-      <section id="come" class="container">
-        <div>
-          <h2 class="title-section">Come contattarci?</h2>
-          <p>
-            Potete contattrci via email (<a href="mailto:pizzatuttotondo@gmail.com">pizzatuttotondo@gmail.com</a>). Viene fornita una form sottostante dove, inserendo il vostro nome e la vostra mail, potete velocizzare questa operazione.
-          </p>
-          <p>Potete contattarci per qualsiasi motivo:</p>
-          <ul>
-            <li>Volete chiedere informazioni su come è stato realizzato il sito</li>
-            <li>Trovate errori di qualsiasi genere</li>
-            <li>Avete consigli su come migliorare il sito</li>
-          </ul>
-        </div>
-      </section>
+    <section id="come" class="container">
+      <div>
+        <h2 class="title-section">Come contattarci?</h2>
+        <p>
+          Potete contattrci via email (<a href="mailto:pizzatuttotondo@gmail.com">pizzatuttotondo@gmail.com</a>). Viene fornita una form sottostante dove, inserendo il vostro nome e la vostra mail, potete velocizzare questa operazione.
+        </p>
+        <p>Potete contattarci per qualsiasi motivo:</p>
+        <ul>
+          <li>Volete chiedere informazioni su come è stato realizzato il sito</li>
+          <li>Trovate errori di qualsiasi genere</li>
+          <li>Avete consigli su come migliorare il sito</li>
+        </ul>
+      </div>
+    </section>
 
-      <section id="contattaci" class="container">
-        <div>
-          <h2 class="title-section center">Contattaci</h2>
-          <form id="form-contatti" action="contatti" method="POST" onsubmit="return validateFormCont()">
+    <section id="contattaci" class="container">
+      <div>
+        <h2 class="title-section center">Contattaci</h2>
+        <form id="form-contatti" action="contatti" method="POST" onsubmit="return validateFormCont()">
 
-            <label for="nome-cont" class="form-label">Nome</label>
-            <input type="text" id="nome-cont" class="form-input" name="nome" placeholder="Esempio: Mario Rossi" aria-describedby="err1" required="true" />
-            <messaggioUsername />
-            <div id="es1" class="esito">
-              <span id="err1" class="msg">Di 4 caratteri, al massimo 20, senza simboli.</span>
-            </div>
+          <label for="nome-cont" class="form-label">Nome</label>
+          <input type="text" id="nome-cont" class="form-input" name="nome" placeholder="Esempio: Mario Rossi" aria-describedby="err1" required="true" />
+          <messaggioUsername />
+          <div id="es1" class="esito">
+            <span id="err1" class="msg">Di 4 caratteri, al massimo 20, senza simboli.</span>
+          </div>
 
-            <div class="requirements">
-              <ul>
-                <li>Nome di almeno 4 caratteri e massimo di 20</li>
-                <li>Nome con solo caratteri alfanumerici</li>
-              </ul>
-            </div>
+          <div class="requirements">
+            <ul>
+              <li>Nome di almeno 4 caratteri e massimo di 20</li>
+              <li>Nome con solo caratteri alfanumerici</li>
+            </ul>
+          </div>
 
-            <label for="email-cont" class="form-label" xml:lang="en" lang="en">Email</label>
-            <input id="email-cont" class="form-input" name="email" type="email" placeholder="Esempio: mario.rossi@libero.it" aria-describedby="err2" required="true" />
-            <messaggioEmail />
-            <div id="es2" class="esito">
-              <span id="err2" class="msg">Deve essere valida.</span>
-            </div>
+          <label for="email-cont" class="form-label" xml:lang="en" lang="en">Email</label>
+          <input id="email-cont" class="form-input" name="email" type="email" placeholder="Esempio: mario.rossi@libero.it" aria-describedby="err2" required="true" />
+          <messaggioEmail />
+          <div id="es2" class="esito">
+            <span id="err2" class="msg">Deve essere valida.</span>
+          </div>
 
-            <div class="requirements">
-              <ul>
-                <li>L'email deve essere valida</li>
-              </ul>
-            </div>
+          <div class="requirements">
+            <ul>
+              <li>L'email deve essere valida</li>
+            </ul>
+          </div>
 
-            <label class="form-label" for="oggetto">Oggetto</label>
-            <input type="text" id="oggetto" class="form-input" name="oggetto" placeholder="Oggetto (facoltativo)" />
+          <label class="form-label" for="oggetto">Oggetto</label>
+          <input type="text" id="oggetto" class="form-input" name="oggetto" placeholder="Oggetto (facoltativo)" />
 
-            <label class="form-label" for="messaggio">Messaggio</label>
-            <textarea id="messaggio" class="form-input" name="messaggio" placeholder="Messaggio" required="true"></textarea>
+          <label class="form-label" for="messaggio">Messaggio</label>
+          <textarea id="messaggio" class="form-input" name="messaggio" placeholder="Messaggio" required="true"></textarea>
 
-            <!-- <div class="btn-invia"> -->
-            <button name="submit">Invia</button>
-            <!-- </div> -->
-          </form>
-          <messaggioFinale />
-        </div>
-      </section>
-    </main>
-    <placeholder_footer />
-    <script src="scripts/js/contact.js"></script>
-  </body>
+          <!-- <div class="btn-invia"> -->
+          <button name="submit">Invia</button>
+          <!-- </div> -->
+        </form>
+        <messaggioFinale />
+      </div>
+    </section>
+  </main>
+  <placeholder_footer />
+  <script src="scripts/js/contact.js"></script>
+</body>
 
 </html>
