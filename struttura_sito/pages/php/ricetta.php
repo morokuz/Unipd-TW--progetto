@@ -115,29 +115,3 @@ function can_remove(&$db_connection) {
   }
   return "";
 }
-
-
-// TODO: mettere in useful_functions? (copia di "ricetta_remove.php")
-function check_user_owner(&$db_connection) {
-  if (isset($_SESSION['usid']) && (is_admin() || is_owner($db_connection))) {
-    return true;
-  }
-  return false;
-}
-
-function is_admin() {
-  return $_SESSION['usid'] == 1;
-}
-
-function is_owner(&$db_connection) {
-  return $_SESSION['usid'] == get_ricetta_owner_id($db_connection);
-}
-
-function get_ricetta_owner_id(&$db_connection) {
-  if (isset($_SESSION['id_autore'])) {
-    $id_autore = $_SESSION['id_autore'];
-    unset($_SESSION['ricetta_id']);
-    return $id_autore;
-  }
-  return 0;
-}

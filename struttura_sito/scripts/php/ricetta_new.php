@@ -62,7 +62,6 @@ function insert_ricetta($db_connection) {
   $insert_db->close();
 }
 
-// TODO: save image: check file size (max size?)?. check file extension? 
 function save_image($image_name) {
   return move_uploaded_file($_FILES['immagine']['tmp_name'], "../../imgs/ricette/" . $image_name);
 }

@@ -2,6 +2,7 @@
 session_start();
 
 require_once(__DIR__ . "/../../scripts/php/database.php");
+require_once(__DIR__ . "/../../scripts/php/useful_functions.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -15,31 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-
-function check_user_owner(&$db_connection) {
-  if (isset($_SESSION['usid']) && (is_admin() || is_owner($db_connection))) {
-    return true;
-  }
-  return false;
-}
-
-function is_admin() {
-  return $_SESSION['usid'] == 1;
-}
-
-function is_owner(&$db_connection) {
-  return $_SESSION['usid'] == get_ricetta_owner_id($db_connection);
-}
-
-
-function get_ricetta_owner_id(&$db_connection) {
-  if (isset($_SESSION['id_autore'])) {
-    $id_autore = $_SESSION['id_autore'];
-    unset($_SESSION['ricetta_id']);
-    return $id_autore;
-  }
-  return 0;
-}
 
 function ricetta_remove_img() {
   $img_nome = $_SESSION['img_nome'];
