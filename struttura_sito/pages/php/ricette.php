@@ -25,7 +25,7 @@ $replacements = addReplacements($replacements, $links);
 echo replace($page, $replacements);
 
 
-
+// Ritorna il codice html con tutte le ricette
 function html_ricette_cards() {
   $ricette_cards = "";
 
@@ -37,6 +37,7 @@ function html_ricette_cards() {
   return $ricette_cards;
 }
 
+// Ritorna il codice html di una singola ricetta
 function html_ricette_card($ricetta_nome) {
   $ricette_card = file_get_contents(__DIR__ . "/../html/components/ricette_card.html");
 

@@ -1,4 +1,6 @@
 <?php
+
+// Ritorna un link identificativo della connessione al database SQL
 function db_connect() {
   // $servername = "localhost";
   // $username = "root";
@@ -22,6 +24,7 @@ function db_connect() {
   return $connection;
 }
 
+// Termina la connessione al database SQL passata come parametro
 function db_close($connection) {
   $connection->close();
 }

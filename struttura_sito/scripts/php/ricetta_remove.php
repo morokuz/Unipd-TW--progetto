@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-
+// Rimuove l'immagine della ricetta, a meno che non sia quella di default
 function ricetta_remove_img() {
   $img_nome = $_SESSION['img_nome'];
   unset($_SESSION['img_nome']);
@@ -25,6 +25,7 @@ function ricetta_remove_img() {
   }
 }
 
+// rimuove la ricetta dal database
 function ricetta_remove() {
   if (isset($_SESSION['id_ricetta'])) {
     $ricetta_id = $_SESSION['id_ricetta'];
@@ -35,6 +36,7 @@ function ricetta_remove() {
   }
 }
 
+// Termina la rimozione e ritorna alla pagina delle ricette
 function back_to_ricette() {
   db_close($GLOBALS["db_connection"]);
   header('Location: ../../ricette');
