@@ -8,11 +8,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $db_connection = db_connect();
 
-  if (check_user_owner($db_connection)) {
+  if (check_user_owner()) {
     ricetta_remove_img();
-    ricetta_remove($db_connection);
+    ricetta_remove();
   }
-  back_to_ricette($db_connection);
+  back_to_ricette();
 }
 
 
@@ -25,22 +25,18 @@ function ricetta_remove_img() {
   }
 }
 
-function ricetta_remove(&$db_connection) {
+function ricetta_remove() {
   if (isset($_SESSION['id_ricetta'])) {
     $ricetta_id = $_SESSION['id_ricetta'];
     unset($_SESSION['id_ricetta']);
     
     $sql = "DELETE FROM ricette WHERE id=$ricetta_id";
-    if ($db_connection->query($sql) === TRUE) {
-      // echo "DELETED";
-    } else {
-      echo "ERRORE: " . $db_connection->error;
-    }
+    $GLOBALS["db_connection"]->query($sql);
   }
 }
 
-function back_to_ricette(&$db_connection) {
-  db_close($db_connection);
+function back_to_ricette() {
+  db_close($GLOBALS["db_connection"]);
   header('Location: ../../ricette');
   exit();
 }

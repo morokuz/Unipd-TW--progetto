@@ -98,7 +98,7 @@ $replacements = [
   "<placeholder_sql_ricetta_immagine />" => $ricetta_immagine,
   "<placeholder_sql_likes />" => $ricetta_likes,
   "<placeholder_sql_ricetta_commenti />" => $ricetta_commenti,
-  "<placeholder_form_rimuovi />" => can_remove($db_connection)
+  "<placeholder_form_rimuovi />" => can_remove()
 ];
 
 $replacements = addReplacements($replacements, $links);
@@ -109,8 +109,8 @@ echo replace($page, $replacements);
 
 
 
-function can_remove(&$db_connection) {
-  if (check_user_owner($db_connection)) {
+function can_remove() {
+  if (check_user_owner()) {
     return file_get_contents(__DIR__ . "/../html/components/ricetta_form_rimuovi.html");
   }
   return "";
