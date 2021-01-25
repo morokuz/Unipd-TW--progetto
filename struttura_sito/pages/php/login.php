@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
   $password = $_POST['password'];
 
   if(loginUser($connection, $username , $password)) {
-    $finalmsg = '<p id="fnlmsg" class="correct" tabindex="1">Sei acceduto correttamente! Verrai riportato nella home fra pochi secondi.</p>';
+    $finalmsg = '<p id="fnlmsg" class="correct" tabindex="1">Sei acceduto correttamente! Verrai riportato nella <span lang="en">home</span> fra pochi secondi.</p>';
     header("refresh:5;url=." );
   } else {
     $finalmsg = '<p id="fnlmsg" class="errore" tabindex="1">Utente non trovato. Controlla di aver inserito i dati corretti.</p>';
