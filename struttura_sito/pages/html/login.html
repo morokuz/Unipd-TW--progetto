@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <!-- Pagina per accedere al sito -->
 <html lang="it">
-  <head>
-    <placeholder_head_default_tags />
-    <title>Accedi - Pizza a tutto Tondo</title>
-    <meta name="description" content="Pagina per aceddere con il proprio profilo al sito Pizza a tutto Tondo" />
-    <meta name="keywords" content="pizza a tutto tondo, pizza, accedi" />
-    <meta name="author" content="Pizza a tutto Tondo's group" />
-  </head>
-  <body>
-    <placeholder_header />
 
-    <nav class="breadcrumbs_block">
-      <p class="breadcrumbs_pre">Ti trovi in:</p>
-      <ol class="breadcrumbs">
-        <li><a href="." lang="en"</a></li>
-        <li aria-current="page">Accedi</li>
-      </ol>
-    </nav>
+<head>
+  <placeholder_head_default_tags />
+  <title>Accedi - Pizza a tutto Tondo</title>
+  <meta name="description" content="Pagina per aceddere con il proprio profilo al sito Pizza a tutto Tondo" />
+  <meta name="keywords" content="pizza a tutto tondo, pizza, accedi" />
+  <meta name="author" content="Pizza a tutto Tondo's group" />
+</head>
 
-    <main id="content">
-      <h1 class="title-page">Accedi</h1>
-      <section class="container">
-        <div class="modal">
-          <p tabindex="0">Non hai ancora un account? <a href="signup">Registrati</a> </p>
-          <h3>Form di accesso</h3>
-          <form id="form-accedi" action="login" method="POST">
-            <div id="accedi">
-              <label for="username" class="form-label" lang="en">Username</label>
-              <input type="text" id="username" class="form-input" name="username" placeholder="Username" required />
+<body>
+  <placeholder_header />
 
-              <label for="password-log" class="form-label" lang="en">Password</label>
-              <input type="password" id="password-log" class="form-input" name="password" placeholder="Password" required />
+  <nav class="breadcrumbs_block">
+    <p class="breadcrumbs_pre">Ti trovi in:</p>
+    <ol class="breadcrumbs">
+      <li><a href="." lang="en">Home</a></li>
+      <li aria-current="page">Accedi</li>
+    </ol>
+  </nav>
 
-              <button class="form-bottone" name="submit">Accedi</button>
-            </div>
-          </form>
-          <messaggioFinale />
-        </div>
-      </section>
-    </main>
-    <placeholder_footer />
-    <script src="scripts/js/contact.js"></script>
-  </body>
+  <main id="content">
+    <h1 class="title-page">Accedi</h1>
+    <section class="container">
+      <div class="modal">
+        <p tabindex="0">Non hai ancora un account? <a href="signup">Registrati</a> </p>
+        <h3>Form di accesso</h3>
+        <form id="form-accedi" action="login" method="POST">
+          <div id="accedi">
+            <label for="username" class="form-label" lang="en">Username</label>
+            <input type="text" id="username" class="form-input" name="username" placeholder="Username" required />
+
+            <label for="password-log" class="form-label" lang="en">Password</label>
+            <input type="password" id="password-log" class="form-input" name="password" placeholder="Password" required />
+
+            <button class="form-bottone" name="submit">Accedi</button>
+          </div>
+        </form>
+        <messaggioFinale />
+      </div>
+    </section>
+  </main>
+  <placeholder_footer />
+  <script src="scripts/js/contact.js"></script>
+</body>
 
 </html>
