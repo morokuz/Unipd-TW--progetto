@@ -70,7 +70,7 @@ $sql = "SELECT commenti.id AS id_c,
 $result = $GLOBALS["db_connection"]->query($sql);
 
 while ($row = $result->fetch_assoc()) {
-  if ((isset($_SESSION['usname']) && $_SESSION["usname"] == $row["username"]) || (isset($_SESSION['usname']) && $_SESSION['usid'] == '0')) {
+  if ((isset($_SESSION['usname']) && $_SESSION["usname"] == $row["username"]) || (isset($_SESSION['usname']) && $_SESSION['usid'] == '1')) {
     $replacements_commento = [
       "<placeholder_sql_ricetta_commento_username />" => $row["username"], //se l'utente è loggato ed ha username==autore
       "<placeholder_sql_ricetta_commento_dataora />" => $row["data_ora"], //del commento o è admin
